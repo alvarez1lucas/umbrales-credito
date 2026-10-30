@@ -5,6 +5,8 @@ select
     lei                                             as prestamista_lei,
     "derived_msa-md"                                as msa,
     derived_loan_product_type                       as producto,
+    lien_status                                     as gravamen,
+    occupancy_type                                  as ocupacion,
     action_taken                                    as resultado_codigo,
     case action_taken
         when 1 then 'otorgado' when 2 then 'aprobado_no_aceptado' when 3 then 'rechazado'
