@@ -1,0 +1,17 @@
+{
+  "solicitudes_con_decision": 405589,
+  "convencionales": 244727,
+  "creditos_bondora": 308050,
+  "aprobacion_convencional_pct": 82.2062951778921,
+  "impacto_adverso_actual": {
+    "Negro": 0.8704160392472109,
+    "Hispano": 0.9452153927316305,
+    "Asiático": 1.0274801347499056
+  },
+  "relajar_tope_convencional": {
+    "solicitudes": 2369,
+    "monto": 764325000.0,
+    "aprobacion_pct_si_se_aprueban": 83.17431260138848
+  },
+  "umbral_impacto_adverso": 0.8
+}

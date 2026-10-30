@@ -74,3 +74,14 @@ cobranzas:
     whatsapp: {costo: 0.08, contacto: 0.35, promesa: 0.25, cumplimiento: 0.50}
     sms:      {costo: 0.05, contacto: 0.20, promesa: 0.15, cumplimiento: 0.50}
     mail:     {costo: 0.01, contacto: 0.10, promesa: 0.10, cumplimiento: 0.50}
+
+politica:
+  topes_dti: [36, 40, 43, 45, 47, 49]   # topes de deuda-ingreso a simular sobre créditos convencionales
+  topes_carga: [20, 15, 10]             # topes de cuota sobre ingreso en Bondora
+  excluir_ratings:
+    F-G: [F, G]
+    E-G: [E, F, G]
+  excluir_paises: [Denmark, Latvia]
+  costos_pp: [0, 10]   # SUPUESTO: fondeo + operación en puntos sobre el monto (0 = sólo riesgo)
+  bootstrap: 500
+  umbral_impacto_adverso: 0.8   # regla de los 4/5

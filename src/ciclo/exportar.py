@@ -10,7 +10,8 @@ import duckdb
 from ciclo.config import path
 
 MARTS = ["mart_cosechas", "mart_cartera_tramos", "mart_roll_rates", "mart_recupero_observado", "mart_recupero_curva",
-         "mart_lgd_pais", "mart_perdida_segmentos", "mart_rentabilidad_cosechas", "mart_previsiones"]
+         "mart_lgd_pais", "mart_perdida_segmentos", "mart_rentabilidad_cosechas", "mart_previsiones", "mart_embudo",
+         "mart_motivos_rechazo", "mart_aprobacion_dti", "mart_brechas", "mart_carga_mora"]
 
 
 def main() -> None:

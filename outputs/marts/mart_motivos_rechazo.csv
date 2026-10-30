@@ -1,0 +1,705 @@
+anio,producto,dti_tramo,motivo,rechazos
+2023,Conventional,20-30,Deuda sobre ingreso,23
+2023,Conventional,20-30,Efectivo insuficiente,58
+2023,Conventional,20-30,Garantía,168
+2023,Conventional,20-30,Historial crediticio,692
+2023,Conventional,20-30,Historial laboral,23
+2023,Conventional,20-30,Información no verificable,109
+2023,Conventional,20-30,Otro,100
+2023,Conventional,20-30,Solicitud incompleta,120
+2023,Conventional,30-36,Deuda sobre ingreso,28
+2023,Conventional,30-36,Efectivo insuficiente,62
+2023,Conventional,30-36,Garantía,201
+2023,Conventional,30-36,Historial crediticio,544
+2023,Conventional,30-36,Historial laboral,18
+2023,Conventional,30-36,Información no verificable,132
+2023,Conventional,30-36,Otro,83
+2023,Conventional,30-36,Solicitud incompleta,118
+2023,Conventional,36-43,Deuda sobre ingreso,91
+2023,Conventional,36-43,Efectivo insuficiente,118
+2023,Conventional,36-43,Garantía,300
+2023,Conventional,36-43,Historial crediticio,714
+2023,Conventional,36-43,Historial laboral,59
+2023,Conventional,36-43,Información no verificable,263
+2023,Conventional,36-43,Otro,145
+2023,Conventional,36-43,Seguro hipotecario rechazado,1
+2023,Conventional,36-43,Solicitud incompleta,164
+2023,Conventional,43-50,Deuda sobre ingreso,448
+2023,Conventional,43-50,Efectivo insuficiente,176
+2023,Conventional,43-50,Garantía,320
+2023,Conventional,43-50,Historial crediticio,666
+2023,Conventional,43-50,Historial laboral,57
+2023,Conventional,43-50,Información no verificable,324
+2023,Conventional,43-50,Otro,149
+2023,Conventional,43-50,Solicitud incompleta,222
+2023,Conventional,50-60,Deuda sobre ingreso,1318
+2023,Conventional,50-60,Efectivo insuficiente,63
+2023,Conventional,50-60,Garantía,57
+2023,Conventional,50-60,Historial crediticio,773
+2023,Conventional,50-60,Historial laboral,21
+2023,Conventional,50-60,Información no verificable,42
+2023,Conventional,50-60,Otro,45
+2023,Conventional,50-60,Seguro hipotecario rechazado,1
+2023,Conventional,50-60,Solicitud incompleta,45
+2023,Conventional,<20,Deuda sobre ingreso,127
+2023,Conventional,<20,Efectivo insuficiente,25
+2023,Conventional,<20,Garantía,73
+2023,Conventional,<20,Historial crediticio,524
+2023,Conventional,<20,Historial laboral,26
+2023,Conventional,<20,Información no verificable,60
+2023,Conventional,<20,Otro,77
+2023,Conventional,<20,Solicitud incompleta,70
+2023,Conventional,>60,Deuda sobre ingreso,2971
+2023,Conventional,>60,Efectivo insuficiente,28
+2023,Conventional,>60,Garantía,12
+2023,Conventional,>60,Historial crediticio,1495
+2023,Conventional,>60,Historial laboral,47
+2023,Conventional,>60,Información no verificable,73
+2023,Conventional,>60,Otro,32
+2023,Conventional,>60,Seguro hipotecario rechazado,3
+2023,Conventional,>60,Solicitud incompleta,39
+2023,Conventional,sin_dato,Deuda sobre ingreso,65
+2023,Conventional,sin_dato,Efectivo insuficiente,5
+2023,Conventional,sin_dato,Exento de informar,171
+2023,Conventional,sin_dato,Garantía,13
+2023,Conventional,sin_dato,Historial crediticio,475
+2023,Conventional,sin_dato,Historial laboral,16
+2023,Conventional,sin_dato,Información no verificable,31
+2023,Conventional,sin_dato,Otro,36
+2023,Conventional,sin_dato,Solicitud incompleta,197
+2023,FHA,20-30,Deuda sobre ingreso,4
+2023,FHA,20-30,Efectivo insuficiente,13
+2023,FHA,20-30,Garantía,29
+2023,FHA,20-30,Historial crediticio,37
+2023,FHA,20-30,Historial laboral,8
+2023,FHA,20-30,Información no verificable,24
+2023,FHA,20-30,Otro,18
+2023,FHA,20-30,Solicitud incompleta,26
+2023,FHA,30-36,Deuda sobre ingreso,9
+2023,FHA,30-36,Efectivo insuficiente,15
+2023,FHA,30-36,Garantía,48
+2023,FHA,30-36,Historial crediticio,62
+2023,FHA,30-36,Historial laboral,16
+2023,FHA,30-36,Información no verificable,26
+2023,FHA,30-36,Otro,28
+2023,FHA,30-36,Solicitud incompleta,26
+2023,FHA,36-43,Deuda sobre ingreso,38
+2023,FHA,36-43,Efectivo insuficiente,50
+2023,FHA,36-43,Garantía,99
+2023,FHA,36-43,Historial crediticio,140
+2023,FHA,36-43,Historial laboral,28
+2023,FHA,36-43,Información no verificable,60
+2023,FHA,36-43,Otro,64
+2023,FHA,36-43,Seguro hipotecario rechazado,1
+2023,FHA,36-43,Solicitud incompleta,93
+2023,FHA,43-50,Deuda sobre ingreso,195
+2023,FHA,43-50,Efectivo insuficiente,107
+2023,FHA,43-50,Garantía,151
+2023,FHA,43-50,Historial crediticio,185
+2023,FHA,43-50,Historial laboral,52
+2023,FHA,43-50,Información no verificable,85
+2023,FHA,43-50,Otro,93
+2023,FHA,43-50,Solicitud incompleta,115
+2023,FHA,50-60,Deuda sobre ingreso,704
+2023,FHA,50-60,Efectivo insuficiente,115
+2023,FHA,50-60,Garantía,175
+2023,FHA,50-60,Historial crediticio,142
+2023,FHA,50-60,Historial laboral,63
+2023,FHA,50-60,Información no verificable,107
+2023,FHA,50-60,Otro,92
+2023,FHA,50-60,Seguro hipotecario rechazado,1
+2023,FHA,50-60,Solicitud incompleta,155
+2023,FHA,<20,Deuda sobre ingreso,56
+2023,FHA,<20,Efectivo insuficiente,4
+2023,FHA,<20,Garantía,9
+2023,FHA,<20,Historial crediticio,7
+2023,FHA,<20,Historial laboral,3
+2023,FHA,<20,Información no verificable,11
+2023,FHA,<20,Otro,6
+2023,FHA,<20,Solicitud incompleta,5
+2023,FHA,>60,Deuda sobre ingreso,998
+2023,FHA,>60,Efectivo insuficiente,16
+2023,FHA,>60,Garantía,14
+2023,FHA,>60,Historial crediticio,86
+2023,FHA,>60,Historial laboral,33
+2023,FHA,>60,Información no verificable,57
+2023,FHA,>60,Otro,27
+2023,FHA,>60,Seguro hipotecario rechazado,1
+2023,FHA,>60,Solicitud incompleta,19
+2023,FHA,sin_dato,Deuda sobre ingreso,30
+2023,FHA,sin_dato,Efectivo insuficiente,3
+2023,FHA,sin_dato,Exento de informar,13
+2023,FHA,sin_dato,Garantía,4
+2023,FHA,sin_dato,Historial crediticio,16
+2023,FHA,sin_dato,Historial laboral,5
+2023,FHA,sin_dato,Información no verificable,12
+2023,FHA,sin_dato,Otro,14
+2023,FHA,sin_dato,Solicitud incompleta,17
+2023,FSA/RHS,20-30,Garantía,4
+2023,FSA/RHS,20-30,Historial crediticio,1
+2023,FSA/RHS,20-30,Historial laboral,1
+2023,FSA/RHS,20-30,Información no verificable,2
+2023,FSA/RHS,20-30,Otro,10
+2023,FSA/RHS,20-30,Solicitud incompleta,5
+2023,FSA/RHS,30-36,Deuda sobre ingreso,4
+2023,FSA/RHS,30-36,Efectivo insuficiente,1
+2023,FSA/RHS,30-36,Garantía,1
+2023,FSA/RHS,30-36,Historial crediticio,6
+2023,FSA/RHS,30-36,Historial laboral,3
+2023,FSA/RHS,30-36,Información no verificable,1
+2023,FSA/RHS,30-36,Otro,12
+2023,FSA/RHS,30-36,Solicitud incompleta,10
+2023,FSA/RHS,36-43,Deuda sobre ingreso,7
+2023,FSA/RHS,36-43,Efectivo insuficiente,3
+2023,FSA/RHS,36-43,Garantía,6
+2023,FSA/RHS,36-43,Historial crediticio,6
+2023,FSA/RHS,36-43,Historial laboral,2
+2023,FSA/RHS,36-43,Información no verificable,9
+2023,FSA/RHS,36-43,Otro,16
+2023,FSA/RHS,36-43,Solicitud incompleta,13
+2023,FSA/RHS,43-50,Deuda sobre ingreso,14
+2023,FSA/RHS,43-50,Garantía,3
+2023,FSA/RHS,43-50,Historial crediticio,2
+2023,FSA/RHS,43-50,Información no verificable,1
+2023,FSA/RHS,43-50,Otro,3
+2023,FSA/RHS,43-50,Solicitud incompleta,3
+2023,FSA/RHS,50-60,Deuda sobre ingreso,8
+2023,FSA/RHS,50-60,Efectivo insuficiente,2
+2023,FSA/RHS,50-60,Historial crediticio,3
+2023,FSA/RHS,50-60,Otro,1
+2023,FSA/RHS,<20,Garantía,1
+2023,FSA/RHS,>60,Deuda sobre ingreso,15
+2023,FSA/RHS,>60,Historial crediticio,1
+2023,FSA/RHS,>60,Información no verificable,1
+2023,FSA/RHS,>60,Otro,1
+2023,FSA/RHS,sin_dato,Deuda sobre ingreso,2
+2023,FSA/RHS,sin_dato,Efectivo insuficiente,1
+2023,FSA/RHS,sin_dato,Exento de informar,12
+2023,FSA/RHS,sin_dato,Historial crediticio,2
+2023,FSA/RHS,sin_dato,Otro,2
+2023,FSA/RHS,sin_dato,Solicitud incompleta,2
+2023,VA,20-30,Deuda sobre ingreso,2
+2023,VA,20-30,Efectivo insuficiente,5
+2023,VA,20-30,Garantía,20
+2023,VA,20-30,Historial crediticio,18
+2023,VA,20-30,Historial laboral,5
+2023,VA,20-30,Información no verificable,4
+2023,VA,20-30,Otro,16
+2023,VA,20-30,Solicitud incompleta,18
+2023,VA,30-36,Deuda sobre ingreso,2
+2023,VA,30-36,Efectivo insuficiente,3
+2023,VA,30-36,Garantía,31
+2023,VA,30-36,Historial crediticio,37
+2023,VA,30-36,Historial laboral,4
+2023,VA,30-36,Información no verificable,4
+2023,VA,30-36,Otro,11
+2023,VA,30-36,Seguro hipotecario rechazado,1
+2023,VA,30-36,Solicitud incompleta,25
+2023,VA,36-43,Deuda sobre ingreso,5
+2023,VA,36-43,Efectivo insuficiente,18
+2023,VA,36-43,Garantía,53
+2023,VA,36-43,Historial crediticio,91
+2023,VA,36-43,Historial laboral,15
+2023,VA,36-43,Información no verificable,13
+2023,VA,36-43,Otro,29
+2023,VA,36-43,Solicitud incompleta,54
+2023,VA,43-50,Deuda sobre ingreso,37
+2023,VA,43-50,Efectivo insuficiente,18
+2023,VA,43-50,Garantía,47
+2023,VA,43-50,Historial crediticio,106
+2023,VA,43-50,Historial laboral,15
+2023,VA,43-50,Información no verificable,16
+2023,VA,43-50,Otro,49
+2023,VA,43-50,Solicitud incompleta,84
+2023,VA,50-60,Deuda sobre ingreso,171
+2023,VA,50-60,Efectivo insuficiente,22
+2023,VA,50-60,Garantía,53
+2023,VA,50-60,Historial crediticio,61
+2023,VA,50-60,Historial laboral,18
+2023,VA,50-60,Información no verificable,27
+2023,VA,50-60,Otro,42
+2023,VA,50-60,Solicitud incompleta,61
+2023,VA,<20,Deuda sobre ingreso,6
+2023,VA,<20,Efectivo insuficiente,3
+2023,VA,<20,Historial crediticio,7
+2023,VA,<20,Historial laboral,1
+2023,VA,<20,Información no verificable,1
+2023,VA,<20,Otro,6
+2023,VA,<20,Solicitud incompleta,11
+2023,VA,>60,Deuda sobre ingreso,373
+2023,VA,>60,Efectivo insuficiente,4
+2023,VA,>60,Garantía,5
+2023,VA,>60,Historial crediticio,30
+2023,VA,>60,Historial laboral,25
+2023,VA,>60,Información no verificable,9
+2023,VA,>60,Otro,18
+2023,VA,>60,Solicitud incompleta,22
+2023,VA,sin_dato,Deuda sobre ingreso,4
+2023,VA,sin_dato,Efectivo insuficiente,1
+2023,VA,sin_dato,Exento de informar,4
+2023,VA,sin_dato,Historial crediticio,4
+2023,VA,sin_dato,Historial laboral,2
+2023,VA,sin_dato,Información no verificable,3
+2023,VA,sin_dato,Otro,1
+2023,VA,sin_dato,Solicitud incompleta,9
+2024,Conventional,20-30,Deuda sobre ingreso,20
+2024,Conventional,20-30,Efectivo insuficiente,71
+2024,Conventional,20-30,Garantía,158
+2024,Conventional,20-30,Historial crediticio,611
+2024,Conventional,20-30,Historial laboral,19
+2024,Conventional,20-30,Información no verificable,126
+2024,Conventional,20-30,Otro,89
+2024,Conventional,20-30,Solicitud incompleta,104
+2024,Conventional,30-36,Deuda sobre ingreso,21
+2024,Conventional,30-36,Efectivo insuficiente,82
+2024,Conventional,30-36,Garantía,189
+2024,Conventional,30-36,Historial crediticio,505
+2024,Conventional,30-36,Historial laboral,13
+2024,Conventional,30-36,Información no verificable,152
+2024,Conventional,30-36,Otro,89
+2024,Conventional,30-36,Seguro hipotecario rechazado,1
+2024,Conventional,30-36,Solicitud incompleta,75
+2024,Conventional,36-43,Deuda sobre ingreso,88
+2024,Conventional,36-43,Efectivo insuficiente,131
+2024,Conventional,36-43,Garantía,293
+2024,Conventional,36-43,Historial crediticio,653
+2024,Conventional,36-43,Historial laboral,31
+2024,Conventional,36-43,Información no verificable,329
+2024,Conventional,36-43,Otro,114
+2024,Conventional,36-43,Solicitud incompleta,106
+2024,Conventional,43-50,Deuda sobre ingreso,363
+2024,Conventional,43-50,Efectivo insuficiente,221
+2024,Conventional,43-50,Garantía,361
+2024,Conventional,43-50,Historial crediticio,626
+2024,Conventional,43-50,Historial laboral,48
+2024,Conventional,43-50,Información no verificable,412
+2024,Conventional,43-50,Otro,136
+2024,Conventional,43-50,Solicitud incompleta,143
+2024,Conventional,50-60,Deuda sobre ingreso,1238
+2024,Conventional,50-60,Efectivo insuficiente,90
+2024,Conventional,50-60,Garantía,52
+2024,Conventional,50-60,Historial crediticio,679
+2024,Conventional,50-60,Historial laboral,13
+2024,Conventional,50-60,Información no verificable,46
+2024,Conventional,50-60,Otro,42
+2024,Conventional,50-60,Solicitud incompleta,15
+2024,Conventional,<20,Deuda sobre ingreso,118
+2024,Conventional,<20,Efectivo insuficiente,39
+2024,Conventional,<20,Garantía,69
+2024,Conventional,<20,Historial crediticio,444
+2024,Conventional,<20,Historial laboral,16
+2024,Conventional,<20,Información no verificable,75
+2024,Conventional,<20,Otro,45
+2024,Conventional,<20,Seguro hipotecario rechazado,2
+2024,Conventional,<20,Solicitud incompleta,49
+2024,Conventional,>60,Deuda sobre ingreso,2904
+2024,Conventional,>60,Efectivo insuficiente,55
+2024,Conventional,>60,Garantía,14
+2024,Conventional,>60,Historial crediticio,1248
+2024,Conventional,>60,Historial laboral,29
+2024,Conventional,>60,Información no verificable,49
+2024,Conventional,>60,Otro,24
+2024,Conventional,>60,Solicitud incompleta,23
+2024,Conventional,sin_dato,Deuda sobre ingreso,62
+2024,Conventional,sin_dato,Efectivo insuficiente,9
+2024,Conventional,sin_dato,Exento de informar,166
+2024,Conventional,sin_dato,Garantía,16
+2024,Conventional,sin_dato,Historial crediticio,113
+2024,Conventional,sin_dato,Historial laboral,4
+2024,Conventional,sin_dato,Información no verificable,20
+2024,Conventional,sin_dato,Otro,108
+2024,Conventional,sin_dato,Solicitud incompleta,273
+2024,FHA,20-30,Efectivo insuficiente,12
+2024,FHA,20-30,Garantía,32
+2024,FHA,20-30,Historial crediticio,42
+2024,FHA,20-30,Historial laboral,4
+2024,FHA,20-30,Información no verificable,19
+2024,FHA,20-30,Otro,16
+2024,FHA,20-30,Solicitud incompleta,10
+2024,FHA,30-36,Deuda sobre ingreso,5
+2024,FHA,30-36,Efectivo insuficiente,27
+2024,FHA,30-36,Garantía,47
+2024,FHA,30-36,Historial crediticio,41
+2024,FHA,30-36,Historial laboral,6
+2024,FHA,30-36,Información no verificable,26
+2024,FHA,30-36,Otro,31
+2024,FHA,30-36,Solicitud incompleta,28
+2024,FHA,36-43,Deuda sobre ingreso,38
+2024,FHA,36-43,Efectivo insuficiente,54
+2024,FHA,36-43,Garantía,97
+2024,FHA,36-43,Historial crediticio,140
+2024,FHA,36-43,Historial laboral,28
+2024,FHA,36-43,Información no verificable,58
+2024,FHA,36-43,Otro,65
+2024,FHA,36-43,Seguro hipotecario rechazado,1
+2024,FHA,36-43,Solicitud incompleta,44
+2024,FHA,43-50,Deuda sobre ingreso,154
+2024,FHA,43-50,Efectivo insuficiente,87
+2024,FHA,43-50,Garantía,145
+2024,FHA,43-50,Historial crediticio,182
+2024,FHA,43-50,Historial laboral,42
+2024,FHA,43-50,Información no verificable,111
+2024,FHA,43-50,Otro,86
+2024,FHA,43-50,Solicitud incompleta,68
+2024,FHA,50-60,Deuda sobre ingreso,606
+2024,FHA,50-60,Efectivo insuficiente,113
+2024,FHA,50-60,Garantía,169
+2024,FHA,50-60,Historial crediticio,154
+2024,FHA,50-60,Historial laboral,35
+2024,FHA,50-60,Información no verificable,92
+2024,FHA,50-60,Otro,82
+2024,FHA,50-60,Seguro hipotecario rechazado,1
+2024,FHA,50-60,Solicitud incompleta,66
+2024,FHA,<20,Deuda sobre ingreso,49
+2024,FHA,<20,Efectivo insuficiente,4
+2024,FHA,<20,Garantía,8
+2024,FHA,<20,Historial crediticio,8
+2024,FHA,<20,Historial laboral,6
+2024,FHA,<20,Información no verificable,7
+2024,FHA,<20,Otro,2
+2024,FHA,<20,Solicitud incompleta,7
+2024,FHA,>60,Deuda sobre ingreso,1009
+2024,FHA,>60,Efectivo insuficiente,23
+2024,FHA,>60,Garantía,9
+2024,FHA,>60,Historial crediticio,54
+2024,FHA,>60,Historial laboral,33
+2024,FHA,>60,Información no verificable,19
+2024,FHA,>60,Otro,15
+2024,FHA,>60,Solicitud incompleta,12
+2024,FHA,sin_dato,Deuda sobre ingreso,16
+2024,FHA,sin_dato,Exento de informar,13
+2024,FHA,sin_dato,Garantía,1
+2024,FHA,sin_dato,Historial crediticio,20
+2024,FHA,sin_dato,Historial laboral,1
+2024,FHA,sin_dato,Información no verificable,13
+2024,FHA,sin_dato,Otro,1
+2024,FHA,sin_dato,Solicitud incompleta,22
+2024,FSA/RHS,20-30,Garantía,4
+2024,FSA/RHS,20-30,Historial crediticio,5
+2024,FSA/RHS,20-30,Historial laboral,1
+2024,FSA/RHS,20-30,Otro,4
+2024,FSA/RHS,20-30,Solicitud incompleta,1
+2024,FSA/RHS,30-36,Deuda sobre ingreso,3
+2024,FSA/RHS,30-36,Efectivo insuficiente,1
+2024,FSA/RHS,30-36,Garantía,4
+2024,FSA/RHS,30-36,Historial crediticio,1
+2024,FSA/RHS,30-36,Historial laboral,2
+2024,FSA/RHS,30-36,Información no verificable,1
+2024,FSA/RHS,30-36,Otro,9
+2024,FSA/RHS,30-36,Solicitud incompleta,8
+2024,FSA/RHS,36-43,Deuda sobre ingreso,14
+2024,FSA/RHS,36-43,Efectivo insuficiente,4
+2024,FSA/RHS,36-43,Garantía,3
+2024,FSA/RHS,36-43,Historial crediticio,9
+2024,FSA/RHS,36-43,Historial laboral,2
+2024,FSA/RHS,36-43,Información no verificable,3
+2024,FSA/RHS,36-43,Otro,6
+2024,FSA/RHS,36-43,Solicitud incompleta,5
+2024,FSA/RHS,43-50,Deuda sobre ingreso,15
+2024,FSA/RHS,43-50,Efectivo insuficiente,2
+2024,FSA/RHS,43-50,Garantía,2
+2024,FSA/RHS,43-50,Historial crediticio,3
+2024,FSA/RHS,43-50,Historial laboral,1
+2024,FSA/RHS,43-50,Otro,3
+2024,FSA/RHS,50-60,Deuda sobre ingreso,12
+2024,FSA/RHS,50-60,Efectivo insuficiente,1
+2024,FSA/RHS,50-60,Historial crediticio,1
+2024,FSA/RHS,50-60,Solicitud incompleta,1
+2024,FSA/RHS,<20,Historial crediticio,2
+2024,FSA/RHS,<20,Otro,1
+2024,FSA/RHS,>60,Deuda sobre ingreso,12
+2024,FSA/RHS,>60,Historial crediticio,1
+2024,FSA/RHS,sin_dato,Exento de informar,6
+2024,FSA/RHS,sin_dato,Historial crediticio,3
+2024,FSA/RHS,sin_dato,Solicitud incompleta,1
+2024,VA,20-30,Deuda sobre ingreso,1
+2024,VA,20-30,Efectivo insuficiente,4
+2024,VA,20-30,Garantía,12
+2024,VA,20-30,Historial crediticio,22
+2024,VA,20-30,Historial laboral,1
+2024,VA,20-30,Información no verificable,6
+2024,VA,20-30,Otro,9
+2024,VA,20-30,Solicitud incompleta,18
+2024,VA,30-36,Efectivo insuficiente,6
+2024,VA,30-36,Garantía,15
+2024,VA,30-36,Historial crediticio,37
+2024,VA,30-36,Historial laboral,3
+2024,VA,30-36,Información no verificable,6
+2024,VA,30-36,Otro,13
+2024,VA,30-36,Solicitud incompleta,21
+2024,VA,36-43,Deuda sobre ingreso,5
+2024,VA,36-43,Efectivo insuficiente,18
+2024,VA,36-43,Garantía,38
+2024,VA,36-43,Historial crediticio,65
+2024,VA,36-43,Historial laboral,10
+2024,VA,36-43,Información no verificable,10
+2024,VA,36-43,Otro,28
+2024,VA,36-43,Solicitud incompleta,61
+2024,VA,43-50,Deuda sobre ingreso,25
+2024,VA,43-50,Efectivo insuficiente,22
+2024,VA,43-50,Garantía,47
+2024,VA,43-50,Historial crediticio,119
+2024,VA,43-50,Historial laboral,9
+2024,VA,43-50,Información no verificable,20
+2024,VA,43-50,Otro,32
+2024,VA,43-50,Solicitud incompleta,60
+2024,VA,50-60,Deuda sobre ingreso,139
+2024,VA,50-60,Efectivo insuficiente,24
+2024,VA,50-60,Garantía,39
+2024,VA,50-60,Historial crediticio,74
+2024,VA,50-60,Historial laboral,17
+2024,VA,50-60,Información no verificable,20
+2024,VA,50-60,Otro,43
+2024,VA,50-60,Solicitud incompleta,46
+2024,VA,<20,Deuda sobre ingreso,15
+2024,VA,<20,Efectivo insuficiente,1
+2024,VA,<20,Garantía,1
+2024,VA,<20,Historial crediticio,6
+2024,VA,<20,Historial laboral,2
+2024,VA,<20,Información no verificable,7
+2024,VA,<20,Otro,4
+2024,VA,<20,Solicitud incompleta,9
+2024,VA,>60,Deuda sobre ingreso,283
+2024,VA,>60,Efectivo insuficiente,9
+2024,VA,>60,Garantía,5
+2024,VA,>60,Historial crediticio,25
+2024,VA,>60,Historial laboral,16
+2024,VA,>60,Información no verificable,10
+2024,VA,>60,Otro,15
+2024,VA,>60,Solicitud incompleta,16
+2024,VA,sin_dato,Deuda sobre ingreso,3
+2024,VA,sin_dato,Efectivo insuficiente,1
+2024,VA,sin_dato,Exento de informar,1
+2024,VA,sin_dato,Historial crediticio,3
+2024,VA,sin_dato,Historial laboral,2
+2024,VA,sin_dato,Otro,1
+2024,VA,sin_dato,Seguro hipotecario rechazado,1
+2024,VA,sin_dato,Solicitud incompleta,5
+2025,Conventional,20-30,Deuda sobre ingreso,19
+2025,Conventional,20-30,Efectivo insuficiente,54
+2025,Conventional,20-30,Garantía,184
+2025,Conventional,20-30,Historial crediticio,653
+2025,Conventional,20-30,Historial laboral,12
+2025,Conventional,20-30,Información no verificable,115
+2025,Conventional,20-30,Otro,93
+2025,Conventional,20-30,Solicitud incompleta,84
+2025,Conventional,30-36,Deuda sobre ingreso,28
+2025,Conventional,30-36,Efectivo insuficiente,55
+2025,Conventional,30-36,Garantía,160
+2025,Conventional,30-36,Historial crediticio,517
+2025,Conventional,30-36,Historial laboral,13
+2025,Conventional,30-36,Información no verificable,152
+2025,Conventional,30-36,Otro,87
+2025,Conventional,30-36,Solicitud incompleta,52
+2025,Conventional,36-43,Deuda sobre ingreso,58
+2025,Conventional,36-43,Efectivo insuficiente,97
+2025,Conventional,36-43,Garantía,238
+2025,Conventional,36-43,Historial crediticio,644
+2025,Conventional,36-43,Historial laboral,31
+2025,Conventional,36-43,Información no verificable,300
+2025,Conventional,36-43,Otro,113
+2025,Conventional,36-43,Seguro hipotecario rechazado,1
+2025,Conventional,36-43,Solicitud incompleta,106
+2025,Conventional,43-50,Deuda sobre ingreso,309
+2025,Conventional,43-50,Efectivo insuficiente,130
+2025,Conventional,43-50,Garantía,348
+2025,Conventional,43-50,Historial crediticio,650
+2025,Conventional,43-50,Historial laboral,36
+2025,Conventional,43-50,Información no verificable,361
+2025,Conventional,43-50,Otro,161
+2025,Conventional,43-50,Seguro hipotecario rechazado,2
+2025,Conventional,43-50,Solicitud incompleta,126
+2025,Conventional,50-60,Deuda sobre ingreso,1012
+2025,Conventional,50-60,Efectivo insuficiente,36
+2025,Conventional,50-60,Garantía,50
+2025,Conventional,50-60,Historial crediticio,604
+2025,Conventional,50-60,Historial laboral,8
+2025,Conventional,50-60,Información no verificable,48
+2025,Conventional,50-60,Otro,35
+2025,Conventional,50-60,Solicitud incompleta,16
+2025,Conventional,<20,Deuda sobre ingreso,138
+2025,Conventional,<20,Efectivo insuficiente,19
+2025,Conventional,<20,Garantía,76
+2025,Conventional,<20,Historial crediticio,434
+2025,Conventional,<20,Historial laboral,20
+2025,Conventional,<20,Información no verificable,61
+2025,Conventional,<20,Otro,59
+2025,Conventional,<20,Solicitud incompleta,37
+2025,Conventional,>60,Deuda sobre ingreso,2599
+2025,Conventional,>60,Efectivo insuficiente,11
+2025,Conventional,>60,Garantía,29
+2025,Conventional,>60,Historial crediticio,1158
+2025,Conventional,>60,Historial laboral,28
+2025,Conventional,>60,Información no verificable,52
+2025,Conventional,>60,Otro,22
+2025,Conventional,>60,Solicitud incompleta,15
+2025,Conventional,sin_dato,Deuda sobre ingreso,65
+2025,Conventional,sin_dato,Efectivo insuficiente,6
+2025,Conventional,sin_dato,Exento de informar,176
+2025,Conventional,sin_dato,Garantía,18
+2025,Conventional,sin_dato,Historial crediticio,101
+2025,Conventional,sin_dato,Historial laboral,12
+2025,Conventional,sin_dato,Información no verificable,17
+2025,Conventional,sin_dato,Otro,59
+2025,Conventional,sin_dato,Solicitud incompleta,255
+2025,FHA,20-30,Deuda sobre ingreso,10
+2025,FHA,20-30,Efectivo insuficiente,9
+2025,FHA,20-30,Garantía,32
+2025,FHA,20-30,Historial crediticio,49
+2025,FHA,20-30,Historial laboral,7
+2025,FHA,20-30,Información no verificable,24
+2025,FHA,20-30,Otro,10
+2025,FHA,20-30,Solicitud incompleta,15
+2025,FHA,30-36,Deuda sobre ingreso,11
+2025,FHA,30-36,Efectivo insuficiente,26
+2025,FHA,30-36,Garantía,45
+2025,FHA,30-36,Historial crediticio,76
+2025,FHA,30-36,Historial laboral,11
+2025,FHA,30-36,Información no verificable,36
+2025,FHA,30-36,Otro,38
+2025,FHA,30-36,Solicitud incompleta,32
+2025,FHA,36-43,Deuda sobre ingreso,67
+2025,FHA,36-43,Efectivo insuficiente,50
+2025,FHA,36-43,Garantía,79
+2025,FHA,36-43,Historial crediticio,186
+2025,FHA,36-43,Historial laboral,23
+2025,FHA,36-43,Información no verificable,59
+2025,FHA,36-43,Otro,68
+2025,FHA,36-43,Solicitud incompleta,53
+2025,FHA,43-50,Deuda sobre ingreso,190
+2025,FHA,43-50,Efectivo insuficiente,98
+2025,FHA,43-50,Garantía,136
+2025,FHA,43-50,Historial crediticio,255
+2025,FHA,43-50,Historial laboral,32
+2025,FHA,43-50,Información no verificable,94
+2025,FHA,43-50,Otro,99
+2025,FHA,43-50,Solicitud incompleta,57
+2025,FHA,50-60,Deuda sobre ingreso,654
+2025,FHA,50-60,Efectivo insuficiente,139
+2025,FHA,50-60,Garantía,157
+2025,FHA,50-60,Historial crediticio,205
+2025,FHA,50-60,Historial laboral,38
+2025,FHA,50-60,Información no verificable,104
+2025,FHA,50-60,Otro,89
+2025,FHA,50-60,Solicitud incompleta,67
+2025,FHA,<20,Deuda sobre ingreso,63
+2025,FHA,<20,Efectivo insuficiente,4
+2025,FHA,<20,Garantía,11
+2025,FHA,<20,Historial crediticio,18
+2025,FHA,<20,Historial laboral,3
+2025,FHA,<20,Información no verificable,11
+2025,FHA,<20,Otro,4
+2025,FHA,<20,Solicitud incompleta,3
+2025,FHA,>60,Deuda sobre ingreso,1072
+2025,FHA,>60,Efectivo insuficiente,23
+2025,FHA,>60,Garantía,25
+2025,FHA,>60,Historial crediticio,88
+2025,FHA,>60,Historial laboral,17
+2025,FHA,>60,Información no verificable,28
+2025,FHA,>60,Otro,23
+2025,FHA,>60,Solicitud incompleta,12
+2025,FHA,sin_dato,Deuda sobre ingreso,48
+2025,FHA,sin_dato,Exento de informar,17
+2025,FHA,sin_dato,Garantía,10
+2025,FHA,sin_dato,Historial crediticio,32
+2025,FHA,sin_dato,Historial laboral,6
+2025,FHA,sin_dato,Información no verificable,16
+2025,FHA,sin_dato,Otro,6
+2025,FHA,sin_dato,Solicitud incompleta,15
+2025,FSA/RHS,20-30,Garantía,1
+2025,FSA/RHS,20-30,Historial crediticio,2
+2025,FSA/RHS,20-30,Otro,5
+2025,FSA/RHS,20-30,Solicitud incompleta,1
+2025,FSA/RHS,30-36,Deuda sobre ingreso,2
+2025,FSA/RHS,30-36,Efectivo insuficiente,1
+2025,FSA/RHS,30-36,Garantía,6
+2025,FSA/RHS,30-36,Historial crediticio,10
+2025,FSA/RHS,30-36,Historial laboral,3
+2025,FSA/RHS,30-36,Información no verificable,1
+2025,FSA/RHS,30-36,Otro,5
+2025,FSA/RHS,30-36,Solicitud incompleta,6
+2025,FSA/RHS,36-43,Deuda sobre ingreso,11
+2025,FSA/RHS,36-43,Efectivo insuficiente,1
+2025,FSA/RHS,36-43,Garantía,7
+2025,FSA/RHS,36-43,Historial crediticio,3
+2025,FSA/RHS,36-43,Información no verificable,6
+2025,FSA/RHS,36-43,Otro,12
+2025,FSA/RHS,36-43,Solicitud incompleta,2
+2025,FSA/RHS,43-50,Deuda sobre ingreso,14
+2025,FSA/RHS,43-50,Efectivo insuficiente,2
+2025,FSA/RHS,43-50,Garantía,2
+2025,FSA/RHS,43-50,Historial crediticio,2
+2025,FSA/RHS,43-50,Información no verificable,1
+2025,FSA/RHS,43-50,Otro,5
+2025,FSA/RHS,43-50,Solicitud incompleta,2
+2025,FSA/RHS,50-60,Deuda sobre ingreso,14
+2025,FSA/RHS,50-60,Historial crediticio,3
+2025,FSA/RHS,50-60,Información no verificable,1
+2025,FSA/RHS,<20,Historial crediticio,1
+2025,FSA/RHS,>60,Deuda sobre ingreso,11
+2025,FSA/RHS,>60,Historial crediticio,4
+2025,FSA/RHS,>60,Otro,1
+2025,FSA/RHS,sin_dato,Deuda sobre ingreso,2
+2025,FSA/RHS,sin_dato,Exento de informar,10
+2025,FSA/RHS,sin_dato,Garantía,1
+2025,FSA/RHS,sin_dato,Solicitud incompleta,3
+2025,VA,20-30,Efectivo insuficiente,4
+2025,VA,20-30,Garantía,22
+2025,VA,20-30,Historial crediticio,19
+2025,VA,20-30,Historial laboral,2
+2025,VA,20-30,Información no verificable,6
+2025,VA,20-30,Otro,9
+2025,VA,20-30,Solicitud incompleta,18
+2025,VA,30-36,Deuda sobre ingreso,4
+2025,VA,30-36,Efectivo insuficiente,5
+2025,VA,30-36,Garantía,16
+2025,VA,30-36,Historial crediticio,60
+2025,VA,30-36,Historial laboral,3
+2025,VA,30-36,Información no verificable,4
+2025,VA,30-36,Otro,13
+2025,VA,30-36,Solicitud incompleta,29
+2025,VA,36-43,Deuda sobre ingreso,5
+2025,VA,36-43,Efectivo insuficiente,17
+2025,VA,36-43,Garantía,41
+2025,VA,36-43,Historial crediticio,95
+2025,VA,36-43,Historial laboral,5
+2025,VA,36-43,Información no verificable,12
+2025,VA,36-43,Otro,25
+2025,VA,36-43,Solicitud incompleta,36
+2025,VA,43-50,Deuda sobre ingreso,27
+2025,VA,43-50,Efectivo insuficiente,22
+2025,VA,43-50,Garantía,44
+2025,VA,43-50,Historial crediticio,124
+2025,VA,43-50,Historial laboral,13
+2025,VA,43-50,Información no verificable,19
+2025,VA,43-50,Otro,36
+2025,VA,43-50,Solicitud incompleta,36
+2025,VA,50-60,Deuda sobre ingreso,117
+2025,VA,50-60,Efectivo insuficiente,18
+2025,VA,50-60,Garantía,35
+2025,VA,50-60,Historial crediticio,110
+2025,VA,50-60,Historial laboral,12
+2025,VA,50-60,Información no verificable,9
+2025,VA,50-60,Otro,40
+2025,VA,50-60,Solicitud incompleta,33
+2025,VA,<20,Deuda sobre ingreso,12
+2025,VA,<20,Efectivo insuficiente,1
+2025,VA,<20,Garantía,5
+2025,VA,<20,Historial crediticio,9
+2025,VA,<20,Historial laboral,3
+2025,VA,<20,Información no verificable,3
+2025,VA,<20,Otro,6
+2025,VA,<20,Solicitud incompleta,8
+2025,VA,>60,Deuda sobre ingreso,301
+2025,VA,>60,Efectivo insuficiente,10
+2025,VA,>60,Garantía,4
+2025,VA,>60,Historial crediticio,50
+2025,VA,>60,Historial laboral,11
+2025,VA,>60,Información no verificable,9
+2025,VA,>60,Otro,15
+2025,VA,>60,Solicitud incompleta,17
+2025,VA,sin_dato,Deuda sobre ingreso,5
+2025,VA,sin_dato,Exento de informar,3
+2025,VA,sin_dato,Garantía,1
+2025,VA,sin_dato,Historial crediticio,5
+2025,VA,sin_dato,Solicitud incompleta,7

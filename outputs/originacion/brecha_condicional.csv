@@ -1,0 +1,13 @@
+especificacion,grupo,brecha_pp,error_pp,ic_inf_pp,ic_sup_pp,n
+bruta,Negro,11.4125,1.5104,8.4522,14.3728,319100
+bruta,Hispano,4.8249,1.1275,2.6149,7.0349,319100
+bruta,Asiático,-2.4202,2.4316,-7.1862,2.3458,319100
+con_perfil,Negro,6.4792,0.7784,4.9536,8.0048,319100
+con_perfil,Hispano,2.5145,0.6158,1.3076,3.7214,319100
+con_perfil,Asiático,3.1782,0.5881,2.0255,4.3309,319100
+con_producto,Negro,6.7410,0.7759,5.2203,8.2617,319100
+con_producto,Hispano,1.7684,0.6697,0.4558,3.0810,319100
+con_producto,Asiático,1.9142,0.5036,0.9272,2.9012,319100
+con_prestamista,Negro,6.1717,0.6890,4.8212,7.5221,319100
+con_prestamista,Hispano,2.6685,0.4133,1.8584,3.4786,319100
+con_prestamista,Asiático,2.0480,0.4090,1.2463,2.8496,319100
