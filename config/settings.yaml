@@ -85,3 +85,8 @@ politica:
   costos_pp: [0, 10]   # SUPUESTO: fondeo + operación en puntos sobre el monto (0 = sólo riesgo)
   bootstrap: 500
   umbral_impacto_adverso: 0.8   # regla de los 4/5
+
+sitio:
+  destino: site
+  url: https://alvarez1lucas.github.io/umbrales-credito/
+  repo_url: https://github.com/alvarez1lucas/umbrales-credito
