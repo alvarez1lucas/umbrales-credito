@@ -1,0 +1,67 @@
+name: Actualizar datos
+
+# Una vez por mes baja la publicación vigente de Bondora y reconstruye todo. Las fotos pesan ~50 MB cada una, así
+# que no van a git: se guardan como assets del release `fotos`, y cada corrida baja las anteriores. La primera corrida
+# arma el release con la foto archivada en la Wayback Machine, que es lenta de bajar.
+on:
+  schedule:
+    - cron: "0 9 5 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: datos
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          pip install -e .
+
+      - name: Bajar las fotos guardadas
+        run: |
+          mkdir -p data/snapshots
+          gh release download fotos --pattern "bondora_*.parquet" --dir data/snapshots || echo "Todavía no hay release de fotos"
+
+      - name: Ingesta
+        run: python -m ciclo.ingest
+
+      - name: Guardar las fotos
+        run: |
+          gh release view fotos >/dev/null 2>&1 || gh release create fotos --title "Fotos de la cartera de Bondora" --notes "Una foto por publicación, en parquet. Las usa el workflow mensual."
+          gh release upload fotos data/snapshots/bondora_*.parquet --clobber
+
+      - name: Warehouse con dbt (modelos y tests de datos)
+        run: python -m ciclo.modelos
+
+      - name: Análisis y exportación
+        run: |
+          python -m ciclo.cobranzas
+          python -m ciclo.cartera
+          python -m ciclo.originacion
+          python -m ciclo.exportar
+          python -m ciclo.memo
+
+      - name: Commitear resultados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs README.md README_ES.md
+          git diff --staged --quiet || git commit -m "Datos: publicación de Bondora del $(date +%Y-%m)"
+          git push
