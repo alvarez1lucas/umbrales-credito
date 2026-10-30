@@ -1,0 +1,52 @@
+{
+  "fecha_desde": "2025-07-14",
+  "fecha_hasta": "2026-10-22",
+  "creditos_atrasados": 26348,
+  "creditos_prueba": 13126,
+  "cortes_saldo": [
+    706.0,
+    2213.0
+  ],
+  "lgd_madura_pct": 68.8,
+  "lgd_encadenada_pct": 50.3,
+  "efecto_gestion_supuesto": {
+    "1-30": 0.2,
+    "31-60": 0.1,
+    "61-90": 0.05
+  },
+  "incrementalidad_supuesta": 0.3,
+  "saldo_equilibrio_llamada": {
+    "base": {
+      "1-30": 221,
+      "31-60": 247,
+      "61-90": 360
+    },
+    "contacto_mitad": {
+      "1-30": 442,
+      "31-60": 494,
+      "61-90": 720
+    },
+    "costo_doble": {
+      "1-30": 442,
+      "31-60": 494,
+      "61-90": 720
+    }
+  },
+  "cartera_atrasada_vigente": [
+    {
+      "tramo": "1-30",
+      "creditos": 27152,
+      "saldo": 49848055.26
+    },
+    {
+      "tramo": "31-60",
+      "creditos": 8903,
+      "saldo": 16907385.93
+    },
+    {
+      "tramo": "61-90",
+      "creditos": 5151,
+      "saldo": 10186652.38
+    }
+  ]
+}
