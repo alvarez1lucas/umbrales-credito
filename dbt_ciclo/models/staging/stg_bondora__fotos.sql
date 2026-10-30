@@ -19,6 +19,7 @@ select
     principal_paid_total                                  as capital_pagado,
     interest_paid_total                                   as intereses_pagados,
     late_fee_paid_total + extra_interest_paid_total       as punitorios_pagados,
+    maintenance_fee_paid_total                            as comisiones_pagadas,
     repaid_amount_total                                   as total_cobrado,
     -- Fechas de relleno en 1970 (época Unix) en fotos viejas: se tratan como faltantes
     case when year(debt_occured_date_local) > 1970 then cast(debt_occured_date_local as date) end as fecha_inicio_atraso,

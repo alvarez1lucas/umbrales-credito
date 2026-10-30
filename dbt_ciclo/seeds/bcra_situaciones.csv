@@ -1,0 +1,6 @@
+situacion,nombre,dias_desde,dias_hasta,prevision_sin_garantia_pct
+1,Normal,0,31,1
+2,Riesgo bajo (en observación),32,90,5
+3,Riesgo medio,91,180,25
+4,Riesgo alto,181,365,50
+5,Irrecuperable,366,1000000,100
