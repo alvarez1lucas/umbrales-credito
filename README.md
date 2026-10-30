@@ -2,15 +2,15 @@
 
 Originación, cartera y cobranzas con datos públicos y reales, sin datasets de Kaggle:
 
-- **Bondora:** ~840 mil préstamos de consumo en Europa desde 2009, crédito por crédito, publicados por la propia empresa y actualizados todos los meses.
+- **Bondora:** ~840 mil préstamos de consumo en Europa desde 2009, crédito por crédito, publicados por la propia empresa. Se usan dos fotos reales de toda la cartera (jul-25, rescatada de la Wayback Machine, y oct-26), que dan transiciones y recuperos observados.
 - **HMDA:** solicitudes hipotecarias de EE.UU., aprobadas y rechazadas, con el motivo del rechazo.
 
-> En construcción. Plan, fases y definiciones: [docs/plan.md](docs/plan.md).
+> En construcción. Plan y definiciones: [docs/plan.md](docs/plan.md). Resultados de cartera y cobranzas: [docs/cartera_cobranzas.md](docs/cartera_cobranzas.md).
 
 ## Estado
 
 - [x] Fase 1: ingesta (Bondora con fotos fechadas, HMDA por API) y warehouse en dbt + DuckDB con tests de datos
-- [ ] Fase 2: cartera y cobranzas (pérdida esperada, situaciones BCRA, recupero, priorización)
+- [x] Fase 2: cartera y cobranzas (pérdida esperada, situaciones BCRA, recupero, priorización con backtest)
 - [ ] Fase 3: originación (embudo, sensibilidad de política, préstamo justo)
 - [ ] Fase 4: Power BI, sitio y memo ejecutivo
 - [ ] Fase 5: actualización mensual con GitHub Actions
@@ -22,6 +22,9 @@ python -m venv .venv && .venv/Scripts/activate   # en Linux/Mac: source .venv/bi
 pip install -r requirements.txt && pip install -e .
 python -m ciclo.ingest     # baja la foto vigente de Bondora y las solicitudes HMDA configuradas
 python -m ciclo.modelos    # dbt build: modelos y tests de datos en data/warehouse/ciclo.duckdb
+python -m ciclo.cobranzas  # priorización con backtest y escenario de canales
+python -m ciclo.cartera    # resumen de cifras clave
+python -m ciclo.exportar   # marts en CSV para Power BI y el sitio
 pytest
 ```
 

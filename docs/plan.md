@@ -6,7 +6,7 @@ cartera, a quién cobrar primero) con datos reales y públicos, sin datasets de 
 | Etapa | Fuente | Preguntas |
 |---|---|---|
 | Originación | HMDA (EE.UU., solicitudes hipotecarias con resultado y motivo de rechazo) | Embudo, motivos de rechazo, qué pasa con la aprobación si muevo el tope de deuda-ingreso, préstamo justo |
-| Cartera | Bondora (préstamos de consumo en Europa, crédito por crédito, foto mensual) | Composición, concentración, cosechas, roll rates, cartera en riesgo, pérdida esperada |
+| Cartera | Bondora (préstamos de consumo en Europa, crédito por crédito, una foto por publicación) | Composición, concentración, cosechas, roll rates, cartera en riesgo, pérdida esperada |
 | Cobranzas | Bondora | Recupero después del default, priorización por tramo y segmento; canales como escenario con supuestos explícitos |
 | Regulación | Normas del BCRA | Situaciones 1 a 5 y previsiones mínimas vs pérdida esperada NIIF 9 |
 | Comparación | Proyecto [mora_argentina](https://github.com/alvarez1lucas/mora_argentina) y fideicomisos financieros | Estrés de la pérdida esperada con los escenarios argentinos |
