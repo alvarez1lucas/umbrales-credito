@@ -1,0 +1,30 @@
+-- Una fila por crédito y foto, con nombres en español y fechas sin hora.
+select
+    cast(fecha_foto as date)                              as fecha_foto,
+    loan_id                                               as prestamo_id,
+    country                                               as pais,
+    cast(loan_issued_at as date)                          as fecha_otorgamiento,
+    issued_amount                                         as monto_otorgado,
+    initial_interest_rate                                 as tasa_inicial,
+    initial_loan_duration                                 as plazo_meses,
+    nr_of_payments                                        as cuotas,
+    customer_risk_rating                                  as rating,
+    combined_income                                       as ingreso,
+    loan_status                                           as estado_bondora,
+    loan_status_risk                                      as estado_riesgo_bondora,
+    coalesce(is_early_repaid_within_14_days, false)       as desistido_14_dias,
+    coalesce(is_default, false)                           as en_default,
+    principal_balance                                     as saldo_capital,
+    principal_debt                                        as capital_vencido,
+    principal_paid_total                                  as capital_pagado,
+    interest_paid_total                                   as intereses_pagados,
+    late_fee_paid_total + extra_interest_paid_total       as punitorios_pagados,
+    repaid_amount_total                                   as total_cobrado,
+    -- Fechas de relleno en 1970 (época Unix) en fotos viejas: se tratan como faltantes
+    case when year(debt_occured_date_local) > 1970 then cast(debt_occured_date_local as date) end as fecha_inicio_atraso,
+    days_past_due_principal                               as dias_atraso,
+    months_in_default                                     as meses_en_default,
+    months_on_book                                        as meses_en_cartera,
+    cast(early_repaid_at as date)                         as fecha_precancelacion,
+    cast(loan_last_recorded_action_date_local as date)    as fecha_ultima_accion
+from {{ source('bondora', 'fotos') }}

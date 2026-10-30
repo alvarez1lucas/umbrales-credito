@@ -1,0 +1,22 @@
+name: ciclo
+version: "0.1.0"
+config-version: 2
+profile: ciclo
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+# Las rutas a los parquet son relativas a la raíz del repo: dbt se corre desde ahí (python -m ciclo.modelos).
+vars:
+  dias_evento: 90
+  meses_curva: 36
+
+models:
+  ciclo:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

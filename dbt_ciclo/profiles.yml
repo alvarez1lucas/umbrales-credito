@@ -1,0 +1,7 @@
+ciclo:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: data/warehouse/ciclo.duckdb
+      threads: 4

@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: bondora
+    description: Fotos de la cartera de Bondora, una por fecha de publicación (ciclo.ingest.bondora).
+    tables:
+      - name: fotos
+        meta:
+          external_location: "read_parquet('data/snapshots/bondora_*.parquet', union_by_name = true)"
+  - name: hmda
+    description: Solicitudes hipotecarias HMDA (ciclo.ingest.hmda).
+    tables:
+      - name: solicitudes
+        meta:
+          external_location: "read_parquet('data/processed/hmda.parquet')"
