@@ -1,8 +1,10 @@
 -- Previsiones sobre la cartera viva de la última foto: mínimo regulatorio del BCRA (situaciones 1 a 5,
 -- sin garantías preferidas) contra pérdida esperada al estilo NIIF 9.
 -- Etapa 1: al día, PD a 12 meses por segmento × LGD; 1 a 30 días, probabilidad real de terminar en evento
--- entre fotos × LGD. Etapa 2 (31 a 90): esa misma probabilidad × LGD. Etapa 3 (más de 90): saldo × (1 - recupero
--- observado entre fotos, por antigüedad). La probabilidad usa el primer par de fotos, el de horizonte más largo.
+-- entre fotos × LGD. Etapa 2 (31 a 90): esa misma probabilidad × LGD. Etapa 3 (más de 90): saldo × lo que queda sin
+-- recuperar, encadenando el recupero real entre fotos por los tramos de antigüedad que le faltan a cada crédito.
+-- Mirar sólo los próximos 15 meses castigaría de más a los créditos recién entrados en mora. El encadenado saltea
+-- tramos porque cada período entre fotos dura ~15 meses. La probabilidad usa el primer par de fotos, el más largo.
 with viva as (
     select *, greatest(coalesce(dias_atraso, 0), 0) as dias
     from {{ ref('int_bondora__prestamos') }}
@@ -31,8 +33,21 @@ lgd_global as (
     from {{ ref('mart_lgd_pais') }}
 ),
 recupero as (
-    select antiguedad_evento, 100.0 * sum(capital_cobrado) / sum(saldo_inicial) as recupero_pct
+    select antiguedad_evento, sum(capital_cobrado) / sum(saldo_inicial) as tasa
     from {{ ref('mart_recupero_observado') }}
+    group by 1
+),
+recorrido(antiguedad_evento, tramos) as (
+    values ('0-6',   ['0-6', '12-24', '24-36', '36+']),
+           ('6-12',  ['6-12', '24-36', '36+']),
+           ('12-24', ['12-24', '24-36', '36+']),
+           ('24-36', ['24-36', '36+']),
+           ('36+',   ['36+'])
+),
+sin_recuperar as (
+    select c.antiguedad_evento, exp(sum(ln(1 - r.tasa))) as proporcion
+    from (select antiguedad_evento, unnest(tramos) as tramo from recorrido) c
+    join recupero r on c.tramo = r.antiguedad_evento
     group by 1
 ),
 marcada as (
@@ -61,10 +76,10 @@ calculo as (
         case m.etapa
             when 1 then m.saldo_capital * (case when m.tramo = 'al_dia' then m.pd_12m else m.prob_evento_pct end) / 100.0 * m.lgd / 100.0
             when 2 then m.saldo_capital * m.prob_evento_pct / 100.0 * m.lgd / 100.0
-            else m.saldo_capital * (1 - coalesce(r.recupero_pct, 0) / 100.0)
+            else m.saldo_capital * r.proporcion
         end as perdida_esperada
     from marcada m
-    left join recupero r on m.antiguedad_evento = r.antiguedad_evento
+    left join sin_recuperar r on m.antiguedad_evento = r.antiguedad_evento
 )
 select
     fecha_foto, pais, situacion, etapa,

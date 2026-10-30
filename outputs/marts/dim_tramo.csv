@@ -1,0 +1,8 @@
+tramo,orden,nombre
+al_dia,1,Al día
+1-30,2,1-30 días
+31-60,3,31-60 días
+61-90,4,61-90 días
+90+,5,90+ días
+pagado,6,Pagado
+castigado,7,Castigado
