@@ -1,0 +1,56 @@
+# Configuración central del proyecto ciclo-credito.
+
+paths:
+  raw: data/raw              # descargas tal cual (fuera de git)
+  snapshots: data/snapshots  # una foto de la cartera de Bondora por fecha de publicación (fuera de git; en Actions van como assets de releases)
+  processed: data/processed  # tablas limpias en parquet que lee dbt
+  warehouse: data/warehouse  # base DuckDB que construye dbt
+  outputs: outputs           # resultados chicos que sí se versionan (CSV/JSON)
+
+http:
+  timeout: 300
+  retries: 4
+  backoff: 2
+  user_agent: "ciclo-credito/0.1 (+https://github.com/alvarez1lucas)"
+
+bondora:
+  # Dataset público de préstamos: un Excel con cada crédito otorgado y su estado vigente.
+  # Página: https://goandgrow.eu/en/public-statistics/
+  url: https://sabanners001.blob.core.windows.net/statistics/public/loan_dataset_investor.xlsx
+  dias_evento: 90  # días de atraso que definen el evento de mora (estándar 90+)
+
+hmda:
+  # Solicitudes hipotecarias de EE.UU. (Home Mortgage Disclosure Act), API pública del FFIEC/CFPB.
+  api: https://ffiec.cfpb.gov/v2/data-browser-api/view/csv
+  anios: [2023, 2024, 2025]
+  estados: [GA]           # Georgia: ~200 mil solicitudes de compra por año, mercado diverso
+  loan_purposes: [1]      # 1 = compra de vivienda
+  actions_taken: [1, 2, 3, 4, 5]  # otorgado, aprobado no aceptado, rechazado, desistido, incompleto
+  columnas:
+    - activity_year
+    - lei
+    - derived_msa-md
+    - county_code
+    - derived_loan_product_type
+    - derived_race
+    - derived_ethnicity
+    - derived_sex
+    - action_taken
+    - loan_type
+    - lien_status
+    - occupancy_type
+    - loan_amount
+    - loan_to_value_ratio
+    - interest_rate
+    - rate_spread
+    - loan_term
+    - property_value
+    - income
+    - debt_to_income_ratio
+    - applicant_credit_score_type
+    - applicant_age
+    - aus-1
+    - denial_reason-1
+    - denial_reason-2
+    - tract_minority_population_percent
+    - tract_to_msa_income_percentage
