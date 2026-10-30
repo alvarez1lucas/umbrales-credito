@@ -18,6 +18,9 @@ bondora:
   # Página: https://goandgrow.eu/en/public-statistics/
   url: https://sabanners001.blob.core.windows.net/statistics/public/loan_dataset_investor.xlsx
   dias_evento: 90  # días de atraso que definen el evento de mora (estándar 90+)
+  archivadas:      # publicaciones viejas capturadas por la Wayback Machine
+    - fecha: 2025-08-18
+      url: https://web.archive.org/web/20250818161608id_/https://sabanners001.blob.core.windows.net/statistics/public/loan_dataset_investor.xlsx
 
 hmda:
   # Solicitudes hipotecarias de EE.UU. (Home Mortgage Disclosure Act), API pública del FFIEC/CFPB.
@@ -54,3 +57,20 @@ hmda:
     - denial_reason-2
     - tract_minority_population_percent
     - tract_to_msa_income_percentage
+
+cobranzas:
+  paises_principales: [Finland, Estonia, Netherlands]
+  minimo_segmento: 100   # créditos mínimos para calibrar un segmento; si no, se usa el tramo
+  capacidades: [0.1, 0.2, 0.3, 0.5]  # fracción de cuentas atrasadas que llega a gestionar el equipo
+
+  # SUPUESTOS, no datos: Bondora no publica gestiones. Se rotulan como escenario en todos los resultados.
+  efecto_gestion:        # proporción de los eventos que evita gestionar, por tramo: cuanto antes, más
+    "1-30": 0.20
+    "31-60": 0.10
+    "61-90": 0.05
+  incrementalidad: 0.30  # de los pagos logrados por contacto, parte que no habría ocurrido sin gestión
+  canales:               # costo en euros por cuenta y tasas por cuenta gestionada
+    llamada:  {costo: 1.50, contacto: 0.45, promesa: 0.50, cumplimiento: 0.60}
+    whatsapp: {costo: 0.08, contacto: 0.35, promesa: 0.25, cumplimiento: 0.50}
+    sms:      {costo: 0.05, contacto: 0.20, promesa: 0.15, cumplimiento: 0.50}
+    mail:     {costo: 0.01, contacto: 0.10, promesa: 0.10, cumplimiento: 0.50}
