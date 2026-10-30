@@ -1,6 +1,6 @@
 # Originación y política de crédito: resultados de la fase 3
 
-Datos: **HMDA**, 519.998 solicitudes de compra de vivienda propia con primer gravamen en Georgia, EE.UU., 2023-2025
+Datos: **HMDA**, 520.012 solicitudes de compra de vivienda propia con primer gravamen en Georgia, EE.UU., 2023-2025
 (405.589 con decisión), y **Bondora**, 308.050 créditos de consumo otorgados entre sep-23 y oct-25, con su resultado real a
 12 meses. Ninguna fuente alcanza sola: HMDA ve a los rechazados pero no qué pasó después; Bondora ve el resultado pero
 sólo de los otorgados. Las cifras salen de `outputs/originacion/`.
