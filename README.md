@@ -1,34 +1,44 @@
-# Ciclo del crédito con datos reales
+# Credit thresholds
 
-Originación, cartera y cobranzas con datos públicos y reales, sin datasets de Kaggle:
+[![Tests](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/tests.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/tests.yml) [![Data refresh](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/actualizar-datos.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/actualizar-datos.yml) [![Site](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/publicar-sitio.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/publicar-sitio.yml) ![Python 3.11](https://img.shields.io/badge/python-3.11-blue) ![dbt](https://img.shields.io/badge/dbt-DuckDB-orange)
 
-- **Bondora:** ~840 mil préstamos de consumo en Europa desde 2009, crédito por crédito, publicados por la propia empresa. Se usan dos fotos reales de toda la cartera (jul-25, rescatada de la Wayback Machine, y oct-26), que dan transiciones y recuperos observados.
-- **HMDA:** solicitudes hipotecarias de EE.UU., aprobadas y rechazadas, con el motivo del rechazo.
+**[Live site](https://alvarez1lucas.github.io/umbrales-credito/en/)** · **[One-page memo (PDF)](https://alvarez1lucas.github.io/umbrales-credito/memo-en.pdf)** · [Versión en español](README_ES.md)
 
-> En construcción. Plan y definiciones: [docs/plan.md](docs/plan.md). Resultados: [cartera y cobranzas](docs/cartera_cobranzas.md), [originación](docs/originacion.md).
+A credit policy is a set of thresholds: how much debt to approve, which ratings to lend to, which day past due to call. This project asks five questions of each threshold across the full credit cycle (origination, portfolio, collections), with real data and no Kaggle datasets.
 
-## Estado
+## At a glance
 
-- [x] Fase 1: ingesta (Bondora con fotos fechadas, HMDA por API) y warehouse en dbt + DuckDB con tests de datos
-- [x] Fase 2: cartera y cobranzas (pérdida esperada, situaciones BCRA, recupero, priorización con backtest)
-- [x] Fase 3: originación (embudo, simulación de reglas con resultado real, préstamo justo)
-- [ ] Fase 4: Power BI, sitio y memo ejecutivo
-- [ ] Fase 5: actualización mensual con GitHub Actions
+| Question | Finding |
+|---|---|
+| Where is the rule? | Conventional approval falls from 91% to 28% when debt-to-income crosses 50, and applications bunch right below |
+| Does the variable separate risk? | Below 50 debt-to-income barely moves price. Days past due do: 34% go bad from 1-30 days, 84% from 61-90 |
+| What does moving it cost? | A cap of 45 loses 21% of approvals. Removing two loss-making markets yields +0.53 €M giving up 3% of loans (assumed cost: 10 points) |
+| Who does it affect? | Under that cap adverse impact goes from 0.77 to 0.68. The denial gap falls from 11.4 to 6.2 points with controls, which does not prove discrimination |
+| Does it still hold? | Ratings F and G went from +8.3% to -9.7% of the amount in two years |
 
-## Reproducir
+Numbers come from US and European portfolios because Argentina has no public loan-level data: what travels is the method, not the values.
+
+**Stack:** SQL with dbt + DuckDB, Python (pandas, statsmodels), Plotly, Power BI, pytest, GitHub Actions, GitHub Pages.
+
+## Data
+
+- **Bondora:** 806,217 consumer loans since 2009, published by the lender. Two snapshots of the whole portfolio (Jul-25, rescued from the Wayback Machine, and Oct-26) give real transitions and recoveries; every new publication adds another.
+- **HMDA:** 520,012 mortgage applications in Georgia, US, 2023-2025, with outcome and denial reason.
+
+## Results
+
+- [Portfolio and collections](docs/cartera_cobranzas.md) · [Origination](docs/originacion.md) · [Plan and definitions](docs/plan.md) · [Power BI guide](docs/powerbi.md)
+
+## Reproduce
 
 ```bash
-python -m venv .venv && .venv/Scripts/activate   # en Linux/Mac: source .venv/bin/activate
 pip install -r requirements.txt && pip install -e .
-python -m ciclo.ingest     # baja la foto vigente de Bondora y las solicitudes HMDA configuradas
-python -m ciclo.modelos    # dbt build: modelos y tests de datos en data/warehouse/ciclo.duckdb
-python -m ciclo.cobranzas  # priorización con backtest y escenario de canales
-python -m ciclo.cartera    # resumen de cifras clave
-python -m ciclo.originacion  # simulación de reglas, impacto adverso y brecha condicional
-python -m ciclo.exportar   # marts en CSV para Power BI y el sitio
+python -m ciclo.ingest       # Bondora snapshots and HMDA applications
+python -m ciclo.modelos      # dbt build: models and data tests
+python -m ciclo.cobranzas && python -m ciclo.cartera && python -m ciclo.originacion
+python -m ciclo.exportar     # marts as CSV for Power BI and the site
+python -m ciclo.sitio && python -m ciclo.memo
 pytest
 ```
 
-Configuración en `config/settings.yaml`; modelos SQL en `dbt_ciclo/models/` (staging → intermediate → marts).
-
-Autor: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas)
+Author: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Related: [Household loan delinquency in Argentina](https://github.com/alvarez1lucas/mora_argentina)

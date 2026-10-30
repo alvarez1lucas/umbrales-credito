@@ -22,17 +22,17 @@ Cartera viva a oct-26: 838 millones de euros. Los montos están en euros. Las ci
 6. **Las cosechas 2016-2019 apenas cubrieron su riesgo.** Con 57-59% de créditos en evento y más de un tercio del
    capital perdido, las de 2017 y 2019 cerraron con +1,3% y +0,5% sobre lo prestado, antes de fondeo y costos.
    Las cosechas posteriores mejoraron: de ~50% a ~30% de mora 90+ a 36 meses.
-7. **La norma del BCRA previsiona poco lo sano y mucho lo muy viejo.** Sobre esta cartera, las previsiones mínimas
-   suman 194 millones contra 239 de pérdida esperada. En situación 1, 1% contra 6,9%; en situación 5, 100% contra 86%.
+7. **La norma del BCRA acierta el total, no la composición.** Sobre esta cartera, las previsiones mínimas suman 194
+   millones contra 199-214 de pérdida esperada, según la LGD. En situación 1, 1% contra 6,9%; en situación 5, 100% contra 80%.
 
 | Situación BCRA | Saldo (M€) | Previsión BCRA (M€) | Pérdida esperada (M€) |
 |---|---:|---:|---:|
 | 1. Normal | 591,8 | 5,9 | 40,7 |
 | 2. Riesgo bajo | 25,9 | 1,3 | 12,2 |
-| 3. Riesgo medio | 20,4 | 5,1 | 17,4 |
-| 4. Riesgo alto | 36,1 | 18,0 | 28,3 |
-| 5. Irrecuperable | 163,3 | 163,3 | 140,4 |
-| **Total** | **837,6** | **193,7** | **238,9** |
+| 3. Riesgo medio | 20,4 | 5,1 | 10,3 |
+| 4. Riesgo alto | 36,1 | 18,0 | 19,6 |
+| 5. Irrecuperable | 163,3 | 163,3 | 130,8 |
+| **Total** | **837,6** | **193,7** | **213,5** |
 
 ## Recomendaciones
 
@@ -48,10 +48,11 @@ Cartera viva a oct-26: 838 millones de euros. Los montos están en euros. Las ci
 - **Situaciones y previsiones:** textos ordenados del BCRA "Clasificación de deudores" (cartera de consumo: hasta 31, 90,
   180 y 365 días) y "Previsiones mínimas" (1%, 5%, 25%, 50% y 100% sin garantías preferidas).
 - **Pérdida esperada, al estilo NIIF 9:** créditos al día, PD a 12 meses del segmento × LGD; de 1 a 90 días, probabilidad
-  real de evento entre fotos × LGD; más de 90 días, saldo × (1 - recupero observado por antigüedad).
+  real de evento entre fotos × LGD; más de 90 días, saldo × lo que queda sin recuperar, encadenando el recupero real por
+  los tramos de antigüedad que le faltan a cada crédito.
 - **LGD:** 1 - recupero de capital de eventos con 36 meses o más, ponderado por exposición, con el saldo al evento
   estimado por cronograma francés. Encadenando el recupero real entre fotos da ~50%, que baja la pérdida esperada
-  total de 239 a 225 millones.
+  total de 214 a 199 millones.
 - **Backtest de cobranza:** segmentos (tramo × saldo × país) calibrados en la mitad de los 26.348 créditos atrasados de jul-25
   y evaluados en la otra mitad, con su resultado real en oct-26.
 

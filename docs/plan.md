@@ -18,7 +18,8 @@ cartera, a quién cobrar primero) con datos reales y públicos, sin datasets de 
 2. **Cartera y cobranzas.** Pérdida esperada por segmento, situaciones del BCRA y previsiones,
    rentabilidad ajustada por riesgo, curvas de recupero, priorización de cobranza.
 3. **Originación.** Embudo y motivos de rechazo, sensibilidad del tope de deuda-ingreso, análisis de préstamo justo.
-4. **Tableros y publicación.** Power BI (.pbix + PDF), sitio en GitHub Pages bilingüe, memo ejecutivo de una página.
+4. **Tableros y publicación.** Sitio bilingüe en GitHub Pages y memo de una página, ordenados por las cinco preguntas que hay que
+   hacerle a un umbral. Power BI con la [guía](powerbi.md).
 5. **Automatización.** GitHub Actions mensual: baja la foto nueva de Bondora, la guarda como asset de un release,
    reconstruye el warehouse y publica.
 
