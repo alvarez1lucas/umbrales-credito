@@ -2,10 +2,10 @@
   "fecha": "2026-10-22",
   "creditos_historicos": 806217,
   "mora": {
-    "saldo_total": 837497130.0890404,
-    "par30_pct": 29.480994330786533,
-    "par90_pct": 26.245874192653115,
-    "atraso_31_90_sobre_no_vencida_pct": 4.386358190433812
+    "saldo_total": 837497130.0890406,
+    "par30_pct": 29.480994330786523,
+    "par90_pct": 26.24587419265311,
+    "atraso_31_90_sobre_no_vencida_pct": 4.3863581904338105
   },
   "concentracion": {
     "hhi": 0.3820447090601481,
@@ -101,10 +101,10 @@
         "perdida_esperada": 24238500.0
       }
     ],
-    "bcra_total": 193690374.14601743,
-    "ecl_total": 213511034.55512157,
+    "bcra_total": 193690374.14601725,
+    "ecl_total": 213511034.5551216,
     "ecl_lgd_encadenada": 199301066.88326582,
-    "saldo_total": 837592375.369039
+    "saldo_total": 837592375.3690386
   },
   "transiciones_pct": {
     "1-30": {
@@ -283,195 +283,27 @@
   "segmentos": [
     {
       "pais": "Netherlands",
-      "rating": "A",
-      "creditos": 6843,
-      "monto": 17438304.0,
-      "tasa_media_pct": 9.96,
-      "pd_12m_pct": 4.9,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 3.37,
-      "margen_ajustado_pct": 6.59
-    },
-    {
-      "pais": "Finland",
       "rating": "E",
-      "creditos": 9098,
-      "monto": 10833024.0,
-      "tasa_media_pct": 18.13,
-      "pd_12m_pct": 16.64,
-      "lgd_pct": 67.08,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 11.16,
-      "margen_ajustado_pct": 6.96
-    },
-    {
-      "pais": "Denmark",
-      "rating": "C",
-      "creditos": 220,
-      "monto": 268617.61,
-      "tasa_media_pct": 18.37,
-      "pd_12m_pct": 26.82,
+      "creditos": 2786,
+      "monto": 4883320.0,
+      "tasa_media_pct": 10.21,
+      "pd_12m_pct": 8.08,
       "lgd_pct": 68.83,
       "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 18.46,
-      "margen_ajustado_pct": -0.09
+      "perdida_esperada_pct": 5.56,
+      "margen_ajustado_pct": 4.65
     },
     {
       "pais": "Estonia",
-      "rating": "E",
-      "creditos": 4024,
-      "monto": 5727170.0,
-      "tasa_media_pct": 29.38,
-      "pd_12m_pct": 15.53,
-      "lgd_pct": 64.09,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 9.95,
-      "margen_ajustado_pct": 19.42
-    },
-    {
-      "pais": "Latvia",
-      "rating": "D",
-      "creditos": 1328,
-      "monto": 1011258.0,
-      "tasa_media_pct": 28.48,
-      "pd_12m_pct": 26.96,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 18.56,
-      "margen_ajustado_pct": 9.93
-    },
-    {
-      "pais": "Estonia",
-      "rating": "F",
-      "creditos": 2511,
-      "monto": 3384975.0,
-      "tasa_media_pct": 30.12,
-      "pd_12m_pct": 16.13,
-      "lgd_pct": 64.09,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 10.34,
-      "margen_ajustado_pct": 19.79
-    },
-    {
-      "pais": "Netherlands",
-      "rating": "D",
-      "creditos": 2714,
-      "monto": 5723816.0,
-      "tasa_media_pct": 10.07,
-      "pd_12m_pct": 6.82,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 4.69,
-      "margen_ajustado_pct": 5.38
-    },
-    {
-      "pais": "Latvia",
       "rating": "A",
-      "creditos": 555,
-      "monto": 1103112.0,
-      "tasa_media_pct": 30.18,
-      "pd_12m_pct": 26.13,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 17.98,
-      "margen_ajustado_pct": 12.19
-    },
-    {
-      "pais": "Netherlands",
-      "rating": "G",
-      "creditos": 1766,
-      "monto": 1657344.0,
-      "tasa_media_pct": 9.85,
-      "pd_12m_pct": 9.57,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 6.59,
-      "margen_ajustado_pct": 3.26
-    },
-    {
-      "pais": "Finland",
-      "rating": "F",
-      "creditos": 3068,
-      "monto": 2350856.0,
-      "tasa_media_pct": 18.47,
-      "pd_12m_pct": 19.46,
-      "lgd_pct": 67.08,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 13.05,
-      "margen_ajustado_pct": 5.41
-    },
-    {
-      "pais": "Finland",
-      "rating": "C",
-      "creditos": 40074,
-      "monto": 75189208.0,
-      "tasa_media_pct": 18.1,
-      "pd_12m_pct": 10.3,
-      "lgd_pct": 67.08,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 6.91,
-      "margen_ajustado_pct": 11.19
-    },
-    {
-      "pais": "Netherlands",
-      "rating": "AA",
-      "creditos": 19908,
-      "monto": 48205144.0,
-      "tasa_media_pct": 9.95,
-      "pd_12m_pct": 3.09,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 2.13,
-      "margen_ajustado_pct": 7.82
-    },
-    {
-      "pais": "Estonia",
-      "rating": "C",
-      "creditos": 7274,
-      "monto": 12504968.0,
-      "tasa_media_pct": 25.72,
-      "pd_12m_pct": 10.86,
+      "creditos": 9448,
+      "monto": 20009992.0,
+      "tasa_media_pct": 20.9,
+      "pd_12m_pct": 5.33,
       "lgd_pct": 64.09,
       "lgd_fuente": "pais",
-      "perdida_esperada_pct": 6.96,
-      "margen_ajustado_pct": 18.76
-    },
-    {
-      "pais": "Netherlands",
-      "rating": "B",
-      "creditos": 4928,
-      "monto": 10485874.0,
-      "tasa_media_pct": 10.05,
-      "pd_12m_pct": 4.81,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 3.31,
-      "margen_ajustado_pct": 6.74
-    },
-    {
-      "pais": "Latvia",
-      "rating": "B",
-      "creditos": 819,
-      "monto": 1116396.0,
-      "tasa_media_pct": 29.2,
-      "pd_12m_pct": 25.15,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 17.31,
-      "margen_ajustado_pct": 11.89
-    },
-    {
-      "pais": "Latvia",
-      "rating": "AA",
-      "creditos": 609,
-      "monto": 1499040.0,
-      "tasa_media_pct": 29.08,
-      "pd_12m_pct": 18.23,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 12.55,
-      "margen_ajustado_pct": 16.53
+      "perdida_esperada_pct": 3.42,
+      "margen_ajustado_pct": 17.48
     },
     {
       "pais": "Finland",
@@ -498,6 +330,18 @@
       "margen_ajustado_pct": 9.29
     },
     {
+      "pais": "Estonia",
+      "rating": "D",
+      "creditos": 6181,
+      "monto": 9828440.0,
+      "tasa_media_pct": 27.7,
+      "pd_12m_pct": 13.15,
+      "lgd_pct": 64.09,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 8.43,
+      "margen_ajustado_pct": 19.27
+    },
+    {
       "pais": "Latvia",
       "rating": "E",
       "creditos": 1716,
@@ -510,16 +354,16 @@
       "margen_ajustado_pct": 9.92
     },
     {
-      "pais": "Denmark",
-      "rating": "B",
-      "creditos": 331,
-      "monto": 457917.23,
-      "tasa_media_pct": 18.51,
-      "pd_12m_pct": 26.59,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 18.3,
-      "margen_ajustado_pct": 0.21
+      "pais": "Estonia",
+      "rating": "G",
+      "creditos": 2196,
+      "monto": 1823535.0,
+      "tasa_media_pct": 30.47,
+      "pd_12m_pct": 18.31,
+      "lgd_pct": 64.09,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 11.73,
+      "margen_ajustado_pct": 18.73
     },
     {
       "pais": "Latvia",
@@ -534,42 +378,6 @@
       "margen_ajustado_pct": 10.61
     },
     {
-      "pais": "Estonia",
-      "rating": "A",
-      "creditos": 9448,
-      "monto": 20009992.0,
-      "tasa_media_pct": 20.9,
-      "pd_12m_pct": 5.33,
-      "lgd_pct": 64.09,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 3.42,
-      "margen_ajustado_pct": 17.48
-    },
-    {
-      "pais": "Netherlands",
-      "rating": "E",
-      "creditos": 2786,
-      "monto": 4883320.0,
-      "tasa_media_pct": 10.21,
-      "pd_12m_pct": 8.08,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 5.56,
-      "margen_ajustado_pct": 4.65
-    },
-    {
-      "pais": "Estonia",
-      "rating": "D",
-      "creditos": 6181,
-      "monto": 9828440.0,
-      "tasa_media_pct": 27.7,
-      "pd_12m_pct": 13.15,
-      "lgd_pct": 64.09,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 8.43,
-      "margen_ajustado_pct": 19.27
-    },
-    {
       "pais": "Netherlands",
       "rating": "F",
       "creditos": 1560,
@@ -582,16 +390,232 @@
       "margen_ajustado_pct": 4.32
     },
     {
+      "pais": "Denmark",
+      "rating": "B",
+      "creditos": 331,
+      "monto": 457917.23,
+      "tasa_media_pct": 18.51,
+      "pd_12m_pct": 26.59,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 18.3,
+      "margen_ajustado_pct": 0.21
+    },
+    {
+      "pais": "Netherlands",
+      "rating": "A",
+      "creditos": 6843,
+      "monto": 17438304.0,
+      "tasa_media_pct": 9.96,
+      "pd_12m_pct": 4.9,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 3.37,
+      "margen_ajustado_pct": 6.59
+    },
+    {
+      "pais": "Netherlands",
+      "rating": "D",
+      "creditos": 2714,
+      "monto": 5723816.0,
+      "tasa_media_pct": 10.07,
+      "pd_12m_pct": 6.82,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 4.69,
+      "margen_ajustado_pct": 5.38
+    },
+    {
+      "pais": "Finland",
+      "rating": "E",
+      "creditos": 9098,
+      "monto": 10833024.0,
+      "tasa_media_pct": 18.13,
+      "pd_12m_pct": 16.64,
+      "lgd_pct": 67.08,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 11.16,
+      "margen_ajustado_pct": 6.96
+    },
+    {
       "pais": "Estonia",
-      "rating": "G",
-      "creditos": 2196,
-      "monto": 1823535.0,
-      "tasa_media_pct": 30.47,
-      "pd_12m_pct": 18.31,
+      "rating": "E",
+      "creditos": 4024,
+      "monto": 5727170.0,
+      "tasa_media_pct": 29.38,
+      "pd_12m_pct": 15.53,
       "lgd_pct": 64.09,
       "lgd_fuente": "pais",
-      "perdida_esperada_pct": 11.73,
-      "margen_ajustado_pct": 18.73
+      "perdida_esperada_pct": 9.95,
+      "margen_ajustado_pct": 19.42
+    },
+    {
+      "pais": "Finland",
+      "rating": "F",
+      "creditos": 3068,
+      "monto": 2350856.0,
+      "tasa_media_pct": 18.47,
+      "pd_12m_pct": 19.46,
+      "lgd_pct": 67.08,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 13.05,
+      "margen_ajustado_pct": 5.41
+    },
+    {
+      "pais": "Latvia",
+      "rating": "D",
+      "creditos": 1328,
+      "monto": 1011258.0,
+      "tasa_media_pct": 28.48,
+      "pd_12m_pct": 26.96,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 18.56,
+      "margen_ajustado_pct": 9.93
+    },
+    {
+      "pais": "Netherlands",
+      "rating": "G",
+      "creditos": 1766,
+      "monto": 1657344.0,
+      "tasa_media_pct": 9.85,
+      "pd_12m_pct": 9.57,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 6.59,
+      "margen_ajustado_pct": 3.26
+    },
+    {
+      "pais": "Latvia",
+      "rating": "A",
+      "creditos": 555,
+      "monto": 1103112.0,
+      "tasa_media_pct": 30.18,
+      "pd_12m_pct": 26.13,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 17.98,
+      "margen_ajustado_pct": 12.19
+    },
+    {
+      "pais": "Estonia",
+      "rating": "F",
+      "creditos": 2511,
+      "monto": 3384975.0,
+      "tasa_media_pct": 30.12,
+      "pd_12m_pct": 16.13,
+      "lgd_pct": 64.09,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 10.34,
+      "margen_ajustado_pct": 19.79
+    },
+    {
+      "pais": "Denmark",
+      "rating": "C",
+      "creditos": 220,
+      "monto": 268617.61,
+      "tasa_media_pct": 18.37,
+      "pd_12m_pct": 26.82,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 18.46,
+      "margen_ajustado_pct": -0.09
+    },
+    {
+      "pais": "Netherlands",
+      "rating": "B",
+      "creditos": 4928,
+      "monto": 10485874.0,
+      "tasa_media_pct": 10.05,
+      "pd_12m_pct": 4.81,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 3.31,
+      "margen_ajustado_pct": 6.74
+    },
+    {
+      "pais": "Finland",
+      "rating": "C",
+      "creditos": 40074,
+      "monto": 75189208.0,
+      "tasa_media_pct": 18.1,
+      "pd_12m_pct": 10.3,
+      "lgd_pct": 67.08,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 6.91,
+      "margen_ajustado_pct": 11.19
+    },
+    {
+      "pais": "Latvia",
+      "rating": "B",
+      "creditos": 819,
+      "monto": 1116396.0,
+      "tasa_media_pct": 29.2,
+      "pd_12m_pct": 25.15,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 17.31,
+      "margen_ajustado_pct": 11.89
+    },
+    {
+      "pais": "Netherlands",
+      "rating": "AA",
+      "creditos": 19908,
+      "monto": 48205144.0,
+      "tasa_media_pct": 9.95,
+      "pd_12m_pct": 3.09,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 2.13,
+      "margen_ajustado_pct": 7.82
+    },
+    {
+      "pais": "Estonia",
+      "rating": "C",
+      "creditos": 7274,
+      "monto": 12504968.0,
+      "tasa_media_pct": 25.72,
+      "pd_12m_pct": 10.86,
+      "lgd_pct": 64.09,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 6.96,
+      "margen_ajustado_pct": 18.76
+    },
+    {
+      "pais": "Latvia",
+      "rating": "AA",
+      "creditos": 609,
+      "monto": 1499040.0,
+      "tasa_media_pct": 29.08,
+      "pd_12m_pct": 18.23,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 12.55,
+      "margen_ajustado_pct": 16.53
+    },
+    {
+      "pais": "Estonia",
+      "rating": "AA",
+      "creditos": 11648,
+      "monto": 28122659.0,
+      "tasa_media_pct": 19.66,
+      "pd_12m_pct": 2.46,
+      "lgd_pct": 64.09,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 1.58,
+      "margen_ajustado_pct": 18.08
+    },
+    {
+      "pais": "Finland",
+      "rating": "B",
+      "creditos": 47109,
+      "monto": 91719175.0,
+      "tasa_media_pct": 17.97,
+      "pd_12m_pct": 8.03,
+      "lgd_pct": 67.08,
+      "lgd_fuente": "pais",
+      "perdida_esperada_pct": 5.39,
+      "margen_ajustado_pct": 12.59
     },
     {
       "pais": "Finland",
@@ -607,18 +631,6 @@
     },
     {
       "pais": "Estonia",
-      "rating": "AA",
-      "creditos": 11648,
-      "monto": 28122659.0,
-      "tasa_media_pct": 19.66,
-      "pd_12m_pct": 2.46,
-      "lgd_pct": 64.09,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 1.58,
-      "margen_ajustado_pct": 18.08
-    },
-    {
-      "pais": "Estonia",
       "rating": "B",
       "creditos": 9027,
       "monto": 16315909.0,
@@ -630,16 +642,28 @@
       "margen_ajustado_pct": 18.86
     },
     {
-      "pais": "Finland",
-      "rating": "B",
-      "creditos": 47109,
-      "monto": 91719175.0,
-      "tasa_media_pct": 17.97,
-      "pd_12m_pct": 8.03,
-      "lgd_pct": 67.08,
-      "lgd_fuente": "pais",
-      "perdida_esperada_pct": 5.39,
-      "margen_ajustado_pct": 12.59
+      "pais": "Latvia",
+      "rating": "C",
+      "creditos": 924,
+      "monto": 1029672.0,
+      "tasa_media_pct": 29.69,
+      "pd_12m_pct": 26.52,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 18.25,
+      "margen_ajustado_pct": 11.44
+    },
+    {
+      "pais": "Netherlands",
+      "rating": "C",
+      "creditos": 3942,
+      "monto": 10042344.0,
+      "tasa_media_pct": 9.97,
+      "pd_12m_pct": 4.92,
+      "lgd_pct": 68.83,
+      "lgd_fuente": "agregada",
+      "perdida_esperada_pct": 3.39,
+      "margen_ajustado_pct": 6.59
     },
     {
       "pais": "Denmark",
@@ -655,18 +679,6 @@
     },
     {
       "pais": "Denmark",
-      "rating": "D",
-      "creditos": 303,
-      "monto": 367173.16,
-      "tasa_media_pct": 18.33,
-      "pd_12m_pct": 34.32,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 23.63,
-      "margen_ajustado_pct": -5.3
-    },
-    {
-      "pais": "Denmark",
       "rating": "A",
       "creditos": 293,
       "monto": 444386.14,
@@ -678,28 +690,16 @@
       "margen_ajustado_pct": 1.6
     },
     {
-      "pais": "Netherlands",
-      "rating": "C",
-      "creditos": 3942,
-      "monto": 10042344.0,
-      "tasa_media_pct": 9.97,
-      "pd_12m_pct": 4.92,
+      "pais": "Denmark",
+      "rating": "D",
+      "creditos": 303,
+      "monto": 367173.16,
+      "tasa_media_pct": 18.33,
+      "pd_12m_pct": 34.32,
       "lgd_pct": 68.83,
       "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 3.39,
-      "margen_ajustado_pct": 6.59
-    },
-    {
-      "pais": "Latvia",
-      "rating": "C",
-      "creditos": 924,
-      "monto": 1029672.0,
-      "tasa_media_pct": 29.69,
-      "pd_12m_pct": 26.52,
-      "lgd_pct": 68.83,
-      "lgd_fuente": "agregada",
-      "perdida_esperada_pct": 18.25,
-      "margen_ajustado_pct": 11.44
+      "perdida_esperada_pct": 23.63,
+      "margen_ajustado_pct": -5.3
     }
   ],
   "recupero_observado": {
