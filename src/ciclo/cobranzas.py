@@ -38,6 +38,7 @@ def pares(con: duckdb.DuckDBPyConnection) -> pd.DataFrame:
         join int_bondora__estados b on a.prestamo_id = b.prestamo_id and b.fecha_foto > a.fecha_foto
         where a.tramo in ('1-30', '31-60', '61-90') and a.saldo_capital > 0
         qualify b.fecha_foto = min(b.fecha_foto) over (partition by a.prestamo_id)
+        order by a.prestamo_id  -- orden fijo: los empates de la priorización no dependen de la corrida
     """).df()
 
 
@@ -167,9 +168,9 @@ def main() -> None:
 
     out = path("outputs") / "cobranzas"
     out.mkdir(parents=True, exist_ok=True)
-    bt.to_csv(out / "backtest_priorizacion.csv", index=False)
-    resultados.to_csv(out / "resultado_por_tramo.csv", index=False)
-    tabla.to_csv(out / "escenario_canales.csv", index=False)
+    bt.to_csv(out / "backtest_priorizacion.csv", index=False, float_format="%.4f")
+    resultados.to_csv(out / "resultado_por_tramo.csv", index=False, float_format="%.4f")
+    tabla.to_csv(out / "escenario_canales.csv", index=False, float_format="%.4f")
     fechas = con.sql("select min(fecha_foto), max(fecha_foto) from int_bondora__estados").fetchall()[0]
     resumen = {
         "fecha_desde": str(fechas[0]), "fecha_hasta": str(fechas[1]), "creditos_atrasados": len(df), "creditos_prueba": len(prueba),

@@ -25,7 +25,7 @@ sólo de los otorgados. Las cifras salen de `outputs/originacion/`.
 8. **Tope de carga en Bondora: no paga.** La mora a 12 meses sube con la carga (de 7,8% a 25,9%), pero muy pocos créditos están
    altos y al recortarlos se pierde resultado en todos los topes probados.
 9. **Rating y país sí pagan, con un costo supuesto de 10 puntos.** Sacar Dinamarca y Letonia mejora el resultado en 0,53 M€ (IC 95%:
-   0,44 a 0,63) resignando el 3% de los créditos; sacar E a G logra lo mismo (0,55 M€) resignando el 10%. Sin ese costo, ninguna
+   0,43 a 0,62) resignando el 3% de los créditos; sacar E a G logra lo mismo (0,55 M€) resignando el 10%. Sin ese costo, ninguna
    regla mejora el resultado: el negocio del primer año se decide en el costo de fondeo y operación.
 10. **Una regla no vale lo mismo en todo momento.** Dinamarca y Letonia perdieron en todos los semestres. Los ratings F-G pasaron de
     +8,3% a -9,7% del monto entre fines de 2023 y 2025: una regla calibrada con las cosechas viejas no los habría sacado.
@@ -42,11 +42,11 @@ sólo de los otorgados. Las cifras salen de `outputs/originacion/`.
 | Regla en Bondora (costo supuesto: 10 pp) | Créditos que quedan | Mora a 12 meses | Cambio en resultado (M€) | IC 95% |
 |---|---:|---:|---:|---:|
 | Sin cambios | 100,0% | 8,2% | - | - |
-| Sin Dinamarca ni Letonia | 97,0% | 7,6% | +0,53 | +0,44 a +0,63 |
+| Sin Dinamarca ni Letonia | 97,0% | 7,6% | +0,53 | +0,43 a +0,62 |
 | Sin ratings E a G | 90,0% | 7,3% | +0,55 | +0,42 a +0,68 |
-| Sin ratings F y G | 95,7% | 7,8% | +0,26 | +0,18 a +0,33 |
-| Carga de 15% o menos | 98,8% | 8,2% | -0,42 | -0,63 a -0,19 |
-| Carga de 10% o menos | 96,6% | 8,1% | -1,44 | -1,74 a -1,12 |
+| Sin ratings F y G | 95,7% | 7,8% | +0,26 | +0,19 a +0,33 |
+| Carga de 15% o menos | 98,8% | 8,2% | -0,42 | -0,65 a -0,19 |
+| Carga de 10% o menos | 96,6% | 8,1% | -1,44 | -1,75 a -1,14 |
 
 ## Recomendaciones
 

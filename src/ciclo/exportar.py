@@ -17,8 +17,8 @@ MARTS = ["mart_cosechas", "mart_cartera_tramos", "mart_roll_rates", "mart_recupe
 DIMENSIONES = {
     "dim_tramo": "select * from (values ('al_dia', 1, 'Al día'), ('1-30', 2, '1-30 días'), ('31-60', 3, '31-60 días'), ('61-90', 4, '61-90 días'), ('90+', 5, '90+ días'), ('pagado', 6, 'Pagado'), ('castigado', 7, 'Castigado')) t(tramo, orden, nombre)",
     "dim_rating": "select * from (values ('AA', 1), ('A', 2), ('B', 3), ('C', 4), ('D', 5), ('E', 6), ('F', 7), ('G', 8), ('HR', 9), ('sin_rating', 10)) t(rating, orden)",
-    "dim_pais": "select distinct pais from mart_cartera_tramos",
-    "dim_situacion": "select situacion, nombre, dias_desde, dias_hasta, prevision_sin_garantia_pct from bcra_situaciones",
+    "dim_pais": "select distinct pais from mart_cartera_tramos order by pais",
+    "dim_situacion": "select situacion, nombre, dias_desde, dias_hasta, prevision_sin_garantia_pct from bcra_situaciones order by situacion",
 }
 
 

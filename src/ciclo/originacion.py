@@ -118,11 +118,12 @@ def brecha_condicional(df: pd.DataFrame) -> pd.DataFrame:
 # --------------------------------------------------------------------------- Bondora
 
 def creditos(con: duckdb.DuckDBPyConnection) -> pd.DataFrame:
-    return con.sql("""select o.pais, o.rating, o.fecha_otorgamiento, o.monto_otorgado as monto, o.tasa_inicial as tasa,
+    return con.sql("""select o.prestamo_id, o.pais, o.rating, o.fecha_otorgamiento, o.monto_otorgado as monto, o.tasa_inicial as tasa,
                              o.carga_pct, o.evento_12m, coalesce(l.lgd_pct, a.lgd_pct) / 100 as lgd
                       from int_bondora__originacion o
                       cross join (select sum(lgd_pct * exposicion) / sum(exposicion) as lgd_pct from mart_lgd_pais) a
-                      left join mart_lgd_pais l on o.pais = l.pais""").df()
+                      left join mart_lgd_pais l on o.pais = l.pais
+                      order by o.prestamo_id""").df()  # orden fijo: el bootstrap no depende de la corrida
 
 
 def margen(df: pd.DataFrame, costo_pp: float) -> pd.Series:
@@ -177,6 +178,15 @@ def estabilidad(df: pd.DataFrame, cfg: dict, costo_pp: float) -> pd.DataFrame:
     return pd.DataFrame(filas)
 
 
+def redondear(x):
+    """Sin ruido de punto flotante entre máquinas: el commit mensual sólo muestra cambios reales."""
+    if isinstance(x, dict):
+        return {k: redondear(v) for k, v in x.items()}
+    if isinstance(x, list):
+        return [redondear(v) for v in x]
+    return round(x, 4) if isinstance(x, float) else x
+
+
 def main() -> None:
     cfg = settings()["politica"]
     con = duckdb.connect(str(path("warehouse") / "ciclo.duckdb"), read_only=True)
@@ -204,7 +214,7 @@ def main() -> None:
         "umbral_impacto_adverso": cfg["umbral_impacto_adverso"],
     }
     with open(out / "resumen_originacion.json", "w", encoding="utf-8") as fh:
-        json.dump(resumen, fh, ensure_ascii=False, indent=2)
+        json.dump(redondear(resumen), fh, ensure_ascii=False, indent=2)
     print(f"originacion: {out}")
 
 

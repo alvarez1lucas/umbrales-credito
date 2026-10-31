@@ -11,6 +11,7 @@ import duckdb
 import pandas as pd
 
 from ciclo.config import path
+from ciclo.originacion import redondear
 
 
 def _df(con: duckdb.DuckDBPyConnection, sql: str) -> pd.DataFrame:
@@ -46,7 +47,7 @@ def main() -> None:
     ultima = "(select max(fecha_foto) from mart_cartera_tramos)"
     tramos = _df(con, f"select * from mart_cartera_tramos where fecha_foto = {ultima}")
     prev = _df(con, "select * from mart_previsiones")
-    seg = _df(con, "select * from mart_perdida_segmentos")
+    seg = _df(con, "select * from mart_perdida_segmentos order by pais, rating")
     ren = _df(con, "select * from mart_rentabilidad_cosechas")
     cos = _df(con, "select * from mart_cosechas")
     rec = _df(con, "select * from mart_recupero_observado")
@@ -90,7 +91,7 @@ def main() -> None:
     out = path("outputs") / "cartera"
     out.mkdir(parents=True, exist_ok=True)
     with open(out / "resumen_cartera.json", "w", encoding="utf-8") as fh:
-        json.dump(resumen, fh, ensure_ascii=False, indent=2, default=float)
+        json.dump(redondear(resumen), fh, ensure_ascii=False, indent=2, default=float)
     print(f"cartera: {out}")
 
 
