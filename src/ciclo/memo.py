@@ -121,6 +121,7 @@ def readme(d: dict, L: str) -> str:
     archivo = "umbrales_credito_en" if L == "en" else "umbrales_credito"
     pdf = f"**[{'Power BI dashboard (PDF)' if L == 'en' else 'Tablero de Power BI (PDF)'}](powerbi/{archivo}.pdf)** · " if (ROOT / "powerbi" / f"{archivo}.pdf").exists() else ""
     tablero = f"{pdf}[{'Power BI dashboard (.pbix)' if L == 'en' else 'Tablero de Power BI (.pbix)'}](powerbi/{archivo}.pbix)"
+    simulador = f"[{'Policy simulator (Excel)' if L == 'en' else 'Simulador de política (Excel)'}](excel/simulador_politica{'_en' if L == 'en' else ''}.xlsx)"
     badges = (f"[![Tests]({wf}/tests.yml/badge.svg)]({wf}/tests.yml) "
               f"[![{'Data refresh' if L == 'en' else 'Actualizar datos'}]({wf}/actualizar-datos.yml/badge.svg)]({wf}/actualizar-datos.yml) "
               f"[![{'Site' if L == 'en' else 'Sitio'}]({wf}/publicar-sitio.yml/badge.svg)]({wf}/publicar-sitio.yml) "
@@ -130,7 +131,7 @@ def readme(d: dict, L: str) -> str:
 
 {badges}
 
-**[Live site]({url}en/)** · **[One-page memo (PDF)]({url}memo-en.pdf)** · {tablero} · [Versión en español](README_ES.md)
+**[Live site]({url}en/)** · **[One-page memo (PDF)]({url}memo-en.pdf)** · {tablero} · {simulador} · [Versión en español](README_ES.md)
 
 A credit policy is a set of thresholds: how much debt to approve, which ratings to lend to, which day past due to call. This project asks five questions of each threshold across the full credit cycle (origination, portfolio, collections), with real data and no Kaggle datasets.
 
@@ -142,7 +143,7 @@ A credit policy is a set of thresholds: how much debt to approve, which ratings 
 
 Numbers come from US and European portfolios because Argentina has no public loan-level data: what travels is the method, not the values.
 
-**Stack:** SQL with dbt + DuckDB, Python (pandas, statsmodels), Plotly, Power BI, pytest, GitHub Actions, GitHub Pages.
+**Stack:** SQL with dbt + DuckDB, Python (pandas, statsmodels), Plotly, Power BI, Excel, pytest, GitHub Actions, GitHub Pages.
 
 ## Data
 
@@ -171,7 +172,7 @@ Author: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Related: 
 
 {badges}
 
-**[Sitio]({url})** · **[Memo de una página (PDF)]({url}memo.pdf)** · {tablero} · [English version](README.md)
+**[Sitio]({url})** · **[Memo de una página (PDF)]({url}memo.pdf)** · {tablero} · {simulador} · [English version](README.md)
 
 Una política de crédito es un conjunto de umbrales: hasta qué deuda aprobar, a qué rating prestar, a qué día de atraso llamar. Este proyecto le hace cinco preguntas a cada umbral a lo largo del ciclo completo del crédito (originación, cartera y cobranzas), con datos reales y sin datasets de Kaggle.
 
@@ -183,7 +184,7 @@ Una política de crédito es un conjunto de umbrales: hasta qué deuda aprobar, 
 
 Los números son de carteras de EE.UU. y Europa porque en Argentina no hay datos públicos de créditos individuales: se traslada el método, no los valores.
 
-**Stack:** SQL con dbt + DuckDB, Python (pandas, statsmodels), Plotly, Power BI, pytest, GitHub Actions, GitHub Pages.
+**Stack:** SQL con dbt + DuckDB, Python (pandas, statsmodels), Plotly, Power BI, Excel, pytest, GitHub Actions, GitHub Pages.
 
 ## Datos
 
