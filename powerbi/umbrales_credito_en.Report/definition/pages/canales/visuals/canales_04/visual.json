@@ -1,0 +1,262 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "canales_04",
+  "position": {
+    "x": 716,
+    "y": 396,
+    "z": 400,
+    "height": 290,
+    "width": 540,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "regla_canal"
+                    }
+                  },
+                  "Property": "tramo"
+                }
+              },
+              "queryRef": "regla_canal.tramo",
+              "nativeQueryRef": "regla_canal_tramo",
+              "displayName": "Bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "regla_canal"
+                    }
+                  },
+                  "Property": "base"
+                }
+              },
+              "queryRef": "regla_canal.base",
+              "nativeQueryRef": "regla_canal_base",
+              "displayName": "Base case (€)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "regla_canal"
+                    }
+                  },
+                  "Property": "contacto_mitad"
+                }
+              },
+              "queryRef": "regla_canal.contacto_mitad",
+              "nativeQueryRef": "regla_canal_contacto_mitad",
+              "displayName": "Half contact (€)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "regla_canal"
+                    }
+                  },
+                  "Property": "costo_doble"
+                }
+              },
+              "queryRef": "regla_canal.costo_doble",
+              "nativeQueryRef": "regla_canal_costo_doble",
+              "displayName": "Double cost (€)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "regla_canal"
+                  }
+                },
+                "Property": "tramo"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "regla_canal.tramo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "regla_canal.base"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "regla_canal.contacto_mitad"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "regla_canal.costo_doble"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calling pays from €221 of balance at 1-30 days; below that, WhatsApp'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

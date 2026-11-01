@@ -1,0 +1,320 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "originacion_04",
+  "position": {
+    "x": 536,
+    "y": 396,
+    "z": 400,
+    "height": 290,
+    "width": 720,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_tope_dti"
+                    }
+                  },
+                  "Property": "tope"
+                }
+              },
+              "queryRef": "simulacion_tope_dti.tope",
+              "nativeQueryRef": "simulacion_tope_dti_tope",
+              "displayName": "Tope"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_tope_dti"
+                    }
+                  },
+                  "Property": "aprobacion_pct"
+                }
+              },
+              "queryRef": "simulacion_tope_dti.aprobacion_pct",
+              "nativeQueryRef": "simulacion_tope_dti_aprobacion_pct",
+              "displayName": "Aprobación %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_tope_dti"
+                    }
+                  },
+                  "Property": "aprobados_perdidos_pct"
+                }
+              },
+              "queryRef": "simulacion_tope_dti.aprobados_perdidos_pct",
+              "nativeQueryRef": "simulacion_tope_dti_aprobados_perdidos_pct",
+              "displayName": "Aprobados perdidos %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_tope_dti"
+                    }
+                  },
+                  "Property": "monto_perdido_pct"
+                }
+              },
+              "queryRef": "simulacion_tope_dti.monto_perdido_pct",
+              "nativeQueryRef": "simulacion_tope_dti_monto_perdido_pct",
+              "displayName": "Monto perdido %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_tope_dti"
+                    }
+                  },
+                  "Property": "impacto_Negro"
+                }
+              },
+              "queryRef": "simulacion_tope_dti.impacto_Negro",
+              "nativeQueryRef": "simulacion_tope_dti_impacto_Negro",
+              "displayName": "Impacto Negro"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_tope_dti"
+                    }
+                  },
+                  "Property": "impacto_Hispano"
+                }
+              },
+              "queryRef": "simulacion_tope_dti.impacto_Hispano",
+              "nativeQueryRef": "simulacion_tope_dti_impacto_Hispano",
+              "displayName": "Impacto Hispano"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "simulacion_tope_dti"
+                  }
+                },
+                "Property": "tope"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_tope_dti.tope"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_tope_dti.aprobacion_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_tope_dti.aprobados_perdidos_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_tope_dti.monto_perdido_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_tope_dti.impacto_Negro"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_tope_dti.impacto_Hispano"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Un tope de 45 pierde el 21% de los aprobados y baja el impacto adverso de 0,77 a 0,68'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

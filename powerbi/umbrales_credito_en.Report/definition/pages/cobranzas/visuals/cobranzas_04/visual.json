@@ -1,0 +1,218 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "cobranzas_04",
+  "position": {
+    "x": 596,
+    "y": 396,
+    "z": 400,
+    "height": 290,
+    "width": 660,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "escenario_canales"
+                    }
+                  },
+                  "Property": "tramo"
+                }
+              },
+              "queryRef": "escenario_canales.tramo",
+              "nativeQueryRef": "escenario_canales_tramo",
+              "active": true,
+              "displayName": "Bucket"
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "escenario_canales"
+                    }
+                  },
+                  "Property": "canal"
+                }
+              },
+              "queryRef": "escenario_canales.canal",
+              "nativeQueryRef": "escenario_canales_canal",
+              "active": true,
+              "displayName": "Channel"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Net per account"
+                }
+              },
+              "queryRef": "Metrics.Net per account",
+              "nativeQueryRef": "Metrics_Net per account",
+              "displayName": "Net per account"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "170.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.Net per account"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scenario with assumptions, not observed data: net € avoided per account'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

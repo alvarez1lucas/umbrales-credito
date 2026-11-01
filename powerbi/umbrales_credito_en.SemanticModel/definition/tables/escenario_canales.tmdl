@@ -1,0 +1,66 @@
+table escenario_canales
+	lineageTag: d5a579d6-65f3-5abb-8376-36d482a4cfe4
+
+	column tramo
+		dataType: string
+		lineageTag: a592afe3-db0d-58ec-854c-019459987494
+		summarizeBy: none
+		sourceColumn: tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column canal
+		dataType: string
+		lineageTag: c6fa7a88-3d29-5a48-8b74-0506c8268279
+		summarizeBy: none
+		sourceColumn: canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column evitado_por_cuenta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: db9541b9-27f7-5975-bc6f-d95f1f25e132
+		summarizeBy: none
+		sourceColumn: evitado_por_cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo_por_cuenta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d72f360b-babb-5ecf-969d-03d089486518
+		summarizeBy: none
+		sourceColumn: costo_por_cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column neto_por_cuenta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bd43fe73-cd33-5da0-9ede-508afdce470b
+		summarizeBy: none
+		sourceColumn: neto_por_cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column evitado_por_euro
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 23b7817d-4fa2-5eea-9dd7-1c5ee144067e
+		summarizeBy: none
+		sourceColumn: evitado_por_euro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition escenario_canales = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\cobranzas\escenario_canales.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"tramo", type text}, {"canal", type text}, {"evitado_por_cuenta", type number}, {"costo_por_cuenta", type number}, {"neto_por_cuenta", type number}, {"evitado_por_euro", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"canal", (v) => List.First(List.Select({[a = "llamada", b = "Call"], [a = "whatsapp", b = "WhatsApp"], [a = "sms", b = "SMS"], [a = "mail", b = "Email"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

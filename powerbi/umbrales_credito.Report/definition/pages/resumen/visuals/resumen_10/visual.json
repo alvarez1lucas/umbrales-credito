@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "resumen_10",
+  "position": {
+    "x": 24,
+    "y": 486,
+    "z": 1000,
+    "height": 90,
+    "width": 1232,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "¿A quién afecta?",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#0b0b0b",
+                      "fontFamily": "Segoe UI Semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Con ese tope, el impacto adverso va de 0,77 a 0,68. La brecha de rechazo baja de 11,4 a 6,2 puntos al controlar, lo que no prueba discriminación",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#52514e",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

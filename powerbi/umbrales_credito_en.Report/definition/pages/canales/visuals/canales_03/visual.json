@@ -1,0 +1,320 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "canales_03",
+  "position": {
+    "x": 24,
+    "y": 396,
+    "z": 300,
+    "height": 290,
+    "width": 680,
+    "tabOrder": 300
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tasas_canales"
+                    }
+                  },
+                  "Property": "canal"
+                }
+              },
+              "queryRef": "tasas_canales.canal",
+              "nativeQueryRef": "tasas_canales_canal",
+              "displayName": "Channel"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tasas_canales"
+                    }
+                  },
+                  "Property": "costo"
+                }
+              },
+              "queryRef": "tasas_canales.costo",
+              "nativeQueryRef": "tasas_canales_costo",
+              "displayName": "Cost (€)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tasas_canales"
+                    }
+                  },
+                  "Property": "contacto_pct"
+                }
+              },
+              "queryRef": "tasas_canales.contacto_pct",
+              "nativeQueryRef": "tasas_canales_contacto_pct",
+              "displayName": "Contact %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tasas_canales"
+                    }
+                  },
+                  "Property": "promesa_pct"
+                }
+              },
+              "queryRef": "tasas_canales.promesa_pct",
+              "nativeQueryRef": "tasas_canales_promesa_pct",
+              "displayName": "Promise %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tasas_canales"
+                    }
+                  },
+                  "Property": "cumplimiento_pct"
+                }
+              },
+              "queryRef": "tasas_canales.cumplimiento_pct",
+              "nativeQueryRef": "tasas_canales_cumplimiento_pct",
+              "displayName": "Kept %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tasas_canales"
+                    }
+                  },
+                  "Property": "pagos_cada_100"
+                }
+              },
+              "queryRef": "tasas_canales.pagos_cada_100",
+              "nativeQueryRef": "tasas_canales_pagos_cada_100",
+              "displayName": "Payments per 100"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "tasas_canales"
+                  }
+                },
+                "Property": "pagos_cada_100"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "tasas_canales.canal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "tasas_canales.costo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "tasas_canales.contacto_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "tasas_canales.promesa_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "tasas_canales.cumplimiento_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "tasas_canales.pagos_cada_100"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Funnel assumptions: contact, promise to pay and promise kept'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

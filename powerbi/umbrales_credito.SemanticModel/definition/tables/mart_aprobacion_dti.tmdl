@@ -1,0 +1,79 @@
+table mart_aprobacion_dti
+	lineageTag: 84ea0ed9-5891-5c60-8fee-8a8c70811b79
+
+	column producto
+		dataType: string
+		lineageTag: fe97ab15-f56a-5696-88e7-3f591eb77559
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column dti
+		dataType: string
+		lineageTag: cba060fe-63a4-5562-9f0e-57af1fa6d0ff
+		summarizeBy: none
+		sourceColumn: dti
+		sortByColumn: dti_orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dti_orden
+		dataType: double
+		lineageTag: 118bb75e-c4ac-543d-a27f-0bcd9cc388e3
+		summarizeBy: none
+		sourceColumn: dti_orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column decisiones
+		dataType: int64
+		lineageTag: 4291bcbb-bcbf-5834-b907-20539f4bcc36
+		summarizeBy: none
+		sourceColumn: decisiones
+
+		annotation SummarizationSetBy = Automatic
+
+	column aprobadas
+		dataType: int64
+		lineageTag: 8f68c147-972f-5791-8128-dfbaedba0410
+		summarizeBy: none
+		sourceColumn: aprobadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column aprobacion_pct
+		dataType: double
+		lineageTag: a7a1469b-fe74-5173-8054-7ff459ea247f
+		summarizeBy: none
+		sourceColumn: aprobacion_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column spread_mediano
+		dataType: double
+		lineageTag: d12b03e6-af51-57e2-936d-efbd33f8ce81
+		summarizeBy: none
+		sourceColumn: spread_mediano
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_mediana
+		dataType: double
+		lineageTag: 1a527537-09a0-586c-bcc0-b0116ace4471
+		summarizeBy: none
+		sourceColumn: tasa_mediana
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_aprobacion_dti = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_aprobacion_dti.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"producto", type text}, {"dti", type text}, {"dti_orden", type number}, {"decisiones", Int64.Type}, {"aprobadas", Int64.Type}, {"aprobacion_pct", type number}, {"spread_mediano", type number}, {"tasa_mediana", type number}}, "en-US"),
+				    Resultado1 = Table.SelectRows(Resultado0, each [dti_orden] <> null)
+				in
+				    Resultado1
+

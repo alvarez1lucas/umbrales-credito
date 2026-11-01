@@ -1,0 +1,79 @@
+table mart_previsiones
+	lineageTag: bcca1c36-df0b-5c39-8cff-84058ef8fa23
+
+	column fecha_foto
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bc51addd-8bed-5101-93f3-56c0f6497db7
+		summarizeBy: none
+		sourceColumn: fecha_foto
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		lineageTag: 93ac6db4-5b07-5ffa-aa61-ca884ff0249b
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column situacion
+		dataType: int64
+		lineageTag: 6adad383-6ffb-57ef-860a-53d34553b9f5
+		summarizeBy: none
+		sourceColumn: situacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column etapa
+		dataType: int64
+		lineageTag: aeb62774-8120-5365-911e-e14f8d9b55d0
+		summarizeBy: none
+		sourceColumn: etapa
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 74593826-dfb8-5b45-ae7f-1f91b143be8d
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_capital
+		dataType: double
+		lineageTag: 94ab0c03-036e-51d8-abe8-8a00331e166d
+		summarizeBy: none
+		sourceColumn: saldo_capital
+
+		annotation SummarizationSetBy = Automatic
+
+	column prevision_bcra
+		dataType: double
+		lineageTag: 5862e7de-694f-5fe5-913b-780172cad506
+		summarizeBy: none
+		sourceColumn: prevision_bcra
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdida_esperada
+		dataType: double
+		lineageTag: 6d6724e1-5a64-59ab-86c4-b6245c4a6c20
+		summarizeBy: none
+		sourceColumn: perdida_esperada
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_previsiones = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_previsiones.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"fecha_foto", type date}, {"pais", type text}, {"situacion", Int64.Type}, {"etapa", Int64.Type}, {"creditos", Int64.Type}, {"saldo_capital", type number}, {"prevision_bcra", type number}, {"perdida_esperada", type number}}, "en-US")
+				in
+				    Resultado0
+

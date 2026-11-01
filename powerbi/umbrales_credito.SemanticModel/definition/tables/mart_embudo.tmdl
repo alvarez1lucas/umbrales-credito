@@ -1,0 +1,54 @@
+table mart_embudo
+	lineageTag: 9360bb5f-b900-597e-8e3b-5a217fc9b2df
+
+	column anio
+		dataType: int64
+		lineageTag: 250a5858-df80-5752-932b-3f75063a16c5
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		lineageTag: 5d24bc53-f7aa-5a5e-a051-51f1865b50ec
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado
+		dataType: string
+		lineageTag: 1ab5d891-7b06-5588-a47b-142845795f4d
+		summarizeBy: none
+		sourceColumn: resultado
+
+		annotation SummarizationSetBy = Automatic
+
+	column solicitudes
+		dataType: int64
+		lineageTag: 9220de26-9161-5728-9655-d1497f4ef96d
+		summarizeBy: none
+		sourceColumn: solicitudes
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto
+		dataType: double
+		lineageTag: d3737726-33c0-5fd7-a4ca-012ed053a397
+		summarizeBy: none
+		sourceColumn: monto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_embudo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_embudo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"anio", Int64.Type}, {"producto", type text}, {"resultado", type text}, {"solicitudes", Int64.Type}, {"monto", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"resultado", (v) => List.First(List.Select({[a = "otorgado", b = "Otorgado"], [a = "desistido", b = "Desistido"], [a = "rechazado", b = "Rechazado"], [a = "incompleto", b = "Incompleto"], [a = "aprobado_no_aceptado", b = "Aprobado, no aceptado"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

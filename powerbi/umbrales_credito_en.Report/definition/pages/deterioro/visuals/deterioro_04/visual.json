@@ -1,0 +1,291 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "deterioro_04",
+  "position": {
+    "x": 24,
+    "y": 396,
+    "z": 400,
+    "height": 290,
+    "width": 620,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_pais"
+                    }
+                  },
+                  "Property": "pais"
+                }
+              },
+              "queryRef": "dim_pais.pais",
+              "nativeQueryRef": "dim_pais_pais",
+              "displayName": "Country"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Share"
+                }
+              },
+              "queryRef": "Metrics.Share",
+              "nativeQueryRef": "Metrics_Share",
+              "displayName": "Balance %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Previous PAR30 %"
+                }
+              },
+              "queryRef": "Metrics.Previous PAR30 %",
+              "nativeQueryRef": "Metrics_Previous PAR30 %",
+              "displayName": "PAR30 Jul-25"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Current PAR30 %"
+                }
+              },
+              "queryRef": "Metrics.Current PAR30 %",
+              "nativeQueryRef": "Metrics_Current PAR30 %",
+              "displayName": "PAR30 Oct-26"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "PAR30 change"
+                }
+              },
+              "queryRef": "Metrics.PAR30 change",
+              "nativeQueryRef": "Metrics_PAR30 change",
+              "displayName": "Change (pp)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Share"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_pais.pais"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.Share"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.Previous PAR30 %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.Current PAR30 %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.PAR30 change"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Finland holds 55.6% of the balance (HHI 0.38); Denmark and Latvia are worsening'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

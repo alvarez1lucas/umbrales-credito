@@ -1,0 +1,262 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "cobranzas_03",
+  "position": {
+    "x": 24,
+    "y": 396,
+    "z": 300,
+    "height": 290,
+    "width": 560,
+    "tabOrder": 300
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "resultado_por_tramo"
+                    }
+                  },
+                  "Property": "tramo"
+                }
+              },
+              "queryRef": "resultado_por_tramo.tramo",
+              "nativeQueryRef": "resultado_por_tramo_tramo",
+              "displayName": "Bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "resultado_por_tramo"
+                    }
+                  },
+                  "Property": "creditos"
+                }
+              },
+              "queryRef": "resultado_por_tramo.creditos",
+              "nativeQueryRef": "resultado_por_tramo_creditos",
+              "displayName": "Loans"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "resultado_por_tramo"
+                    }
+                  },
+                  "Property": "prob_mal"
+                }
+              },
+              "queryRef": "resultado_por_tramo.prob_mal",
+              "nativeQueryRef": "resultado_por_tramo_prob_mal",
+              "displayName": "Goes bad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "resultado_por_tramo"
+                    }
+                  },
+                  "Property": "prob_cura"
+                }
+              },
+              "queryRef": "resultado_por_tramo.prob_cura",
+              "nativeQueryRef": "resultado_por_tramo_prob_cura",
+              "displayName": "Cures"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "resultado_por_tramo"
+                  }
+                },
+                "Property": "tramo"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "7L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "resultado_por_tramo.tramo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "resultado_por_tramo.creditos"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "resultado_por_tramo.prob_mal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "resultado_por_tramo.prob_cura"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Days past due do separate risk: 34% go bad from 1-30 days, 84% from 61-90'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,54 @@
+table mart_motivos_rechazo
+	lineageTag: 8268f583-a18d-57a4-a76f-a56c2c774a76
+
+	column anio
+		dataType: int64
+		lineageTag: 998c08c5-fa12-537e-8d4d-aca5b7a532f9
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		lineageTag: 59f8284d-8ac2-5e6d-a1ee-13abff531b6d
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column dti_tramo
+		dataType: string
+		lineageTag: f86ca589-23f6-5b42-982e-82051775e488
+		summarizeBy: none
+		sourceColumn: dti_tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column motivo
+		dataType: string
+		lineageTag: e57a28bf-e0ca-5e6e-b9cd-805197bf5814
+		summarizeBy: none
+		sourceColumn: motivo
+
+		annotation SummarizationSetBy = Automatic
+
+	column rechazos
+		dataType: int64
+		lineageTag: 65181803-f20f-5119-beb2-41a01001fb2b
+		summarizeBy: none
+		sourceColumn: rechazos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_motivos_rechazo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_motivos_rechazo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"anio", Int64.Type}, {"producto", type text}, {"dti_tramo", type text}, {"motivo", type text}, {"rechazos", Int64.Type}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"motivo", (v) => List.First(List.Select({[a = "Deuda sobre ingreso", b = "Debt-to-income"], [a = "Historial crediticio", b = "Credit history"], [a = "Garantía", b = "Collateral"], [a = "Información no verificable", b = "Unverifiable information"], [a = "Solicitud incompleta", b = "Incomplete application"], [a = "Otro", b = "Other"], [a = "Efectivo insuficiente", b = "Insufficient cash"], [a = "Historial laboral", b = "Employment history"], [a = "Exento de informar", b = "Exempt from reporting"], [a = "Seguro hipotecario rechazado", b = "Mortgage insurance denied"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

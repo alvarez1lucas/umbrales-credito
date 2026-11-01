@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "resumen_07",
+  "position": {
+    "x": 24,
+    "y": 192,
+    "z": 700,
+    "height": 90,
+    "width": 1232,
+    "tabOrder": 700
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Where is the rule?",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#0b0b0b",
+                      "fontFamily": "Segoe UI Semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Conventional approval falls from 91% to 28% when debt-to-income crosses 50, and applications bunch right below",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#52514e",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

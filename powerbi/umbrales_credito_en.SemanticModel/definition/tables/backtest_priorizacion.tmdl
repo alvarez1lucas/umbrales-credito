@@ -1,0 +1,46 @@
+table backtest_priorizacion
+	lineageTag: eefb7939-7157-525e-b313-ef2b708b31fa
+
+	column regla
+		dataType: string
+		lineageTag: 4eb5a858-9860-5fdb-87b9-59bd07753a2a
+		summarizeBy: none
+		sourceColumn: regla
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacidad_pct
+		dataType: double
+		lineageTag: 4b8a5eea-3fd2-5c12-af51-d3ea31e98b72
+		summarizeBy: none
+		sourceColumn: capacidad_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_malo_cubierto_pct
+		dataType: double
+		lineageTag: ed6dd54f-874b-5cea-bb87-2469d7e97927
+		summarizeBy: none
+		sourceColumn: saldo_malo_cubierto_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdida_evitada_escenario
+		dataType: double
+		lineageTag: c85c2668-a1f5-54bb-b7f8-acc69c0cfba8
+		summarizeBy: none
+		sourceColumn: perdida_evitada_escenario
+
+		annotation SummarizationSetBy = Automatic
+
+	partition backtest_priorizacion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\cobranzas\backtest_priorizacion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"regla", type text}, {"capacidad_pct", type number}, {"saldo_malo_cubierto_pct", type number}, {"perdida_evitada_escenario", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"regla", (v) => List.First(List.Select({[a = "mas_atrasados", b = "Most overdue"], [a = "mayor_saldo", b = "Largest balance"], [a = "mayor_perdida_esperada", b = "Highest expected loss"], [a = "mas_salvable", b = "Most salvageable"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

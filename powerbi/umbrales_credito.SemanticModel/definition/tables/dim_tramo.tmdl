@@ -1,0 +1,38 @@
+table dim_tramo
+	lineageTag: 928a5a97-4fad-5541-8af3-2a69d9426ae4
+
+	column tramo
+		dataType: string
+		lineageTag: f0370af9-86d1-5e84-b540-e6d6361d955b
+		summarizeBy: none
+		sourceColumn: tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		lineageTag: 6d1021df-2177-5e59-9dc5-269673f2ffe4
+		summarizeBy: none
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: e3102ad7-07cd-5333-840c-b551ffb1a971
+		summarizeBy: none
+		sourceColumn: nombre
+		sortByColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tramo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\dim_tramo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"tramo", type text}, {"orden", Int64.Type}, {"nombre", type text}}, "en-US")
+				in
+				    Resultado0
+

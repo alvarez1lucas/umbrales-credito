@@ -1,0 +1,1446 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_pais.pais": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_pais",
+			          "ConceptualProperty": "pais"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Country": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas.saldo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Saldo"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.par30_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "PAR30 %"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.par90_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "PAR90 %"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.tasa_de_rechazo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Tasa de rechazo"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.pérdida_esperada_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Pérdida esperada %"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.tasa_media__pond_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Tasa media % (pond.)"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.pd_12m__pond_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "PD 12m % (pond.)"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.previsión_bcra_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Previsión BCRA %"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "medidas.neto_por_cuenta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Neto por cuenta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "mart_aprobacion_dti.dti": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_aprobacion_dti",
+			          "ConceptualProperty": "dti"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Debt-to-income": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_aprobacion_dti.producto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_aprobacion_dti",
+			          "ConceptualProperty": "producto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Product": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_embudo.resultado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_embudo",
+			          "ConceptualProperty": "resultado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Outcome": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_motivos_rechazo.motivo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_motivos_rechazo",
+			          "ConceptualProperty": "motivo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reason": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_tope_dti.tope": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_tope_dti",
+			          "ConceptualProperty": "tope"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cap": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_tope_dti.aprobacion_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_tope_dti",
+			          "ConceptualProperty": "aprobacion_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Approval %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_tope_dti.aprobados_perdidos_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_tope_dti",
+			          "ConceptualProperty": "aprobados_perdidos_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Approvals lost %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_tope_dti.monto_perdido_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_tope_dti",
+			          "ConceptualProperty": "monto_perdido_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Amount lost %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_tope_dti.impacto_negro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_tope_dti",
+			          "ConceptualProperty": "impacto_Negro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Impact, Black": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_tope_dti.impacto_hispano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_tope_dti",
+			          "ConceptualProperty": "impacto_Hispano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Impact, Hispanic": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_cosechas.mes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_cosechas",
+			          "ConceptualProperty": "mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_cosechas.anio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_cosechas",
+			          "ConceptualProperty": "anio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Vintage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tramo_desde.nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_tramo_desde",
+			          "ConceptualProperty": "nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "From": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tramo_hasta.nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_tramo_hasta",
+			          "ConceptualProperty": "nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "To": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_rating.rating": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_rating",
+			          "ConceptualProperty": "rating"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rating": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_situacion.nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_situacion",
+			          "ConceptualProperty": "nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "backtest_priorizacion.capacidad_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "backtest_priorizacion",
+			          "ConceptualProperty": "capacidad_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Capacity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "backtest_priorizacion.regla": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "backtest_priorizacion",
+			          "ConceptualProperty": "regla"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "resultado_por_tramo.tramo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "resultado_por_tramo",
+			          "ConceptualProperty": "tramo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bucket": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "resultado_por_tramo.creditos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "resultado_por_tramo",
+			          "ConceptualProperty": "creditos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Loans": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "resultado_por_tramo.prob_mal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "resultado_por_tramo",
+			          "ConceptualProperty": "prob_mal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Goes bad": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "resultado_por_tramo.prob_cura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "resultado_por_tramo",
+			          "ConceptualProperty": "prob_cura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cures": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "escenario_canales.canal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "escenario_canales",
+			          "ConceptualProperty": "canal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Channel": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "escenario_canales.tramo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "escenario_canales",
+			          "ConceptualProperty": "tramo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bucket": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.balance": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Balance"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Portfolio balance": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.par30_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "PAR30 %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PAR30": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.par90_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "PAR90 %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PAR90": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.denial_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Denial rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Denial rate on decisions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.expected_loss_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Expected loss %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Expected loss": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.result_change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Result change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Change (€M)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.average_rate__weighted": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Average rate % (weighted)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Average rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.column12m_pd__weighted": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "12m PD % (weighted)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "12-month PD": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.bcra_provision_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "BCRA provision %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "BCRA rule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.column12m_default_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "12m default %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "12-month default": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Balance %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.previous_par30_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Previous PAR30 %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PAR30 Jul-25": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.current_par30_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Current PAR30 %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PAR30 Oct-26": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "PAR30": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.par30_change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "PAR30 change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Change (pp)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.net_per_account": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Net per account"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Net per account": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.loss_avoided": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Loss avoided"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Loss avoided": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.avoided_per_euro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Avoided per euro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "€ avoided per € spent": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.regla": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "regla"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.aprobados_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "aprobados_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Approved %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.monto_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "monto_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Amount %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.evento_12m_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "evento_12m_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "12m default %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.margen_pct_monto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "margen_pct_monto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Margin %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.cambio_resultado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "cambio_resultado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Change (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.cambio_ic_inf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "cambio_ic_inf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CI low (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "simulacion_reglas_bondora.cambio_ic_sup": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "simulacion_reglas_bondora",
+			          "ConceptualProperty": "cambio_ic_sup"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CI high (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "estabilidad_reglas.semestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estabilidad_reglas",
+			          "ConceptualProperty": "semestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Half-year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "estabilidad_reglas.regla": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estabilidad_reglas",
+			          "ConceptualProperty": "regla"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_deterioro.cosecha_anio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_deterioro",
+			          "ConceptualProperty": "cosecha_anio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Vintage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_composicion.plazo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_composicion",
+			          "ConceptualProperty": "plazo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Term (months)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tasas_canales.canal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tasas_canales",
+			          "ConceptualProperty": "canal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Channel": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tasas_canales.costo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tasas_canales",
+			          "ConceptualProperty": "costo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cost (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tasas_canales.contacto_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tasas_canales",
+			          "ConceptualProperty": "contacto_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contact %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tasas_canales.promesa_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tasas_canales",
+			          "ConceptualProperty": "promesa_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Promise %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tasas_canales.cumplimiento_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tasas_canales",
+			          "ConceptualProperty": "cumplimiento_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Kept %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tasas_canales.pagos_cada_100": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tasas_canales",
+			          "ConceptualProperty": "pagos_cada_100"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Payments per 100": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "regla_canal.tramo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "regla_canal",
+			          "ConceptualProperty": "tramo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bucket": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "regla_canal.base": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "regla_canal",
+			          "ConceptualProperty": "base"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Base case (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "regla_canal.contacto_mitad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "regla_canal",
+			          "ConceptualProperty": "contacto_mitad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Half contact (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "regla_canal.costo_doble": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "regla_canal",
+			          "ConceptualProperty": "costo_doble"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Double cost (€)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

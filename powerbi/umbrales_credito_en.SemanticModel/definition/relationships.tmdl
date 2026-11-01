@@ -1,0 +1,52 @@
+relationship 5b3bf417-5f26-5a46-9b10-1ddd34998ab2
+	fromColumn: mart_cartera_tramos.tramo
+	toColumn: dim_tramo.tramo
+
+relationship 9deddeb0-6e8e-5e63-9040-129d72ff3c82
+	fromColumn: mart_cartera_tramos.rating
+	toColumn: dim_rating.rating
+
+relationship fd3b188b-de46-5878-9330-88564cf85147
+	fromColumn: mart_cartera_tramos.pais
+	toColumn: dim_pais.pais
+
+relationship 6f63f76f-1f21-54e2-b488-b33fef5539de
+	fromColumn: mart_perdida_segmentos.rating
+	toColumn: dim_rating.rating
+
+relationship 5e83f83f-4254-5969-ac74-6dfdd68aa1c8
+	fromColumn: mart_perdida_segmentos.pais
+	toColumn: dim_pais.pais
+
+relationship a6d84ec2-54df-522e-86c2-aa85d3fa6281
+	fromColumn: mart_previsiones.pais
+	toColumn: dim_pais.pais
+
+relationship befe3ffa-5ebf-5a4c-83e7-4de420f5c0b0
+	fromColumn: mart_previsiones.situacion
+	toColumn: dim_situacion.situacion
+
+relationship 321e8305-54c7-5f84-bbf0-ab6201b6ea3b
+	fromColumn: mart_composicion.pais
+	toColumn: dim_pais.pais
+
+relationship dbbb2535-4c03-59c1-89d8-13cd547d419d
+	fromColumn: mart_composicion.rating
+	toColumn: dim_rating.rating
+
+relationship b790df65-ab67-54af-be79-e1f1f6cac81c
+	fromColumn: mart_deterioro.pais
+	toColumn: dim_pais.pais
+
+relationship 067c8279-1c27-5934-abd1-59976c06fa2b
+	fromColumn: mart_deterioro.rating
+	toColumn: dim_rating.rating
+
+relationship 66c21bb3-4b2f-5831-b45f-01ce0d8b6ca7
+	fromColumn: mart_roll_rates.tramo_desde
+	toColumn: dim_tramo_desde.tramo
+
+relationship 76cbb085-293c-53fc-a2a5-45ae7e00dd59
+	fromColumn: mart_roll_rates.tramo_hasta
+	toColumn: dim_tramo_hasta.tramo
+

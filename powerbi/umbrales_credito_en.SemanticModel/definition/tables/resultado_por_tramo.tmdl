@@ -1,0 +1,66 @@
+table resultado_por_tramo
+	lineageTag: 49ffb4b0-a4e9-573d-9b30-3c53c0997443
+
+	column tramo
+		dataType: string
+		lineageTag: 880015cf-a975-5563-a570-838d5fd4406b
+		summarizeBy: none
+		sourceColumn: tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2e68cb32-4be0-5c7c-8ad9-ea881b3fec94
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d60d94d5-54b5-5ff1-8720-8742fd1788fe
+		summarizeBy: none
+		sourceColumn: saldo
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_medio
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 56052058-eec8-532c-8baa-0b5baa44298d
+		summarizeBy: none
+		sourceColumn: saldo_medio
+
+		annotation SummarizationSetBy = Automatic
+
+	column prob_mal
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 805cef80-3247-553a-a3cc-9734e6867ade
+		summarizeBy: none
+		sourceColumn: prob_mal
+
+		annotation SummarizationSetBy = Automatic
+
+	column prob_cura
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8d1d66a9-3a38-5852-ba5c-a50269b59cb2
+		summarizeBy: none
+		sourceColumn: prob_cura
+
+		annotation SummarizationSetBy = Automatic
+
+	partition resultado_por_tramo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\cobranzas\resultado_por_tramo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"tramo", type text}, {"creditos", Int64.Type}, {"saldo", type number}, {"saldo_medio", type number}, {"prob_mal", type number}, {"prob_cura", type number}}, "en-US")
+				in
+				    Resultado0
+

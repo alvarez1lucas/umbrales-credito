@@ -1,0 +1,45 @@
+table regla_canal
+	lineageTag: 2905fb40-276b-5e2f-bbdc-ff83f7fdf052
+
+	column tramo
+		dataType: string
+		lineageTag: becb2d07-f8ed-52e2-9e9f-7ac84d8649a2
+		summarizeBy: none
+		sourceColumn: tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column base
+		dataType: int64
+		lineageTag: 70547530-8837-5e22-9b46-e094479f2bda
+		summarizeBy: none
+		sourceColumn: base
+
+		annotation SummarizationSetBy = Automatic
+
+	column contacto_mitad
+		dataType: int64
+		lineageTag: 912dec43-0490-57c8-94fd-6601bf431dd5
+		summarizeBy: none
+		sourceColumn: contacto_mitad
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo_doble
+		dataType: int64
+		lineageTag: fe1096d3-713a-589c-b89c-df08cbee6940
+		summarizeBy: none
+		sourceColumn: costo_doble
+
+		annotation SummarizationSetBy = Automatic
+
+	partition regla_canal = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\cobranzas\regla_canal.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"tramo", type text}, {"base", Int64.Type}, {"contacto_mitad", Int64.Type}, {"costo_doble", Int64.Type}}, "en-US")
+				in
+				    Resultado0
+

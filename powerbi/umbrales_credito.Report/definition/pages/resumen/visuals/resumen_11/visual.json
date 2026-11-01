@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "resumen_11",
+  "position": {
+    "x": 24,
+    "y": 584,
+    "z": 1100,
+    "height": 90,
+    "width": 1232,
+    "tabOrder": 1100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "¿Sigue valiendo?",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#0b0b0b",
+                      "fontFamily": "Segoe UI Semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Los ratings F y G pasaron de +8,3% a -9,7% del monto en dos años",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#52514e",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "resumen_08",
+  "position": {
+    "x": 24,
+    "y": 290,
+    "z": 800,
+    "height": 90,
+    "width": 1232,
+    "tabOrder": 800
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "¿La variable separa riesgo?",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#0b0b0b",
+                      "fontFamily": "Segoe UI Semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Por debajo de 50, la deuda-ingreso casi no mueve el precio. El atraso sí: terminan mal el 34% en 1-30 días y el 84% en 61-90",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#52514e",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

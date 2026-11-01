@@ -1,0 +1,63 @@
+table mart_cartera_tramos
+	lineageTag: 4500b944-9739-54b3-9011-2cd19872334b
+
+	column fecha_foto
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ade20df2-89e1-5041-8817-2ff7be2e1b22
+		summarizeBy: none
+		sourceColumn: fecha_foto
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		lineageTag: d6a6cc20-2fc6-51cd-a5fc-495e4721a194
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: cd8a16db-cfcc-5afe-911c-7d4749a1150f
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column tramo
+		dataType: string
+		lineageTag: 7530c70d-a584-5e35-b6b9-f2cf86bc2780
+		summarizeBy: none
+		sourceColumn: tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 43e3d0af-00cf-5072-988c-85ce44c9a2d2
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_capital
+		dataType: double
+		lineageTag: ecda1404-4610-55fd-8afc-fc5da9bd53f0
+		summarizeBy: none
+		sourceColumn: saldo_capital
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_cartera_tramos = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_cartera_tramos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"fecha_foto", type date}, {"pais", type text}, {"rating", type text}, {"tramo", type text}, {"creditos", Int64.Type}, {"saldo_capital", type number}}, "en-US")
+				in
+				    Resultado0
+

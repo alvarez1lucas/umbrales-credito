@@ -1,0 +1,94 @@
+table mart_perdida_segmentos
+	lineageTag: 984bfe39-b110-55ff-8c2c-cd9653cf959a
+
+	column pais
+		dataType: string
+		lineageTag: f12e0804-b1cc-5d34-a35f-61029be995b1
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: 33b5d373-f112-5063-b81c-aa21b7854746
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 991bfdb1-140a-51ff-9ba3-8ab275d37015
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto
+		dataType: double
+		lineageTag: daf2af79-4668-544b-8d7a-68a3bf557119
+		summarizeBy: none
+		sourceColumn: monto
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_media_pct
+		dataType: double
+		lineageTag: 1a61dec4-8b4a-526c-8f01-585a244ad0e7
+		summarizeBy: none
+		sourceColumn: tasa_media_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_12m_pct
+		dataType: double
+		lineageTag: 103bd533-9c54-56eb-afee-9a70b21b30d4
+		summarizeBy: none
+		sourceColumn: pd_12m_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column lgd_pct
+		dataType: double
+		lineageTag: 3c18ef9f-95da-57b2-b4b0-80cf116b9e3f
+		summarizeBy: none
+		sourceColumn: lgd_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column lgd_fuente
+		dataType: string
+		lineageTag: f7f16122-e7e1-57bc-89a0-fab092180101
+		summarizeBy: none
+		sourceColumn: lgd_fuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdida_esperada_pct
+		dataType: double
+		lineageTag: f8df0d4a-daa5-58f0-a646-b67fe92d772c
+		summarizeBy: none
+		sourceColumn: perdida_esperada_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column margen_ajustado_pct
+		dataType: double
+		lineageTag: 320051bd-c307-512d-96e5-2f8757c3ef45
+		summarizeBy: none
+		sourceColumn: margen_ajustado_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_perdida_segmentos = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_perdida_segmentos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"pais", type text}, {"rating", type text}, {"creditos", Int64.Type}, {"monto", type number}, {"tasa_media_pct", type number}, {"pd_12m_pct", type number}, {"lgd_pct", type number}, {"lgd_fuente", type text}, {"perdida_esperada_pct", type number}, {"margen_ajustado_pct", type number}}, "en-US")
+				in
+				    Resultado0
+

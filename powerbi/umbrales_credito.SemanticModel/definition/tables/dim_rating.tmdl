@@ -1,0 +1,30 @@
+table dim_rating
+	lineageTag: cd4f8f9a-c79a-5950-9515-da5389cbec77
+
+	column rating
+		dataType: string
+		lineageTag: c2511876-d70f-5cce-8785-458ce25ea160
+		summarizeBy: none
+		sourceColumn: rating
+		sortByColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		lineageTag: 03afb26e-421a-52d1-bd7a-fcb9aaac2ad4
+		summarizeBy: none
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_rating = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\dim_rating.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"rating", type text}, {"orden", Int64.Type}}, "en-US")
+				in
+				    Resultado0
+

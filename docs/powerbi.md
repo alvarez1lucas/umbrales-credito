@@ -1,102 +1,40 @@
-# Guía de Power BI
+# Tablero de Power BI
 
-Cómo armar el tablero en Power BI Desktop con los CSV de `outputs/marts/` y `outputs/originacion/`. Son cuatro páginas y se arma
-en una sesión. Al terminar, guardá el archivo como `powerbi/umbrales_credito.pbix` y exportá el PDF a `powerbi/umbrales_credito.pdf`.
+El tablero no se arma a mano: `python -m ciclo.powerbi` lo genera desde `outputs/` como proyecto de texto (formato PBIP, con el modelo en
+TMDL y las páginas en PBIR), en español y en inglés. Requiere Power BI Desktop de septiembre de 2026 o posterior.
 
-## 1. Cargar los datos
+## Abrirlo
 
-Inicio → Obtener datos → Carpeta → `outputs/marts`. Combiná sólo si querés; lo más simple es cargar cada CSV por separado con
-**Obtener datos → Texto/CSV**. Las cifras usan punto decimal: si tu Windows está en español, en Power Query usá
-**Cambiar tipo → Usar configuración regional → Inglés (Estados Unidos)** en las columnas numéricas. Marcá como Fecha `cosecha`,
-`fecha_foto`, `fecha_desde` y `fecha_hasta`.
+1. Abrí `powerbi/umbrales_credito.pbip`, o `powerbi/umbrales_credito_en.pbip` para inglés. Si Git clonó el repo en otra carpeta, corré antes `python -m ciclo.powerbi`: fija la ruta de los CSV en el parámetro `RutaDatos`.
+2. Tocá **Actualizar**: el proyecto guarda la definición, no los datos.
+3. Los `.pbix` de `powerbi/` son la versión lista para ver. Si se agregan `umbrales_credito.pdf` y `umbrales_credito_en.pdf`, el README y el sitio los enlazan solos.
 
-## 2. Modelo en estrella
+Cuando cambian los datos, se corre `python -m ciclo.powerbi` con Power BI cerrado y se vuelven a exportar los PDF y los `.pbix`: los títulos llevan
+cifras generadas desde `outputs/`, y esos archivos son una foto con fecha.
 
-Cada mart es una tabla de hechos agregada. Creá estas relaciones (uno a varios, desde la dimensión):
+## Qué tiene
 
-| Dimensión | Campo | Tablas de hechos |
+| Página | Pregunta | Contenido |
 |---|---|---|
-| `dim_tramo` | `tramo` | `mart_cartera_tramos[tramo]` |
-| `dim_rating` | `rating` | `mart_cartera_tramos[rating]`, `mart_perdida_segmentos[rating]` |
-| `dim_pais` | `pais` | `mart_cartera_tramos[pais]`, `mart_previsiones[pais]`, `mart_perdida_segmentos[pais]` |
-| `dim_situacion` | `situacion` | `mart_previsiones[situacion]` |
+| Resumen | Todas | Cinco indicadores, selector de país y los hallazgos del README |
+| Originación | Dónde está la regla | Aprobación por deuda-ingreso, resultados, motivos de rechazo y simulación de topes |
+| Política | Qué pasa si la muevo | Cambio de resultado por regla, con y sin costo, intervalos y estabilidad por semestre |
+| Cartera | Cómo está la cartera | Cosechas, transiciones entre tramos, riesgo contra tasa por segmento y previsiones |
+| Deterioro | Dónde se deteriora y desde cuándo | Mora por cosecha y rating o país, concentración, cambio de PAR30 entre fotos y plazo |
+| Cobranzas | A quién gestionar primero | Priorización comparada, destino de cada tramo, resultado por tramo y escenario de canales |
+| Canales y plan | Por qué canal y cuánto rinde | Pérdida evitada con el mismo equipo, rendimiento por euro, supuestos del embudo y umbral para llamar |
 
-Para `mart_roll_rates`, duplicá `dim_tramo` como `dim_tramo_desde` y `dim_tramo_hasta` y relacioná cada una con su columna.
-En `dim_tramo` y `dim_rating`, ordená `tramo` y `rating` por la columna `orden` (Herramientas de columna → Ordenar por columna).
+## Dos idiomas
 
-## 3. Medidas DAX
+Son dos proyectos con los mismos datos y las mismas medidas; cambian títulos, ejes, notas, categorías y nombres de medidas. Las traducciones
+propias de Power BI no sirven acá porque sólo funcionan en el servicio online, y un botón de idioma obligaría a volver dinámico cada texto.
 
-```dax
-Saldo = SUM(mart_cartera_tramos[saldo_capital])
-Créditos = SUM(mart_cartera_tramos[creditos])
+## Decisiones del modelo
 
-PAR30 % =
-DIVIDE(
-    CALCULATE([Saldo], dim_tramo[tramo] IN {"31-60", "61-90", "90+"}),
-    CALCULATE([Saldo], REMOVEFILTERS(dim_tramo))
-)
-
-PAR90 % =
-DIVIDE(
-    CALCULATE([Saldo], dim_tramo[tramo] = "90+"),
-    CALCULATE([Saldo], REMOVEFILTERS(dim_tramo))
-)
-
-Previsión BCRA = SUM(mart_previsiones[prevision_bcra])
-Pérdida esperada = SUM(mart_previsiones[perdida_esperada])
-Saldo previsiones = SUM(mart_previsiones[saldo_capital])
-Previsión BCRA % = DIVIDE([Previsión BCRA], [Saldo previsiones])
-Pérdida esperada % = DIVIDE([Pérdida esperada], [Saldo previsiones])
-Diferencia con la norma = [Pérdida esperada] - [Previsión BCRA]
-
-Solicitudes = SUM(mart_embudo[solicitudes])
-Otorgadas = CALCULATE([Solicitudes], mart_embudo[resultado] = "otorgado")
-Rechazadas = CALCULATE([Solicitudes], mart_embudo[resultado] = "rechazado")
-Con decisión =
-CALCULATE([Solicitudes], mart_embudo[resultado] IN {"otorgado", "aprobado_no_aceptado", "rechazado"})
-Tasa de rechazo = DIVIDE([Rechazadas], [Con decisión])
-
-Rechazos = SUM(mart_motivos_rechazo[rechazos])
-% de rechazos = DIVIDE([Rechazos], CALCULATE([Rechazos], ALL(mart_motivos_rechazo[motivo])))
-
-Mora cosecha % =
-DIVIDE(SUM(mart_cosechas[creditos_con_evento]), SUM(mart_cosechas[creditos]))
-
-Roll % =
-DIVIDE(
-    SUM(mart_roll_rates[creditos]),
-    CALCULATE(SUM(mart_roll_rates[creditos]), REMOVEFILTERS(dim_tramo_hasta))
-)
-```
-
-Para las tablas que ya vienen en porcentaje (`aprobacion_pct`, `pd_12m_pct`, `margen_ajustado_pct`), usá el promedio ponderado
-si agregás segmentos, no la suma:
-
-```dax
-PD 12m % (pond.) =
-DIVIDE(
-    SUMX(mart_perdida_segmentos, mart_perdida_segmentos[pd_12m_pct] * mart_perdida_segmentos[creditos]),
-    SUM(mart_perdida_segmentos[creditos])
-)
-```
-
-## 4. Páginas
-
-**Resumen.** Tarjetas: Saldo, PAR30 %, PAR90 %, Tasa de rechazo, Pérdida esperada %. Una tabla con las cinco preguntas y su hallazgo
-(cuadro de texto, copiado del memo). Segmentador de país.
-
-**Originación.** Embudo con `resultado` y Solicitudes. Barras de `% de rechazos` por `motivo`. Líneas de `aprobacion_pct` por `dti`
-(ordená por `dti_orden`) con `producto` como leyenda: es el gráfico del precipicio. Tabla de `simulacion_tope_dti.csv`.
-
-**Cartera.** Líneas de Mora cosecha % por `mes`, con `cosecha` (año) como leyenda. Matriz de Roll % con `dim_tramo_desde` en filas y
-`dim_tramo_hasta` en columnas, con formato condicional. Dispersión de `pd_12m_pct` contra `tasa_media_pct` por rating, con país como leyenda.
-Previsión BCRA % y Pérdida esperada % por situación, en barras agrupadas.
-
-**Cobranzas.** Líneas de `saldo_malo_cubierto_pct` por `capacidad_pct`, con `regla` como leyenda (`backtest_priorizacion.csv`). Barras apiladas de
-Roll % por tramo. Tabla de `escenario_canales.csv`, con el título **"Escenario con supuestos, no datos observados"**.
-
-## 5. Antes de publicar
-
-- Títulos que digan la conclusión, no la variable: "La aprobación cae al cruzar 50", no "Aprobación por DTI".
-- Un solo eje por gráfico, y el mismo color para el mismo país o regla en todas las páginas.
-- Rotulá los supuestos en la misma página donde aparecen.
+- **Modelo en estrella:** `dim_tramo`, `dim_rating`, `dim_pais` y `dim_situacion`, y dos copias de `dim_tramo` para el origen y el destino de las transiciones.
+- **Una sola foto:** saldo y previsiones usan la foto más reciente. Sumar fotos de una cartera duplica el saldo.
+- **Promedios ponderados:** PD y tasa se ponderan por créditos, y la aprobación se recalcula desde sus conteos. Promediar porcentajes de segmentos distintos da otro número.
+- **Cosechas comparables:** un año sólo se muestra en los meses que observaron todos sus trimestres. Si no, el final de la curva mezcla cosechas distintas.
+- **Barras en vez de embudo:** los resultados de una solicitud son excluyentes, no etapas.
+- **FSA/RHS fuera del gráfico de aprobación:** con tan pocos casos por tramo, oscila entre 0 y 100%. Sigue en las demás tablas.
+- **Supuestos rotulados:** el escenario de canales lo dice en el título, y la norma BCRA se aclara como ejercicio sobre una cartera europea.

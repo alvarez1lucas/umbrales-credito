@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "resumen_11",
+  "position": {
+    "x": 24,
+    "y": 584,
+    "z": 1100,
+    "height": 90,
+    "width": 1232,
+    "tabOrder": 1100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Does it still hold?",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#0b0b0b",
+                      "fontFamily": "Segoe UI Semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Ratings F and G went from +8.3% to -9.7% of the amount in two years",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#52514e",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

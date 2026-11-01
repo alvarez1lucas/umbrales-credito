@@ -31,3 +31,7 @@ Thumbs.db
 /dbt_ciclo/logs/
 /dbt_ciclo/dbt_packages/
 /logs/
+
+# Archivos locales de Power BI (caché de datos y firmas de esta máquina)
+/powerbi/*/.pbi/cache.abf
+/powerbi/*/.pbi/localSettings.json

@@ -1,0 +1,55 @@
+table dim_situacion
+	lineageTag: 0c332422-1178-5268-ad24-51b0e243f070
+
+	column situacion
+		dataType: int64
+		lineageTag: 32316a20-7333-57bc-a039-17fa4504e3c5
+		summarizeBy: none
+		sourceColumn: situacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 6b53e3c0-2b8c-518c-9b3b-bfe75469bd26
+		summarizeBy: none
+		sourceColumn: nombre
+		sortByColumn: situacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_desde
+		dataType: int64
+		lineageTag: c810ee5c-d7ca-5d8f-b37b-52aadc27900d
+		summarizeBy: none
+		sourceColumn: dias_desde
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_hasta
+		dataType: int64
+		lineageTag: 563fe907-0121-5ca2-b786-fca15a711e31
+		summarizeBy: none
+		sourceColumn: dias_hasta
+
+		annotation SummarizationSetBy = Automatic
+
+	column prevision_sin_garantia_pct
+		dataType: int64
+		lineageTag: 55f058c3-3d17-5997-b2d7-072609217dd2
+		summarizeBy: none
+		sourceColumn: prevision_sin_garantia_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_situacion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\dim_situacion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"situacion", Int64.Type}, {"nombre", type text}, {"dias_desde", Int64.Type}, {"dias_hasta", Int64.Type}, {"prevision_sin_garantia_pct", Int64.Type}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"nombre", (v) => List.First(List.Select({[a = "Normal", b = "Normal"], [a = "Riesgo bajo (en observación)", b = "Low risk (watch)"], [a = "Riesgo medio", b = "Medium risk"], [a = "Riesgo alto", b = "High risk"], [a = "Irrecuperable", b = "Unrecoverable"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

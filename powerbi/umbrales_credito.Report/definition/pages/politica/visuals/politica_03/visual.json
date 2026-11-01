@@ -1,0 +1,436 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "politica_03",
+  "position": {
+    "x": 24,
+    "y": 396,
+    "z": 300,
+    "height": 290,
+    "width": 1232,
+    "tabOrder": 300
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "regla"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.regla",
+              "nativeQueryRef": "simulacion_reglas_bondora_regla",
+              "displayName": "Regla"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "aprobados_pct"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.aprobados_pct",
+              "nativeQueryRef": "simulacion_reglas_bondora_aprobados_pct",
+              "displayName": "Aprobados %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "monto_pct"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.monto_pct",
+              "nativeQueryRef": "simulacion_reglas_bondora_monto_pct",
+              "displayName": "Monto %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "evento_12m_pct"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.evento_12m_pct",
+              "nativeQueryRef": "simulacion_reglas_bondora_evento_12m_pct",
+              "displayName": "Mora 12m %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "margen_pct_monto"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.margen_pct_monto",
+              "nativeQueryRef": "simulacion_reglas_bondora_margen_pct_monto",
+              "displayName": "Margen %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "cambio_resultado"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.cambio_resultado",
+              "nativeQueryRef": "simulacion_reglas_bondora_cambio_resultado",
+              "displayName": "Cambio (€)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "cambio_ic_inf"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.cambio_ic_inf",
+              "nativeQueryRef": "simulacion_reglas_bondora_cambio_ic_inf",
+              "displayName": "IC inferior (€)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "simulacion_reglas_bondora"
+                    }
+                  },
+                  "Property": "cambio_ic_sup"
+                }
+              },
+              "queryRef": "simulacion_reglas_bondora.cambio_ic_sup",
+              "nativeQueryRef": "simulacion_reglas_bondora_cambio_ic_sup",
+              "displayName": "IC superior (€)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "simulacion_reglas_bondora"
+                  }
+                },
+                "Property": "cambio_resultado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "230.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.regla"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.aprobados_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.monto_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.evento_12m_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.margen_pct_monto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.cambio_resultado"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.cambio_ic_inf"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "simulacion_reglas_bondora.cambio_ic_sup"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cada regla, con 10 puntos de costo: lo que se resigna contra lo que se gana'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "costo",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "simulacion_reglas_bondora"
+              }
+            },
+            "Property": "costo_pp"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "simulacion_reglas_bondora",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "t"
+                          }
+                        },
+                        "Property": "costo_pp"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "10L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

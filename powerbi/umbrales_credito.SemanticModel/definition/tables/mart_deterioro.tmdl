@@ -1,0 +1,63 @@
+table mart_deterioro
+	lineageTag: 61b3d8ac-d920-559c-b4fe-6a44bdc89935
+
+	column cosecha_anio
+		dataType: int64
+		lineageTag: f97b079d-1c77-5d97-9eb1-08d4ccc7e12e
+		summarizeBy: none
+		sourceColumn: cosecha_anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		lineageTag: e482df33-fe40-5e3a-8662-19f0df553310
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: 91bb1712-1542-519c-84e2-74e8fecab144
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 7c04722e-bb4f-54cc-9bbe-35207b6c6412
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column eventos_12m
+		dataType: int64
+		lineageTag: 871a18ee-f50b-5de0-93e7-36cfb72d3f14
+		summarizeBy: none
+		sourceColumn: eventos_12m
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto
+		dataType: double
+		lineageTag: af6139da-3d5c-5fa0-8306-a47d0082697a
+		summarizeBy: none
+		sourceColumn: monto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_deterioro = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_deterioro.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"cosecha_anio", Int64.Type}, {"pais", type text}, {"rating", type text}, {"creditos", Int64.Type}, {"eventos_12m", Int64.Type}, {"monto", type number}}, "en-US"),
+				    Resultado1 = Table.SelectRows(Resultado0, each [pais] <> "Slovakia")
+				in
+				    Resultado1
+

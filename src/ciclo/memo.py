@@ -84,11 +84,43 @@ def memo_html(d: dict, L: str) -> str:
 """
 
 
+def hallazgos(c: dict, L: str) -> list[tuple[str, str]]:
+    if L == "en":
+        return [
+            ("Where is the rule?",
+             f"Conventional approval falls from {c['plano']}% to {c['ap50']}% when debt-to-income crosses 50, and applications bunch right below"),
+            ("Does the variable separate risk?",
+             f"Below 50 debt-to-income barely moves price. Days past due do: {c['mal1']}% go bad from 1-30 days, {c['mal3']}% from 61-90"),
+            ("What does moving it cost?",
+             f"A cap of 45 loses {c['p45']}% of approvals. Removing two loss-making markets yields {c['dl']} €M giving up {c['dl_sale']}% of loans (assumed cost: {c['costo']} points)"),
+            ("Who does it affect?",
+             f"Under that cap adverse impact goes from {c['ai_n']} to {c['ai45n']}. The denial gap falls from {c['br_n']} to {c['co_n']} points with controls, which does not prove discrimination"),
+            ("Does it still hold?",
+             f"Ratings F and G went from {c['fg_ini']}% to {c['fg_fin']}% of the amount in two years"),
+        ]
+    return [
+        ("¿Dónde está la regla?",
+         f"La aprobación convencional cae de {c['plano']}% a {c['ap50']}% al cruzar deuda-ingreso de 50, y las solicitudes se amontonan justo debajo"),
+        ("¿La variable separa riesgo?",
+         f"Por debajo de 50, la deuda-ingreso casi no mueve el precio. El atraso sí: terminan mal el {c['mal1']}% en 1-30 días y el {c['mal3']}% en 61-90"),
+        ("¿Cuánto cuesta moverla?",
+         f"Un tope de 45 pierde el {c['p45']}% de los aprobados. Sacar dos mercados que pierden rinde {c['dl']} M€ resignando el {c['dl_sale']}% de los créditos (costo supuesto: {c['costo']} puntos)"),
+        ("¿A quién afecta?",
+         f"Con ese tope, el impacto adverso va de {c['ai_n']} a {c['ai45n']}. La brecha de rechazo baja de {c['br_n']} a {c['co_n']} puntos al controlar, lo que no prueba discriminación"),
+        ("¿Sigue valiendo?",
+         f"Los ratings F y G pasaron de {c['fg_ini']}% a {c['fg_fin']}% del monto en dos años"),
+    ]
+
+
 def readme(d: dict, L: str) -> str:
     c = cifras(d, L)
     cfg = settings()["sitio"]
     url, repo = cfg["url"], cfg["repo_url"]
     wf = f"{repo}/actions/workflows"
+    tabla = "\n".join(f"| {p} | {h} |" for p, h in hallazgos(c, L))
+    archivo = "umbrales_credito_en" if L == "en" else "umbrales_credito"
+    pdf = f"**[{'Power BI dashboard (PDF)' if L == 'en' else 'Tablero de Power BI (PDF)'}](powerbi/{archivo}.pdf)** · " if (ROOT / "powerbi" / f"{archivo}.pdf").exists() else ""
+    tablero = f"{pdf}[{'Power BI dashboard (.pbix)' if L == 'en' else 'Tablero de Power BI (.pbix)'}](powerbi/{archivo}.pbix)"
     badges = (f"[![Tests]({wf}/tests.yml/badge.svg)]({wf}/tests.yml) "
               f"[![{'Data refresh' if L == 'en' else 'Actualizar datos'}]({wf}/actualizar-datos.yml/badge.svg)]({wf}/actualizar-datos.yml) "
               f"[![{'Site' if L == 'en' else 'Sitio'}]({wf}/publicar-sitio.yml/badge.svg)]({wf}/publicar-sitio.yml) "
@@ -98,7 +130,7 @@ def readme(d: dict, L: str) -> str:
 
 {badges}
 
-**[Live site]({url}en/)** · **[One-page memo (PDF)]({url}memo-en.pdf)** · [Versión en español](README_ES.md)
+**[Live site]({url}en/)** · **[One-page memo (PDF)]({url}memo-en.pdf)** · {tablero} · [Versión en español](README_ES.md)
 
 A credit policy is a set of thresholds: how much debt to approve, which ratings to lend to, which day past due to call. This project asks five questions of each threshold across the full credit cycle (origination, portfolio, collections), with real data and no Kaggle datasets.
 
@@ -106,11 +138,7 @@ A credit policy is a set of thresholds: how much debt to approve, which ratings 
 
 | Question | Finding |
 |---|---|
-| Where is the rule? | Conventional approval falls from {c['plano']}% to {c['ap50']}% when debt-to-income crosses 50, and applications bunch right below |
-| Does the variable separate risk? | Below 50 debt-to-income barely moves price. Days past due do: {c['mal1']}% go bad from 1-30 days, {c['mal3']}% from 61-90 |
-| What does moving it cost? | A cap of 45 loses {c['p45']}% of approvals. Removing two loss-making markets yields {c['dl']} €M giving up {c['dl_sale']}% of loans (assumed cost: {c['costo']} points) |
-| Who does it affect? | Under that cap adverse impact goes from {c['ai_n']} to {c['ai45n']}. The denial gap falls from {c['br_n']} to {c['co_n']} points with controls, which does not prove discrimination |
-| Does it still hold? | Ratings F and G went from {c['fg_ini']}% to {c['fg_fin']}% of the amount in two years |
+{tabla}
 
 Numbers come from US and European portfolios because Argentina has no public loan-level data: what travels is the method, not the values.
 
@@ -143,7 +171,7 @@ Author: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Related: 
 
 {badges}
 
-**[Sitio]({url})** · **[Memo de una página (PDF)]({url}memo.pdf)** · [English version](README.md)
+**[Sitio]({url})** · **[Memo de una página (PDF)]({url}memo.pdf)** · {tablero} · [English version](README.md)
 
 Una política de crédito es un conjunto de umbrales: hasta qué deuda aprobar, a qué rating prestar, a qué día de atraso llamar. Este proyecto le hace cinco preguntas a cada umbral a lo largo del ciclo completo del crédito (originación, cartera y cobranzas), con datos reales y sin datasets de Kaggle.
 
@@ -151,11 +179,7 @@ Una política de crédito es un conjunto de umbrales: hasta qué deuda aprobar, 
 
 | Pregunta | Hallazgo |
 |---|---|
-| ¿Dónde está la regla? | La aprobación convencional cae de {c['plano']}% a {c['ap50']}% al cruzar deuda-ingreso de 50, y las solicitudes se amontonan justo debajo |
-| ¿La variable separa riesgo? | Por debajo de 50, la deuda-ingreso casi no mueve el precio. El atraso sí: terminan mal el {c['mal1']}% en 1-30 días y el {c['mal3']}% en 61-90 |
-| ¿Cuánto cuesta moverla? | Un tope de 45 pierde el {c['p45']}% de los aprobados. Sacar dos mercados que pierden rinde {c['dl']} M€ resignando el {c['dl_sale']}% de los créditos (costo supuesto: {c['costo']} puntos) |
-| ¿A quién afecta? | Con ese tope, el impacto adverso va de {c['ai_n']} a {c['ai45n']}. La brecha de rechazo baja de {c['br_n']} a {c['co_n']} puntos al controlar, lo que no prueba discriminación |
-| ¿Sigue valiendo? | Los ratings F y G pasaron de {c['fg_ini']}% a {c['fg_fin']}% del monto en dos años |
+{tabla}
 
 Los números son de carteras de EE.UU. y Europa porque en Argentina no hay datos públicos de créditos individuales: se traslada el método, no los valores.
 

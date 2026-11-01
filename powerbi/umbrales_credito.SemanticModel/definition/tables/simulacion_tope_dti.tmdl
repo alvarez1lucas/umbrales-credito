@@ -1,0 +1,138 @@
+table simulacion_tope_dti
+	lineageTag: 2b0fc3ff-be69-51ba-bf15-642d50467acf
+
+	column tope_dti
+		dataType: int64
+		lineageTag: f43aee94-54a2-52f4-9581-6d90b0d41b8b
+		summarizeBy: none
+		sourceColumn: tope_dti
+
+		annotation SummarizationSetBy = Automatic
+
+	column aprobacion_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 033d214e-5464-50db-9c04-38c51e82b6e8
+		summarizeBy: none
+		sourceColumn: aprobacion_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column aprobados_perdidos
+		dataType: int64
+		lineageTag: 4b63490e-a6cf-5ff5-856a-e6f29ecf7bc3
+		summarizeBy: none
+		sourceColumn: aprobados_perdidos
+
+		annotation SummarizationSetBy = Automatic
+
+	column aprobados_perdidos_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 5c18a15e-9502-5d9d-add6-5eb3e732a777
+		summarizeBy: none
+		sourceColumn: aprobados_perdidos_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto_perdido_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: ccdf34e4-24a3-52ff-b7cd-4b583c2af08a
+		summarizeBy: none
+		sourceColumn: monto_perdido_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column spread_anual_perdido
+		dataType: double
+		formatString: 0.0
+		lineageTag: f2f16c48-d041-5b95-a78d-bcb3be411633
+		summarizeBy: none
+		sourceColumn: spread_anual_perdido
+
+		annotation SummarizationSetBy = Automatic
+
+	column impacto_Negro
+		dataType: double
+		formatString: 0.00
+		lineageTag: 24f07d9a-c366-53ad-ab53-dcc280d0d6d1
+		summarizeBy: none
+		sourceColumn: impacto_Negro
+
+		annotation SummarizationSetBy = Automatic
+
+	column impacto_Hispano
+		dataType: double
+		formatString: 0.00
+		lineageTag: a228a935-4ac3-54bc-827c-c533d1120daf
+		summarizeBy: none
+		sourceColumn: impacto_Hispano
+
+		annotation SummarizationSetBy = Automatic
+
+	column impacto_Asiático
+		dataType: double
+		formatString: 0.0
+		lineageTag: 0b14c93f-ad94-5150-84c0-aa275db3bfb0
+		summarizeBy: none
+		sourceColumn: impacto_Asiático
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdidos_Blanco_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7d936daf-c678-5adc-9099-98b77c91c848
+		summarizeBy: none
+		sourceColumn: perdidos_Blanco_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdidos_Negro_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 10b90025-f3d1-5292-a5d1-474eab7a8b49
+		summarizeBy: none
+		sourceColumn: perdidos_Negro_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdidos_Hispano_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: f76d98b5-7d28-5e26-b648-33c4f0d054ed
+		summarizeBy: none
+		sourceColumn: perdidos_Hispano_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column perdidos_Asiático_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: ac2af238-c3df-5887-860e-cea425b0b5f8
+		summarizeBy: none
+		sourceColumn: perdidos_Asiático_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column tope
+		dataType: string
+		lineageTag: b27e2115-85a4-58c0-af70-7e1d0a08004a
+		summarizeBy: none
+		sourceColumn: tope
+		sortByColumn: tope_dti
+
+		annotation SummarizationSetBy = Automatic
+
+	partition simulacion_tope_dti = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\originacion\simulacion_tope_dti.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"tope_dti", Int64.Type}, {"aprobacion_pct", type number}, {"aprobados_perdidos", Int64.Type}, {"aprobados_perdidos_pct", type number}, {"monto_perdido_pct", type number}, {"spread_anual_perdido", type number}, {"impacto_Negro", type number}, {"impacto_Hispano", type number}, {"impacto_Asiático", type number}, {"perdidos_Blanco_pct", type number}, {"perdidos_Negro_pct", type number}, {"perdidos_Hispano_pct", type number}, {"perdidos_Asiático_pct", type number}}, "en-US"),
+				    Resultado1 = Table.AddColumn(Resultado0, "tope", each if [tope_dti] >= 999 then "Sin tope" else Text.From([tope_dti]), type text)
+				in
+				    Resultado1
+

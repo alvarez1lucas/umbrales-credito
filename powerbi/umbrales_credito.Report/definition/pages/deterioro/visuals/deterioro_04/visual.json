@@ -1,0 +1,291 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "deterioro_04",
+  "position": {
+    "x": 24,
+    "y": 396,
+    "z": 400,
+    "height": 290,
+    "width": 620,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_pais"
+                    }
+                  },
+                  "Property": "pais"
+                }
+              },
+              "queryRef": "dim_pais.pais",
+              "nativeQueryRef": "dim_pais_pais",
+              "displayName": "País"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Participación"
+                }
+              },
+              "queryRef": "Medidas.Participación",
+              "nativeQueryRef": "Medidas_Participación",
+              "displayName": "Saldo %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "PAR30 anterior %"
+                }
+              },
+              "queryRef": "Medidas.PAR30 anterior %",
+              "nativeQueryRef": "Medidas_PAR30 anterior %",
+              "displayName": "PAR30 jul-25"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "PAR30 actual %"
+                }
+              },
+              "queryRef": "Medidas.PAR30 actual %",
+              "nativeQueryRef": "Medidas_PAR30 actual %",
+              "displayName": "PAR30 oct-26"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Cambio PAR30"
+                }
+              },
+              "queryRef": "Medidas.Cambio PAR30",
+              "nativeQueryRef": "Medidas_Cambio PAR30",
+              "displayName": "Cambio (pp)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Participación"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_pais.pais"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Participación"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.PAR30 anterior %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.PAR30 actual %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Cambio PAR30"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Finlandia concentra 55,6% del saldo (HHI 0,38); Dinamarca y Letonia empeoran'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "umbrales_credito_en"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3b33e66c-1546-575c-b6e6-d17278fa5242"
+  }
+}

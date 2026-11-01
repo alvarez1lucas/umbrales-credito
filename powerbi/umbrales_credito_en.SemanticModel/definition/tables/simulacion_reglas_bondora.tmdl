@@ -1,0 +1,93 @@
+table simulacion_reglas_bondora
+	lineageTag: 292f8a43-7fa9-529f-aed2-a516eb899169
+
+	column regla
+		dataType: string
+		lineageTag: 4fab7ba7-c59b-5e65-a441-cc10cbb3914c
+		summarizeBy: none
+		sourceColumn: regla
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo_pp
+		dataType: int64
+		lineageTag: c3b674a8-3eb5-55ac-aa33-900700deaa25
+		summarizeBy: none
+		sourceColumn: costo_pp
+
+		annotation SummarizationSetBy = Automatic
+
+	column aprobados_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: f88081f9-c955-5649-b28c-b6835c110720
+		summarizeBy: none
+		sourceColumn: aprobados_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 3d43ee37-d000-5989-b784-7738747e7a93
+		summarizeBy: none
+		sourceColumn: monto_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column evento_12m_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 07cb1da3-ddb9-591f-a237-f986b61c0985
+		summarizeBy: none
+		sourceColumn: evento_12m_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column margen_pct_monto
+		dataType: double
+		formatString: 0.0
+		lineageTag: 22c6b23b-49de-553f-9ff6-ebf7011cf6b3
+		summarizeBy: none
+		sourceColumn: margen_pct_monto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cambio_resultado
+		dataType: double
+		formatString: #,0
+		lineageTag: a587ad55-c815-5369-ac04-a133789b116f
+		summarizeBy: none
+		sourceColumn: cambio_resultado
+
+		annotation SummarizationSetBy = Automatic
+
+	column cambio_ic_inf
+		dataType: double
+		formatString: #,0
+		lineageTag: 3207ab98-754a-56f7-ad94-76306ee79af5
+		summarizeBy: none
+		sourceColumn: cambio_ic_inf
+
+		annotation SummarizationSetBy = Automatic
+
+	column cambio_ic_sup
+		dataType: double
+		formatString: #,0
+		lineageTag: 26e1f5a3-93be-5a72-a3d9-3350761a7e71
+		summarizeBy: none
+		sourceColumn: cambio_ic_sup
+
+		annotation SummarizationSetBy = Automatic
+
+	partition simulacion_reglas_bondora = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\originacion\simulacion_reglas_bondora.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"regla", type text}, {"costo_pp", Int64.Type}, {"aprobados_pct", type number}, {"monto_pct", type number}, {"evento_12m_pct", type number}, {"margen_pct_monto", type number}, {"cambio_resultado", type number}, {"cambio_ic_inf", type number}, {"cambio_ic_sup", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"regla", (v) => List.First(List.Select({[a = "Sin cambios", b = "No change"], [a = "Carga <= 20%", b = "Payment burden <= 20%"], [a = "Carga <= 15%", b = "Payment burden <= 15%"], [a = "Carga <= 10%", b = "Payment burden <= 10%"], [a = "Sin ratings F-G", b = "No F-G ratings"], [a = "Sin ratings E-G", b = "No E-G ratings"], [a = "Sin Denmark ni Latvia", b = "No Denmark or Latvia"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

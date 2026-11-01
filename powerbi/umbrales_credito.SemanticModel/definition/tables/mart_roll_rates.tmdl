@@ -1,0 +1,72 @@
+table mart_roll_rates
+	lineageTag: 312713d5-0277-5622-8691-b258e2048bad
+
+	column fecha_desde
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bbe3c251-c22c-5fc6-aeff-815fe127ee79
+		summarizeBy: none
+		sourceColumn: fecha_desde
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_hasta
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 28e9a48c-d3ca-526b-ab05-ca040ce05cd3
+		summarizeBy: none
+		sourceColumn: fecha_hasta
+
+		annotation SummarizationSetBy = Automatic
+
+	column tramo_desde
+		dataType: string
+		lineageTag: 7b2bc457-fba0-5512-a3da-bf7fdaa495a2
+		summarizeBy: none
+		sourceColumn: tramo_desde
+
+		annotation SummarizationSetBy = Automatic
+
+	column tramo_hasta
+		dataType: string
+		lineageTag: 99f263e0-b461-58fc-a2c0-6cdec789e3ed
+		summarizeBy: none
+		sourceColumn: tramo_hasta
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 86351870-38d7-5150-b615-1ace035c4ebc
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_desde
+		dataType: double
+		lineageTag: ccb42b4d-23c8-5768-87d9-30b3db6fe6ea
+		summarizeBy: none
+		sourceColumn: saldo_desde
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_del_tramo
+		dataType: double
+		lineageTag: 836f06e7-1876-5576-9b1d-7f514bbfbf68
+		summarizeBy: none
+		sourceColumn: pct_del_tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_roll_rates = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_roll_rates.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"fecha_desde", type date}, {"fecha_hasta", type date}, {"tramo_desde", type text}, {"tramo_hasta", type text}, {"creditos", Int64.Type}, {"saldo_desde", type number}, {"pct_del_tramo", type number}}, "en-US")
+				in
+				    Resultado0
+

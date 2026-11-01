@@ -1,0 +1,67 @@
+table tasas_canales
+	lineageTag: 7436ad87-f7ee-5395-b427-0de37fad25f3
+
+	column canal
+		dataType: string
+		lineageTag: 20e8ce91-4837-5a2b-8da2-fe589b2a5967
+		summarizeBy: none
+		sourceColumn: canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo
+		dataType: double
+		formatString: 0.00
+		lineageTag: 4b9f3f5b-0d1b-533a-a72e-e6bda0fba0bb
+		summarizeBy: none
+		sourceColumn: costo
+
+		annotation SummarizationSetBy = Automatic
+
+	column contacto_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: fc20663c-a743-586b-8816-6032dc42c434
+		summarizeBy: none
+		sourceColumn: contacto_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column promesa_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7ad877ad-72bc-59b7-b1a7-a3429f23fea5
+		summarizeBy: none
+		sourceColumn: promesa_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column cumplimiento_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 45e195ab-4e00-59a8-9f31-03cbf26da587
+		summarizeBy: none
+		sourceColumn: cumplimiento_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column pagos_cada_100
+		dataType: double
+		formatString: 0.0
+		lineageTag: 4ba1e2df-c530-55fb-88b8-b228db7a7c33
+		summarizeBy: none
+		sourceColumn: pagos_cada_100
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tasas_canales = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\cobranzas\tasas_canales.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"canal", type text}, {"costo", type number}, {"contacto_pct", type number}, {"promesa_pct", type number}, {"cumplimiento_pct", type number}, {"pagos_cada_100", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"canal", (v) => List.First(List.Select({[a = "llamada", b = "Call"], [a = "whatsapp", b = "WhatsApp"], [a = "sms", b = "SMS"], [a = "mail", b = "Email"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

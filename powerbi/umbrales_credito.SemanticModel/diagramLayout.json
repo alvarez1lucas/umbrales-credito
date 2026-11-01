@@ -1,0 +1,347 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2103.5303580202267,
+            "y": 251.69030381419407
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "983ca3e7-0e6c-5426-b1e9-981e62cb974e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2387.5303580202267,
+            "y": 313.69030381419407
+          },
+          "nodeIndex": "backtest_priorizacion",
+          "nodeLineageTag": "eefb7939-7157-525e-b313-ef2b708b31fa",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 434.56979848715332,
+            "y": 296.67918468347244
+          },
+          "nodeIndex": "dim_pais",
+          "nodeLineageTag": "2ed8b332-4989-58f0-af07-3edd790c652f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 918.5623636366762,
+            "y": 430.57755554733774
+          },
+          "nodeIndex": "dim_rating",
+          "nodeLineageTag": "cd4f8f9a-c79a-5950-9515-da5389cbec77",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 150.059930021313,
+            "y": 213.22960138787425
+          },
+          "nodeIndex": "dim_situacion",
+          "nodeLineageTag": "0c332422-1178-5268-ad24-51b0e243f070",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1017.1473080055328,
+            "y": -50
+          },
+          "nodeIndex": "dim_tramo",
+          "nodeLineageTag": "928a5a97-4fad-5541-8af3-2a69d9426ae4",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1869.5303580202265,
+            "y": 242.8456058543494
+          },
+          "nodeIndex": "dim_tramo_desde",
+          "nodeLineageTag": "14eae931-52da-5a7e-a053-adde2d45b9d2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1301.1473080055328,
+            "y": 272.83071663394833
+          },
+          "nodeIndex": "dim_tramo_hasta",
+          "nodeLineageTag": "2727e3c2-35fc-54ba-944f-06917c0c46ac",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2671.5303580202267,
+            "y": 289.69030381419407
+          },
+          "nodeIndex": "escenario_canales",
+          "nodeLineageTag": "d5a579d6-65f3-5abb-8376-36d482a4cfe4",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2955.5303580202267,
+            "y": 265.69030381419407
+          },
+          "nodeIndex": "mart_aprobacion_dti",
+          "nodeLineageTag": "84ea0ed9-5891-5c60-8fee-8a8c70811b79",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 752.57286352155074,
+            "y": 154.53198741285041
+          },
+          "nodeIndex": "mart_cartera_tramos",
+          "nodeLineageTag": "4500b944-9739-54b3-9011-2cd19872334b",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3239.5303580202267,
+            "y": 277.69030381419407
+          },
+          "nodeIndex": "mart_cosechas",
+          "nodeLineageTag": "47962f17-31a7-5979-b9a6-2771980ba063",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3523.5303580202267,
+            "y": 301.69030381419407
+          },
+          "nodeIndex": "mart_embudo",
+          "nodeLineageTag": "9360bb5f-b900-597e-8e3b-5a217fc9b2df",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3807.5303580202267,
+            "y": 301.69030381419407
+          },
+          "nodeIndex": "mart_motivos_rechazo",
+          "nodeLineageTag": "8268f583-a18d-57a4-a76f-a56c2c774a76",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 631.53022725863548,
+            "y": 453.380607628388
+          },
+          "nodeIndex": "mart_perdida_segmentos",
+          "nodeLineageTag": "984bfe39-b110-55ff-8c2c-cd9653cf959a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 464.33176058660291
+          },
+          "nodeIndex": "mart_previsiones",
+          "nodeLineageTag": "bcca1c36-df0b-5c39-8cff-84058ef8fa23",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1585.3488691987181,
+            "y": 227.69030381419407
+          },
+          "nodeIndex": "mart_roll_rates",
+          "nodeLineageTag": "312713d5-0277-5622-8691-b258e2048bad",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4091.5303580202267,
+            "y": 289.69030381419407
+          },
+          "nodeIndex": "resultado_por_tramo",
+          "nodeLineageTag": "49ffb4b0-a4e9-573d-9b30-3c53c0997443",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4375.5303580202271,
+            "y": 251.69030381419407
+          },
+          "nodeIndex": "simulacion_tope_dti",
+          "nodeLineageTag": "2b0fc3ff-be69-51ba-bf15-642d50467acf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4609.5303580202271,
+            "y": 325.690303814194
+          },
+          "nodeIndex": "estabilidad_reglas",
+          "nodeLineageTag": "392a566b-34a9-5424-90b2-b28c30d19bb6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4893.5303580202271,
+            "y": 253.690303814194
+          },
+          "nodeIndex": "mart_composicion",
+          "nodeLineageTag": "f106a5cb-4161-5b23-ad5d-c80341065622",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5177.5303580202271,
+            "y": 289.690303814194
+          },
+          "nodeIndex": "mart_deterioro",
+          "nodeLineageTag": "61b3d8ac-d920-559c-b4fe-6a44bdc89935",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5461.5303580202271,
+            "y": 313.690303814194
+          },
+          "nodeIndex": "regla_canal",
+          "nodeLineageTag": "2905fb40-276b-5e2f-bbdc-ff83f7fdf052",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5745.5303580202271,
+            "y": 253.690303814194
+          },
+          "nodeIndex": "simulacion_reglas_bondora",
+          "nodeLineageTag": "292f8a43-7fa9-529f-aed2-a516eb899169",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6029.5303580202271,
+            "y": 289.690303814194
+          },
+          "nodeIndex": "tasas_canales",
+          "nodeLineageTag": "7436ad87-f7ee-5395-b427-0de37fad25f3",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

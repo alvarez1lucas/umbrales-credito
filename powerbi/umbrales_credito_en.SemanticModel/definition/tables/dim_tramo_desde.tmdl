@@ -1,0 +1,39 @@
+table dim_tramo_desde
+	lineageTag: 14eae931-52da-5a7e-a053-adde2d45b9d2
+
+	column tramo
+		dataType: string
+		lineageTag: 683995ce-e3af-56f3-980f-2dd338dabedc
+		summarizeBy: none
+		sourceColumn: tramo
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		lineageTag: 2c9edce5-8ed0-569d-b893-d94dd0181815
+		summarizeBy: none
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: e65e47d7-56be-5f93-977d-9d1f8bff57b4
+		summarizeBy: none
+		sourceColumn: nombre
+		sortByColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tramo_desde = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\dim_tramo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"tramo", type text}, {"orden", Int64.Type}, {"nombre", type text}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"nombre", (v) => List.First(List.Select({[a = "Al día", b = "Current"], [a = "1-30 días", b = "1-30 days"], [a = "31-60 días", b = "31-60 days"], [a = "61-90 días", b = "61-90 days"], [a = "90+ días", b = "90+ days"], [a = "Pagado", b = "Paid off"], [a = "Castigado", b = "Written off"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

@@ -1,0 +1,89 @@
+table mart_composicion
+	lineageTag: f106a5cb-4161-5b23-ad5d-c80341065622
+
+	column fecha_foto
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 409aaac0-267d-5439-8710-9bd1d370703d
+		summarizeBy: none
+		sourceColumn: fecha_foto
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		lineageTag: 31f85f10-6514-5302-8f90-07c254e5d971
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: dbe4bf9b-9552-5a59-861b-05d0420b7373
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column plazo
+		dataType: string
+		lineageTag: 45569690-6cb7-564c-a076-1c7f729af1a1
+		summarizeBy: none
+		sourceColumn: plazo
+		sortByColumn: plazo_orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plazo_orden
+		dataType: int64
+		lineageTag: 83f0da58-794b-5f05-8498-e7d233db4614
+		summarizeBy: none
+		sourceColumn: plazo_orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2af22fe6-76e5-5845-9ba0-480fe548147b
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_capital
+		dataType: double
+		lineageTag: a0058d7e-a0e1-5155-9e00-ded3643c60e1
+		summarizeBy: none
+		sourceColumn: saldo_capital
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_par30
+		dataType: double
+		lineageTag: 42d1db3c-66b3-552c-b91a-bb6e262fe587
+		summarizeBy: none
+		sourceColumn: saldo_par30
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_par90
+		dataType: double
+		lineageTag: e479e4a7-44b2-59ab-acff-a8e8b53fbca1
+		summarizeBy: none
+		sourceColumn: saldo_par90
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_composicion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_composicion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"fecha_foto", type date}, {"pais", type text}, {"rating", type text}, {"plazo", type text}, {"plazo_orden", Int64.Type}, {"creditos", Int64.Type}, {"saldo_capital", type number}, {"saldo_par30", type number}, {"saldo_par90", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"plazo", (v) => List.First(List.Select({[a = "Hasta 24", b = "Up to 24"], [a = "25-36", b = "25-36"], [a = "37-48", b = "37-48"], [a = "49-60", b = "49-60"], [a = "Más de 60", b = "Over 60"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

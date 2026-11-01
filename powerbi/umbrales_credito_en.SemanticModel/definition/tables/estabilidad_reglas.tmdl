@@ -1,0 +1,38 @@
+table estabilidad_reglas
+	lineageTag: 392a566b-34a9-5424-90b2-b28c30d19bb6
+
+	column regla
+		dataType: string
+		lineageTag: 57b51dd5-8e35-5e73-b348-f23a120803a1
+		summarizeBy: none
+		sourceColumn: regla
+
+		annotation SummarizationSetBy = Automatic
+
+	column semestre
+		dataType: string
+		lineageTag: 166cb38c-932f-52b7-bc0e-c8274603c87f
+		summarizeBy: none
+		sourceColumn: semestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column margen_pct_monto
+		dataType: double
+		lineageTag: 61b9b342-eb45-5a17-9fb6-767bf24cc636
+		summarizeBy: none
+		sourceColumn: margen_pct_monto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition estabilidad_reglas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\originacion\estabilidad_reglas.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"regla", type text}, {"semestre", type text}, {"margen_pct_monto", type number}}, "en-US"),
+				    Resultado1 = Table.TransformColumns(Resultado0, {{"regla", (v) => List.First(List.Select({[a = "Sin cambios", b = "No change"], [a = "Carga <= 20%", b = "Payment burden <= 20%"], [a = "Carga <= 15%", b = "Payment burden <= 15%"], [a = "Carga <= 10%", b = "Payment burden <= 10%"], [a = "Sin ratings F-G", b = "No F-G ratings"], [a = "Sin ratings E-G", b = "No E-G ratings"], [a = "Sin Denmark ni Latvia", b = "No Denmark or Latvia"]}, (r) => r[a] = v))[b], type text}})
+				in
+				    Resultado1
+

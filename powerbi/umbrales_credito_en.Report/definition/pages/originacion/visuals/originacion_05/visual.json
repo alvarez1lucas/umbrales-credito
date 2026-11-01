@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "originacion_05",
+  "position": {
+    "x": 24,
+    "y": 692,
+    "z": 500,
+    "height": 24,
+    "width": 1232,
+    "tabOrder": 500
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Bars rather than a funnel: outcomes are mutually exclusive, not stages. Adverse impact below 0.80 flags a rule for review; it does not prove discrimination.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#6f6e69",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

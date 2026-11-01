@@ -1,0 +1,72 @@
+table mart_cosechas
+	lineageTag: 47962f17-31a7-5979-b9a6-2771980ba063
+
+	column cosecha
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3751a970-d3b8-51ab-ab38-42873a8e206e
+		summarizeBy: none
+		sourceColumn: cosecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		lineageTag: 2e2904aa-4654-51f1-9110-8c369e334030
+		summarizeBy: none
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 19463547-b1b0-500e-a0d0-7496a0e4604e
+		summarizeBy: none
+		sourceColumn: creditos
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos_con_evento
+		dataType: int64
+		lineageTag: 0db003d0-9e5a-512c-9dd4-6f8a165131fb
+		summarizeBy: none
+		sourceColumn: creditos_con_evento
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_evento_pct
+		dataType: double
+		lineageTag: 7e91f28d-092b-586b-8579-9077ec1e4b6d
+		summarizeBy: none
+		sourceColumn: tasa_evento_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_evento_monto_pct
+		dataType: double
+		lineageTag: e71c3daf-5755-5988-b99e-ece54cc48e70
+		summarizeBy: none
+		sourceColumn: tasa_evento_monto_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		lineageTag: 3b96b87f-aad9-511e-a3a9-ad2c2a32a3b8
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_cosechas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\mart_cosechas.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"cosecha", type date}, {"mes", Int64.Type}, {"creditos", Int64.Type}, {"creditos_con_evento", Int64.Type}, {"tasa_evento_pct", type number}, {"tasa_evento_monto_pct", type number}}, "en-US"),
+				    Resultado1 = Table.AddColumn(Resultado0, "anio", each Date.Year([cosecha]), Int64.Type)
+				in
+				    Resultado1
+

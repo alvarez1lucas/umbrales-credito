@@ -1,0 +1,183 @@
+table Metrics
+	lineageTag: 983ca3e7-0e6c-5426-b1e9-981e62cb974e
+
+	measure Balance =
+			VAR ultima = CALCULATE(MAX(mart_cartera_tramos[fecha_foto]), ALL(mart_cartera_tramos))
+			RETURN CALCULATE(SUM(mart_cartera_tramos[saldo_capital]), mart_cartera_tramos[fecha_foto] = ultima)
+		formatString: €#,0.0
+		lineageTag: 6d9d3bec-15f9-55d7-8e05-58f4944bbc87
+
+	measure 'PAR30 %' =
+			DIVIDE(
+			    CALCULATE([Balance], dim_tramo[tramo] IN {"31-60", "61-90", "90+"}),
+			    CALCULATE([Balance], REMOVEFILTERS(dim_tramo))
+			)
+		formatString: 0.0%
+		lineageTag: 2e49d16d-c295-5ba0-ad8f-4c3914333578
+
+	measure 'PAR90 %' =
+			DIVIDE(
+			    CALCULATE([Balance], dim_tramo[tramo] = "90+"),
+			    CALCULATE([Balance], REMOVEFILTERS(dim_tramo))
+			)
+		formatString: 0.0%
+		lineageTag: 5d734aba-f141-5aed-836b-f09a33eeafbc
+
+	measure 'Provisioned balance' =
+			VAR ultima = CALCULATE(MAX(mart_previsiones[fecha_foto]), ALL(mart_previsiones))
+			RETURN CALCULATE(SUM(mart_previsiones[saldo_capital]), mart_previsiones[fecha_foto] = ultima)
+		formatString: €#,0.0
+		lineageTag: 20acfc6f-d808-54d4-95d4-a85bfcb9844a
+
+	measure 'BCRA provision' =
+			VAR ultima = CALCULATE(MAX(mart_previsiones[fecha_foto]), ALL(mart_previsiones))
+			RETURN CALCULATE(SUM(mart_previsiones[prevision_bcra]), mart_previsiones[fecha_foto] = ultima)
+		formatString: €#,0.0
+		lineageTag: d8706a44-28cd-5ba1-ba28-440ea6fec64a
+
+	measure 'Expected loss' =
+			VAR ultima = CALCULATE(MAX(mart_previsiones[fecha_foto]), ALL(mart_previsiones))
+			RETURN CALCULATE(SUM(mart_previsiones[perdida_esperada]), mart_previsiones[fecha_foto] = ultima)
+		formatString: €#,0.0
+		lineageTag: 734374ea-9104-5719-98a0-7de6cb14dad6
+
+	measure 'BCRA provision %' = DIVIDE([BCRA provision], [Provisioned balance])
+		formatString: 0.0%
+		lineageTag: 3f3c3628-062e-5a55-aee6-639e791068e8
+
+	measure 'Expected loss %' = DIVIDE([Expected loss], [Provisioned balance])
+		formatString: 0.0%
+		lineageTag: 8a441546-86d4-5e57-a907-a69008646178
+
+	measure Applications = SUM(mart_embudo[solicitudes])
+		formatString: #,0
+		lineageTag: 845066af-eec4-5322-aa0c-d816bc29522b
+
+	measure Denied = CALCULATE([Applications], mart_embudo[resultado] = "Denied")
+		formatString: #,0
+		lineageTag: edbb2b76-a4b1-5a48-b2c3-d6810fb83c46
+
+	measure Decided = CALCULATE([Applications], mart_embudo[resultado] IN {"Originated", "Approved, not accepted", "Denied"})
+		formatString: #,0
+		lineageTag: 05817ffd-34df-59b0-aca5-da999dad76d5
+
+	measure 'Denial rate' = DIVIDE([Denied], [Decided])
+		formatString: 0.0%
+		lineageTag: 8f9a547e-295a-59b0-8225-9d9218b57107
+
+	measure 'Approval %' = DIVIDE(SUM(mart_aprobacion_dti[aprobadas]), SUM(mart_aprobacion_dti[decisiones]))
+		formatString: 0.0%
+		lineageTag: 180d79a6-bf0e-57a1-974b-3a00a330697c
+
+	measure Denials = SUM(mart_motivos_rechazo[rechazos])
+		formatString: #,0
+		lineageTag: 4b0de025-a268-5ea1-9694-ee73f45c1ef2
+
+	measure '% of denials' = DIVIDE([Denials], CALCULATE([Denials], ALL(mart_motivos_rechazo[motivo])))
+		formatString: 0.0%
+		lineageTag: 90631259-7e41-5e88-b54e-020be0e4ff88
+
+	measure 'Vintage default %' =
+			VAR observados = DISTINCTCOUNT(mart_cosechas[cosecha])
+			VAR total = CALCULATE(DISTINCTCOUNT(mart_cosechas[cosecha]), REMOVEFILTERS(mart_cosechas[mes]))
+			RETURN IF(observados = total, DIVIDE(SUM(mart_cosechas[creditos_con_evento]), SUM(mart_cosechas[creditos])))
+		formatString: 0.0%
+		lineageTag: dedd73ed-fee4-506f-941c-d8067a57e2a7
+
+	measure 'Roll %' =
+			DIVIDE(
+			    SUM(mart_roll_rates[creditos]),
+			    CALCULATE(SUM(mart_roll_rates[creditos]), REMOVEFILTERS(dim_tramo_hasta))
+			)
+		formatString: 0.0%
+		lineageTag: ce17cf33-8497-5756-af85-dd791ecb4ca5
+
+	measure '12m PD % (weighted)' =
+			DIVIDE(
+			    SUMX(mart_perdida_segmentos, mart_perdida_segmentos[pd_12m_pct] * mart_perdida_segmentos[creditos]),
+			    SUM(mart_perdida_segmentos[creditos])
+			) / 100
+		formatString: 0.0%
+		lineageTag: ea97a7a9-dce1-50ff-98b4-2500517d8570
+
+	measure 'Average rate % (weighted)' =
+			DIVIDE(
+			    SUMX(mart_perdida_segmentos, mart_perdida_segmentos[tasa_media_pct] * mart_perdida_segmentos[creditos]),
+			    SUM(mart_perdida_segmentos[creditos])
+			) / 100
+		formatString: 0.0%
+		lineageTag: 9e6d3511-62ec-5295-b41e-f6fc9f959b83
+
+	measure 'Bad balance covered %' = AVERAGE(backtest_priorizacion[saldo_malo_cubierto_pct]) / 100
+		formatString: 0.0%
+		lineageTag: c8190419-e2c4-50c6-8292-07a054cbe2c6
+
+	measure 'Net per account' = SUM(escenario_canales[neto_por_cuenta])
+		formatString: €#,0.00
+		lineageTag: f4d24cd3-cb93-5541-b46b-3562eb1a4d2d
+
+	measure 'Avoided per euro' = SUM(escenario_canales[evitado_por_euro])
+		formatString: €#,0.0
+		lineageTag: 383692f4-b8a9-5f13-b252-1ef7836eaf59
+
+	measure 'Loss avoided' = SUM(backtest_priorizacion[perdida_evitada_escenario])
+		formatString: €#,0
+		lineageTag: 30086cd8-9b26-5013-9d04-3f3eaf90e3c8
+
+	measure 'Result change' = SUM(simulacion_reglas_bondora[cambio_resultado]) / 1000000
+		formatString: +0.00;-0.00;0.00
+		lineageTag: e8e9cbf4-453c-50c5-a12a-6a9010bbb285
+
+	measure 'Excluded margin %' = AVERAGE(estabilidad_reglas[margen_pct_monto]) / 100
+		formatString: 0.0%
+		lineageTag: f1d9f0ac-ea0d-52d5-a72c-a5984c7839a4
+
+	measure 'Composition balance' =
+			VAR ultima = CALCULATE(MAX(mart_composicion[fecha_foto]), ALL(mart_composicion))
+			RETURN CALCULATE(SUM(mart_composicion[saldo_capital]), mart_composicion[fecha_foto] = ultima)
+		formatString: €#,0.0
+		lineageTag: 50fbbf87-8466-5121-b6a6-36a990a89327
+
+	measure Share = DIVIDE([Composition balance], CALCULATE([Composition balance], ALL(dim_pais), ALL(mart_composicion[plazo], mart_composicion[plazo_orden])))
+		formatString: 0.0%
+		lineageTag: 9abae46e-f99f-5b85-ac21-76592945c354
+
+	measure 'Current PAR30 %' =
+			VAR ultima = CALCULATE(MAX(mart_composicion[fecha_foto]), ALL(mart_composicion))
+			RETURN CALCULATE(DIVIDE(SUM(mart_composicion[saldo_par30]), SUM(mart_composicion[saldo_capital])), mart_composicion[fecha_foto] = ultima)
+		formatString: 0.0%
+		lineageTag: e5f2cdb7-0a5b-51ba-8f52-d14f51c3f62b
+
+	measure 'Previous PAR30 %' =
+			VAR primera = CALCULATE(MIN(mart_composicion[fecha_foto]), ALL(mart_composicion))
+			RETURN CALCULATE(DIVIDE(SUM(mart_composicion[saldo_par30]), SUM(mart_composicion[saldo_capital])), mart_composicion[fecha_foto] = primera)
+		formatString: 0.0%
+		lineageTag: 92bbc01b-fb60-5f0c-a40e-2875de92b2df
+
+	measure 'PAR30 change' = ([Current PAR30 %] - [Previous PAR30 %]) * 100
+		formatString: +0.0;-0.0;0.0
+		lineageTag: 5ae12cb5-973c-5bf0-88c4-15158b7be797
+
+	measure '12m default %' =
+			VAR creditos = SUM(mart_deterioro[creditos])
+			RETURN IF(creditos >= 200, DIVIDE(SUM(mart_deterioro[eventos_12m]), creditos))
+		formatString: 0.0%
+		lineageTag: d65085b7-0fea-5258-9d70-ee5dd2505e62
+
+	column _
+		dataType: string
+		isHidden
+		lineageTag: 9462e1b2-00f9-5ef5-98ec-01b5af385dd2
+		summarizeBy: none
+		sourceColumn: _
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Metrics = m
+		mode: import
+		source =
+				let
+				    Resultado = #table(type table [_ = text], {})
+				in
+				    Resultado
+

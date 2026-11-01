@@ -1,0 +1,21 @@
+table dim_pais
+	lineageTag: 2ed8b332-4989-58f0-af07-3edd790c652f
+
+	column pais
+		dataType: string
+		lineageTag: adca6cb6-16de-59c9-925a-f427f8c4476a
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_pais = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "\marts\dim_pais.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Resultado0 = Table.TransformColumnTypes(Encabezados, {{"pais", type text}}, "en-US")
+				in
+				    Resultado0
+
