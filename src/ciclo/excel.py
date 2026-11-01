@@ -357,6 +357,17 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
                 lb.formula(e, f"{letra}{f}", f"=-({sale('H')}-{letra}${ini_g + 1}*$B$4-{sale('L')}*{factor})", font_color=VERDE, num_format=EUR)
         e.conditional_format(f"B{ini_g + 2}:F{ini_g + 4}", {"type": "3_color_scale", "min_color": "#F8696B", "mid_color": "#FFFFFF", "max_color": "#63BE7B", "mid_type": "num", "mid_value": 0})
 
+    equilibrio = lb.wb.add_chart({"type": "line"})
+    equilibrio.add_series({"name": tr("Cambio de resultado", "Result change"), "categories": f"={q('sen')}!$B$8:$F$8", "values": f"={q('sen')}!$B$10:$F$10",
+                           "line": {"color": ENCABEZADO, "width": 2.25}, "marker": {"type": "circle", "size": 7, "fill": {"color": ENCABEZADO}, "border": {"color": ENCABEZADO}}})
+    equilibrio.set_title({"name": tr("La regla gana plata cuando la línea supera cero", "The rule makes money when the line is above zero"), "name_font": {"name": "Arial", "size": 11}})
+    equilibrio.set_legend({"none": True})
+    equilibrio.set_x_axis({"name": tr("Costo sobre el monto", "Cost on amount"), "name_font": {"name": "Arial", "size": 9, "bold": False}, "num_format": "0%", "label_position": "low", "num_font": {"name": "Arial", "size": 9}})
+    equilibrio.set_y_axis({"name": tr("Cambio de resultado (€)", "Result change (€)"), "name_font": {"name": "Arial", "size": 9, "bold": False}, "num_format": '#,##0.0,,"M";-#,##0.0,,"M";0',
+                           "major_gridlines": {"visible": True, "line": {"color": LINEA}}, "num_font": {"name": "Arial", "size": 8}})
+    equilibrio.set_size({"width": 500, "height": 300})
+    e.insert_chart("H4", equilibrio)
+
     # --- Resumen
     r = nueva_hoja(lb, H["res"], tr("Resumen de la cartera simulada", "Simulated portfolio summary"), tr("Todos los créditos, sin aplicar las reglas: muestra de dónde sale cada resultado.", "All loans, before rules: it shows where each result comes from."), "#EB6834")
     r.set_column("A:A", 18)
