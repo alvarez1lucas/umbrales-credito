@@ -130,6 +130,14 @@ def saldo_equilibrio(resumen_tramo: pd.DataFrame, cfg: dict, lgd: float, mult_co
             for t in resumen_tramo.itertuples()}
 
 
+def tasas_canales(cfg: dict) -> pd.DataFrame:
+    """Embudo supuesto de cada canal: de 100 cuentas gestionadas, cuántas contestan, prometen y cumplen."""
+    filas = [{"canal": nombre, "costo": c["costo"], "contacto_pct": 100 * c["contacto"], "promesa_pct": 100 * c["promesa"],
+              "cumplimiento_pct": 100 * c["cumplimiento"], "pagos_cada_100": 100 * c["contacto"] * c["promesa"] * c["cumplimiento"]}
+             for nombre, c in cfg["canales"].items()]
+    return pd.DataFrame(filas)
+
+
 def lgd_encadenada(con: duckdb.DuckDBPyConnection) -> float:
     """LGD implícita en el recupero real entre fotos.
 
@@ -171,6 +179,8 @@ def main() -> None:
     bt.to_csv(out / "backtest_priorizacion.csv", index=False, float_format="%.4f")
     resultados.to_csv(out / "resultado_por_tramo.csv", index=False, float_format="%.4f")
     tabla.to_csv(out / "escenario_canales.csv", index=False, float_format="%.4f")
+    tasas_canales(cfg).to_csv(out / "tasas_canales.csv", index=False, float_format="%.4f")
+    pd.DataFrame({"tramo": TRAMOS, **{k: [v[t] for t in TRAMOS] for k, v in sensibilidad.items()}}).to_csv(out / "regla_canal.csv", index=False)
     fechas = con.sql("select min(fecha_foto), max(fecha_foto) from int_bondora__estados").fetchall()[0]
     resumen = {
         "fecha_desde": str(fechas[0]), "fecha_hasta": str(fechas[1]), "creditos_atrasados": len(df), "creditos_prueba": len(prueba),
