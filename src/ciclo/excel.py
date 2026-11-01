@@ -61,7 +61,9 @@ def nueva_hoja(lb: Libro, nombre: str, titulo: str, bajada: str, color: str = EN
     ws.hide_gridlines(2)
     ws.set_tab_color(color)
     ws.set_landscape()
+    ws.set_paper(9)
     ws.fit_to_pages(1, 0)
+    ws.set_footer("&L&F&C&A&R&P / &N")
     ws.set_row(0, 28)
     ws.write("A1", titulo, lb.fmt(bold=True, font_size=16))
     ws.write("A2", bajada, lb.fmt(font_color=GRIS))
@@ -110,7 +112,7 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
             (H["sup"], tr("Costo, escenarios y LGD por país.", "Cost, scenarios and LGD by country.")),
             (H["dat"], tr(f"{n} segmentos de año, país, rating y carga, con sus cálculos.", f"{n} segments by year, country, rating and burden, with their calculations.")),
             (H["sim"], tr("Reglas, comparación contra la cartera actual y resultado por rating.", "Rules, comparison with the current book and results by rating.")),
-            (H["con"], tr("Comprueba que el Excel reproduzca las cifras calculadas en Python.", "Checks that Excel reproduces the figures calculated in Python.")),
+            (H["con"], tr("Compara cada regla con Python en resultado, aprobación y mora, y corre controles internos.", "Compares each rule with Python on result, approval and default, and runs internal checks.")),
             (H["sen"], tr("Costo de equilibrio y resultado de la regla con otros costos, LGD y mora.", "Break-even cost and rule result under other costs, LGD and default.")),
             (H["res"], tr("Mora por rating y cosecha, y monto por país.", "Default by rating and vintage, and amount by country.")),
         ]),
@@ -144,6 +146,11 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
     s.write("A6", tr("Escenario", "Scenario"), lb.fmt())
     s.write("B6", ESCENARIOS[L][0], lb.fmt(**azul))
     s.data_validation("B6", {"validate": "list", "source": "=$A$9:$A$11"})
+    entre_0_y_1 = {"validate": "decimal", "criteria": "between", "minimum": 0, "maximum": 1, "error_title": tr("Valor fuera de rango", "Value out of range"),
+                   "error_message": tr("Ingresá un porcentaje entre 0% y 100%.", "Enter a percentage between 0% and 100%.")}
+    s.data_validation("B5", entre_0_y_1)
+    s.data_validation("B9:C11", {"validate": "decimal", "criteria": ">", "value": 0, "error_title": tr("Valor fuera de rango", "Value out of range"),
+                                 "error_message": tr("El multiplicador debe ser mayor a cero.", "The multiplier must be above zero.")})
     encabezados(lb, s, 7, 0, [tr("Escenario", "Scenario"), tr("Mult. mora", "Default mult."), tr("Mult. LGD", "LGD mult.")])
     for i, (e, (a, b)) in enumerate(zip(ESCENARIOS[L], MULTIPLICADORES)):
         s.write(8 + i, 0, e, lb.fmt())
@@ -161,6 +168,7 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
         s.write(16 + i, 1, lgd[c], lb.fmt(num_format="0.0%", **azul))
     s.write("D17", tr("LGD por país del proyecto, o la agregada si el país no tiene eventos maduros (mart_lgd_pais).", "Project LGD by country, or the aggregate where a country has no mature events (mart_lgd_pais)."), lb.fmt(font_color=GRIS))
     fin_pais = 16 + len(paises)
+    s.data_validation(f"B17:B{fin_pais}", entre_0_y_1)
     p_ini = fin_pais + 2
     encabezados(lb, s, p_ini - 1, 0, [tr("Tope de cuota sobre ingreso", "Payment-to-income cap"), tr("Tramos que quedan", "Bands kept")])
     for i, (t, o) in enumerate(zip(TOPES[L], (4, 3, 2, 1))):
@@ -172,16 +180,17 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
     TV = f"{q('sup')}!$B${p_ini + 1}:$B${p_ini + 4}"
 
     # --- Datos
-    d = nueva_hoja(lb, H["dat"], tr("Datos por segmento", "Segment data"), tr("Columnas A a J: datos del proyecto. K a P: fórmulas.", "Columns A to J: project data. K to P: formulas."), "#898781")
+    d = nueva_hoja(lb, H["dat"], tr("Datos por segmento", "Segment data"), tr("Tabla tblSegmentos. Columnas A a J: datos del proyecto. K a Q: fórmulas.", "Table tblSegmentos. Columns A to J: project data. K to Q: formulas."), "#898781")
     titulos = [tr("Año", "Year"), tr("País", "Country"), "Rating", tr("Carga", "Burden"), tr("Orden carga", "Burden order"), tr("Créditos", "Loans"), tr("Monto", "Amount"),
                tr("Interés", "Interest"), tr("Eventos 12m", "12m events"), tr("Monto con evento", "Amount with event"), "LGD", tr("Pérdida base", "Base loss"),
-               tr("Incluido", "Included"), tr("Costo", "Cost"), tr("Pérdida", "Loss"), tr("Resultado", "Result")]
-    encabezados(lb, d, 3, 0, titulos)
+               tr("Incluido", "Included"), tr("Costo", "Cost"), tr("Pérdida", "Loss"), tr("Resultado", "Result"), tr("Decisión", "Decision")]
+    borde = dict(bold=True, font_color="#FFFFFF", bg_color=ENCABEZADO, text_wrap=True, align="center", border=1, border_color=ENCABEZADO)
+    d.add_table(3, 0, u - 1, len(titulos) - 1, {"name": "tblSegmentos", "style": None, "columns": [{"header": t, "header_format": lb.fmt(**borde)} for t in titulos]})
     d.set_column("A:E", 9)
-    d.set_column("F:P", 13)
+    d.set_column("F:Q", 13)
     d.set_row(3, 30)
     d.freeze_panes(4, 0)
-    d.autofilter(3, 0, u - 1, len(titulos) - 1)
+    d.repeat_rows(3)
     azul_dato = lb.fmt(font_color=AZUL)
     entero = lb.fmt(font_color=AZUL, num_format=MIL)
     euro = lb.fmt(font_color=AZUL, num_format=EUR)
@@ -202,6 +211,7 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
         lb.formula(d, f"N{f}", f"=G{f}*{costo}", font_color=VERDE, num_format=EUR)
         lb.formula(d, f"O{f}", f"=L{f}*{m_mora}*{m_lgd}", font_color=VERDE, num_format=EUR)
         lb.formula(d, f"P{f}", f"=H{f}-N{f}-O{f}", num_format=EUR)
+        lb.formula(d, f"Q{f}", f'=IF(M{f}=1,"{tr("Aprobado", "Approved")}","{tr("Excluido", "Excluded")}")')
 
     # --- Simulador
     m = nueva_hoja(lb, H["sim"], tr("Simulador", "Simulator"), tr("Por defecto muestra la regla recomendada: sacar Dinamarca y Letonia.", "By default it shows the recommended rule: removing Denmark and Latvia."), "#1BAF7A")
@@ -273,28 +283,52 @@ def construir(archivo: Path, L: str, df: pd.DataFrame, lgd: dict, ref: pd.DataFr
 
     # --- Conciliación
     c = nueva_hoja(lb, H["con"], tr("Conciliación con el proyecto", "Reconciliation with the project"), tr("Cada regla se calcula acá con fórmulas y se compara con outputs/originacion/simulacion_reglas_bondora.csv.", "Each rule is calculated here with formulas and compared with outputs/originacion/simulacion_reglas_bondora.csv."), "#6250D6")
-    c.set_column("A:A", 30)
+    c.set_column("A:A", 38)
     c.set_column("B:D", 16)
-    c.set_column("E:E", 24)
+    c.set_column("E:E", 14)
+    c.set_column("F:I", 13)
     filas_ref = ref[(ref.regla != "Sin cambios")]
     ini = 7
     fin = ini + len(filas_ref) - 1
+    ctrl_ini = fin + 4
+    ctrl_fin = ctrl_ini + 4
     c.write("A4", tr("Estado general", "Overall status"), lb.fmt(bold=True))
     base = f'AND(ROUND({costo},4)=ROUND({settings()["politica"]["costos_pp"][-1]/100},4),{q("sup")}!$B$6="{ESCENARIOS[L][0]}")'
-    lb.formula(c, "B4", f'=IF(NOT({base}),"{tr("Supuestos cambiados: no aplica", "Assumptions changed: not applicable")}",IF(COUNTIF($E${ini}:$E${fin},"OK")={len(filas_ref)},"{tr("Concilia con el proyecto", "Reconciles with the project")}","{tr("Revisar diferencias", "Review differences")}"))', bold=True)
-    encabezados(lb, c, 5, 0, [tr("Regla", "Rule"), tr("Excel (€)", "Excel (€)"), tr("Proyecto (€)", "Project (€)"), tr("Diferencia (€)", "Difference (€)"), tr("Estado", "Status")])
+    lb.formula(c, "B4", f'=IF(NOT({base}),"{tr("Supuestos cambiados: no aplica", "Assumptions changed: not applicable")}",IF(AND(COUNTIF($E${ini}:$E${fin},"OK")={len(filas_ref)},COUNTIF($E${ctrl_ini}:$E${ctrl_fin},"OK")=5),"{tr("Concilia con el proyecto", "Reconciles with the project")}","{tr("Revisar diferencias", "Review differences")}"))', bold=True)
+    encabezados(lb, c, 5, 0, [tr("Regla", "Rule"), tr("Excel (€)", "Excel (€)"), tr("Proyecto (€)", "Project (€)"), tr("Diferencia (€)", "Difference (€)"), tr("Estado", "Status"),
+                                 tr("Aprobados", "Approved"), tr("Aprobados proyecto", "Approved project"), tr("Mora 12m", "12m default"), tr("Mora proyecto", "Default project")])
+    c.set_row(5, 30)
     condicion = {"Carga <= 20%": [("E", '">3"')], "Carga <= 15%": [("E", '">2"')], "Carga <= 10%": [("E", '">1"')],
                  "Sin ratings F-G": [("C", '"F"'), ("C", '"G"')], "Sin ratings E-G": [("C", '"E"'), ("C", '"F"'), ("C", '"G"')],
                  "Sin Denmark ni Latvia": [("B", '"Denmark"'), ("B", '"Latvia"')]}
     for i, r in enumerate(filas_ref.itertuples(index=False)):
         f = ini + i
         c.write(f"A{f}", r.regla if es else REGLA_EN[r.regla], lb.fmt())
-        partes = "+".join(f"SUMIFS({D('P')},{D(col)},{crit})" for col, crit in condicion[r.regla])
-        lb.formula(c, f"B{f}", f"=-({partes})", font_color=VERDE, num_format=EUR)
+        sale_regla = lambda medida: "+".join(f"SUMIFS({D(medida)},{D(col)},{crit})" for col, crit in condicion[r.regla])
+        lb.formula(c, f"B{f}", f"=-({sale_regla('P')})", font_color=VERDE, num_format=EUR)
         c.write(f"C{f}", float(r.cambio_resultado), lb.fmt(font_color=AZUL, num_format=EUR))
         lb.formula(c, f"D{f}", f"=B{f}-C{f}", num_format='#,##0.00;(#,##0.00);"-"')
+        lb.formula(c, f"E{f}", f'=IF(AND(ABS(D{f})<1,ABS(F{f}-G{f})<0.00005,ABS(H{f}-I{f})<0.00005),"OK","{tr("Revisar", "Review")}")', align="center")
+        lb.formula(c, f"F{f}", f"=1-({sale_regla('F')})/SUM({D('F')})", font_color=VERDE, num_format="0.0%")
+        c.write(f"G{f}", r.aprobados_pct / 100, lb.fmt(font_color=AZUL, num_format="0.0%"))
+        lb.formula(c, f"H{f}", f"=(SUM({D('I')})-({sale_regla('I')}))*{m_mora}/(SUM({D('F')})-({sale_regla('F')}))", font_color=VERDE, num_format="0.0%")
+        c.write(f"I{f}", r.evento_12m_pct / 100, lb.fmt(font_color=AZUL, num_format="0.0%"))
+    c.write(f"A{ctrl_ini - 2}", tr("Controles internos", "Internal checks"), lb.fmt(bold=True, font_color=ENCABEZADO))
+    encabezados(lb, c, ctrl_ini - 2, 0, [tr("Control interno", "Internal check"), tr("Valor", "Value"), tr("Debe dar", "Expected"), tr("Diferencia", "Difference"), tr("Estado", "Status")])
+    controles = [(tr("Créditos por rating = total", "Loans by rating = total"), f"=SUM({q('sim')}!$F$20:$F$28)", f"=SUM({D('F')})"),
+                 (tr("Monto por país = total", "Amount by country = total"), f"=SUM({q('res')}!$E$19:$E$24)", f"=SUM({D('G')})"),
+                 (tr("Incluidos + excluidos = total", "Included + excluded = total"), f"=SUMIFS({D('F')},{D('M')},1)+SUMIFS({D('F')},{D('M')},0)", f"=SUM({D('F')})"),
+                 (tr("Decisión coincide con Incluido", "Decision matches Included"), f'=COUNTIF({D("Q")},"{tr("Aprobado", "Approved")}")', f"=SUM({D('M')})"),
+                 (tr("LGD fuera de 0% a 100%", "LGD outside 0% to 100%"), f'=COUNTIF({LV},"<0")+COUNTIF({LV},">1")', "=0")]
+    for i, (t, a, b) in enumerate(controles):
+        f = ctrl_ini + i
+        c.write(f"A{f}", t, lb.fmt())
+        lb.formula(c, f"B{f}", a, font_color=VERDE, num_format='#,##0;(#,##0);0')
+        lb.formula(c, f"C{f}", b, font_color=VERDE, num_format='#,##0;(#,##0);0')
+        lb.formula(c, f"D{f}", f"=B{f}-C{f}", num_format='#,##0.00;(#,##0.00);"-"')
         lb.formula(c, f"E{f}", f'=IF(ABS(D{f})<1,"OK","{tr("Revisar", "Review")}")', align="center")
-    c.conditional_format(f"E{ini}:E{fin}", {"type": "cell", "criteria": "==", "value": '"OK"', "format": lb.wb.add_format({"font_color": "#006100", "bg_color": "#C6EFCE"})})
+    verde_ok = lb.wb.add_format({"font_color": "#006100", "bg_color": "#C6EFCE"})
+    c.conditional_format(f"E{ini}:E{ctrl_fin}", {"type": "cell", "criteria": "==", "value": '"OK"', "format": verde_ok})
 
     # --- Sensibilidad
     e = nueva_hoja(lb, H["sen"], tr("Sensibilidad de la regla", "Rule sensitivity"), tr("Cambio de resultado de la regla activa en Simulador, con otros supuestos.", "Result change of the rule active in Simulator, under other assumptions."), "#E34948")

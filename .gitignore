@@ -35,3 +35,6 @@ Thumbs.db
 # Archivos locales de Power BI (caché de datos y firmas de esta máquina)
 /powerbi/*/.pbi/cache.abf
 /powerbi/*/.pbi/localSettings.json
+
+# Bloqueo de Excel con el archivo abierto
+/excel/~$*

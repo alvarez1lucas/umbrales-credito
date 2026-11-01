@@ -8,16 +8,18 @@ y el resultado. `python -m ciclo.excel` lo genera desde `outputs/originacion/`.
 | Hoja | Para qué sirve | Funciones |
 |---|---|---|
 | Supuestos | Costo, escenario y LGD por país | Listas de validación, `INDEX`, `MATCH` |
-| Datos | Segmentos por año, país, rating y carga | Filtros, fórmulas por fila |
+| Datos | Tabla `tblSegmentos` por año, país, rating y carga, con la decisión de cada segmento | Tabla de Excel, fórmulas por fila |
 | Simulador | Reglas, comparación contra la cartera actual, resultado por rating y gráfico | `SUMIFS`, formato condicional |
-| Conciliación | Compara cada regla con el resultado de Python | `SUMIFS`, `COUNTIF`, control de estado |
+| Conciliación | Compara cada regla con Python en resultado, aprobación y mora, y corre cinco controles internos | `SUMIFS`, `COUNTIF`, control de estado |
 | Sensibilidad | Costo de equilibrio y grillas de costo contra LGD y mora | Referencias mixtas |
 | Resumen | Mora por rating y año, monto por país | `SUMIFS` con varias condiciones, escala de color |
 
 ## Decisiones
 
 - **Funciones de Excel 2016:** `INDEX` + `MATCH` en lugar de `XLOOKUP`, porque un banco puede tener una versión vieja.
-- **Conciliación visible:** el archivo demuestra que reproduce las seis reglas del proyecto con diferencias menores a 1 €.
+- **Conciliación visible:** el archivo demuestra que reproduce las seis reglas del proyecto con diferencias menores a 1 €, y también su aprobación y su mora.
+- **Controles internos:** los totales por rating y país deben sumar el total, y la decisión debe coincidir con la regla.
+- **Supuestos validados:** el costo y la LGD no aceptan valores fuera de 0% a 100%, y los multiplicadores deben ser positivos.
 - **Costo de equilibrio:** muestra desde qué costo una regla gana plata. Es la cifra que define si conviene endurecer.
 - **Sólo endurecer:** hay datos de créditos otorgados, no de rechazados, así que no se puede evaluar relajar una regla.
 
