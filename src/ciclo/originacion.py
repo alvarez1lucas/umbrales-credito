@@ -165,6 +165,17 @@ def simular_reglas(df: pd.DataFrame, cfg: dict, costo_pp: float, seed: int = 7) 
     return pd.DataFrame(filas)
 
 
+def segmentos_politica(df: pd.DataFrame) -> pd.DataFrame:
+    """Créditos agregados por año, país, rating y carga: lo que necesita el simulador de Excel para repetir las reglas."""
+    d = df.assign(anio=pd.to_datetime(df["fecha_otorgamiento"]).dt.year,
+                  carga_orden=pd.cut(df["carga_pct"], [-np.inf, 10, 15, 20, np.inf], labels=[1, 2, 3, 4]).astype(int),
+                  interes=df["monto"] * df["tasa"], monto_evento=df["monto"] * df["evento_12m"])
+    d["carga"] = d["carga_orden"].map({1: "<=10", 2: "10-15", 3: "15-20", 4: ">20"})
+    return (d.groupby(["anio", "pais", "rating", "carga", "carga_orden"], as_index=False)
+            .agg(creditos=("monto", "size"), monto=("monto", "sum"), interes=("interes", "sum"),
+                 eventos=("evento_12m", "sum"), monto_evento=("monto_evento", "sum")))
+
+
 def estabilidad(df: pd.DataFrame, cfg: dict, costo_pp: float) -> pd.DataFrame:
     """Margen sobre monto de lo que cada regla deja afuera, por semestre: ¿pierde siempre o fue un período?"""
     m = margen(df, costo_pp)
@@ -207,6 +218,8 @@ def main() -> None:
     brechas.to_csv(out / "brecha_condicional.csv", index=False, float_format="%.4f")
     sim.to_csv(out / "simulacion_reglas_bondora.csv", index=False, float_format="%.4f")
     est.to_csv(out / "estabilidad_reglas.csv", index=False, float_format="%.4f")
+    segmentos_politica(b).to_csv(out / "segmentos_politica.csv", index=False, float_format="%.4f")
+    b.groupby("pais", as_index=False)["lgd"].first().to_csv(out / "segmentos_politica_lgd.csv", index=False, float_format="%.6f")
     resumen = {
         "solicitudes_con_decision": len(h), "convencionales": len(conv), "creditos_bondora": len(b),
         "aprobacion_convencional_pct": 100 * float(conv["aprobado"].mean()),
