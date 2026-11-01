@@ -33,5 +33,11 @@ models:
   - name: mart_cartera_tramos
     description: Cartera viva por foto, país, rating y tramo de atraso.
 
+  - name: mart_composicion
+    description: Cartera viva por foto, país, rating y plazo, con saldo atrasado.
+
+  - name: mart_deterioro
+    description: Mora 90+ a 12 meses por año de originación, país y rating.
+
   - name: mart_roll_rates
     description: Transiciones entre tramos de atraso de una foto a la siguiente.

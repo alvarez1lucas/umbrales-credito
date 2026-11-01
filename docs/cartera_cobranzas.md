@@ -34,9 +34,16 @@ Cartera viva a oct-26: 838 millones de euros. Los montos están en euros. Las ci
 | 5. Irrecuperable | 163,3 | 163,3 | 130,8 |
 | **Total** | **837,6** | **193,7** | **213,5** |
 
+8. **El deterioro viene de los ratings bajos y de los mercados nuevos.** Mora a 12 meses por cosecha: el rating G pasó de 13% en 2023
+   a 27% en 2025, E de 12% a 19% y D de 10% a 15%, mientras AA sigue en 3%. Dinamarca arranca en 35% y Letonia en 27%. En los tres
+   mercados principales, el PAR30 subió de jul-25 a oct-26 en todos los ratings de AA a G, en parte porque la cartera nueva envejeció.
+9. **La concentración está en Finlandia y en plazos largos.** Finlandia pesa 55,6% del saldo (HHI 0,38). Los créditos de 49-60 meses
+   son 41% del saldo con PAR30 de 46%, aunque el plazo se mezcla con la antigüedad: los de más de 60 son más nuevos.
+
 ## Recomendaciones
 
 - **Concentrar la gestión antes de los 60 días** y ordenar la cola por pérdida esperada, no por antigüedad.
+- **Bajar cupo en los ratings D a G**, donde la cosecha 2025 empeoró, antes de que esos créditos lleguen a la cartera madura.
 - **Revisar precio o cupo por rating en Finlandia**: con la tasa limitada, el ajuste posible es de cupo y corte.
 - **Endurecer la originación en Dinamarca** en los ratings C a G hasta ver mejora en las cosechas.
 - **No extrapolar la LGD histórica sin más**: el recupero reciente apunta a una LGD de ~50%, contra 69% en eventos maduros.
