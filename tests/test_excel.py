@@ -74,6 +74,17 @@ def test_valida_los_supuestos_editables(libro):
     assert {"B5", "B9:C11", "B17:B22"} <= rangos
 
 
+def test_el_grafico_de_equilibrio_cruza_cero_en_el_costo_calculado(libro):
+    L, valores, formulas = libro
+    hoja = excel.HOJAS[L]["sen"]
+    assert len(formulas[hoja]._charts) == 1
+    h = valores[hoja]
+    costos = [h[f"{c}8"].value for c in "BCDEF"]
+    cambios = [h[f"{c}10"].value for c in "BCDEF"]
+    cruce = -cambios[0] * (costos[-1] - costos[0]) / (cambios[-1] - cambios[0])
+    assert cruce == pytest.approx(h["B5"].value, abs=1e-6)
+
+
 def test_el_escenario_por_defecto_es_la_regla_recomendada(libro):
     L, valores, _ = libro
     h = valores[excel.HOJAS[L]["sim"]]
