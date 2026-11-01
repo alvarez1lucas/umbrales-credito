@@ -7,6 +7,7 @@ Ningún número está escrito a mano: todo sale de outputs/.
 from __future__ import annotations
 
 import json
+import shutil
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -600,6 +601,10 @@ def pagina(d: dict, L: str) -> str:
            if es else "How to decide who to approve, what to charge and who to call first, with real data from the full credit cycle: origination, portfolio and collections.")
     otro = ("English", "en/") if es else ("Español", "../")
     memo = ("memo.pdf", "Memo ejecutivo (PDF)") if es else ("../memo-en.pdf", "Executive memo (PDF)")
+    archivo = "umbrales_credito" if es else "umbrales_credito_en"
+    tablero = (f"{repo}/raw/main/powerbi/{archivo}.pbix", "Tablero de Power BI (.pbix)" if es else "Power BI dashboard (.pbix)")
+    if (ROOT / "powerbi" / f"{archivo}.pdf").exists():
+        tablero = ("powerbi.pdf", "Tablero de Power BI (PDF)") if es else ("../powerbi-en.pdf", "Power BI dashboard (PDF)")
     pie = (f"Datos: HMDA (FFIEC/CFPB), Bondora y normas del BCRA, a {mes(d['cartera']['fecha'], L)}. Código y metodología: <a href=\"{repo}\">{repo}</a>."
            if es else f"Data: HMDA (FFIEC/CFPB), Bondora and BCRA rules, as of {mes(d['cartera']['fecha'], L)}. Code and methodology: <a href=\"{repo}\">{repo}</a>.")
     js = JS_TEMA % (json.dumps({k: list(v) for k, v in SERIES.items()}), json.dumps(TINTA))
@@ -616,7 +621,7 @@ def pagina(d: dict, L: str) -> str:
 </head>
 <body>
 <main>
-<header><h1>{titulo}</h1><span class="idioma"><a href="{memo[0]}">{memo[1]}</a> · <a href="{otro[1]}">{otro[0]}</a></span></header>
+<header><h1>{titulo}</h1><span class="idioma"><a href="{memo[0]}">{memo[1]}</a> · <a href="{tablero[0]}">{tablero[1]}</a> · <a href="{otro[1]}">{otro[0]}</a></span></header>
 <p class="sub">{sub}</p>
 <div class="tiles">{hero}</div>
 {sintesis}
@@ -636,6 +641,9 @@ def main() -> None:
         f = destino / rel
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(pagina(d, L), encoding="utf-8")
+    for origen, publicado in (("umbrales_credito.pdf", "powerbi.pdf"), ("umbrales_credito_en.pdf", "powerbi-en.pdf")):
+        if (ROOT / "powerbi" / origen).exists():
+            shutil.copyfile(ROOT / "powerbi" / origen, destino / publicado)
     print(f"sitio: {destino}")
 
 
