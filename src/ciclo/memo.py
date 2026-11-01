@@ -137,7 +137,7 @@ python -m ciclo.sitio && python -m ciclo.memo
 pytest
 ```
 
-Author: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Related: [Household loan delinquency in Argentina](https://github.com/alvarez1lucas/mora_argentina)
+Author: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Related: [Credit risk models](https://github.com/alvarez1lucas/modelos-credito) ([interactive app](https://alvarez1lucas.github.io/modelos-credito/app/)), [Household loan delinquency in Argentina](https://github.com/alvarez1lucas/mora_argentina)
 """
     return f"""# Umbrales de crédito
 
@@ -182,7 +182,7 @@ python -m ciclo.sitio && python -m ciclo.memo
 pytest
 ```
 
-Autor: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Relacionado: [Mora de los hogares en Argentina](https://github.com/alvarez1lucas/mora_argentina)
+Autor: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Relacionado: [Modelos de riesgo de crédito](https://github.com/alvarez1lucas/modelos-credito) ([app interactiva](https://alvarez1lucas.github.io/modelos-credito/app/)), [Mora de los hogares en Argentina](https://github.com/alvarez1lucas/mora_argentina)
 """
 
 

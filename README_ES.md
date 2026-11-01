@@ -41,4 +41,4 @@ python -m ciclo.sitio && python -m ciclo.memo
 pytest
 ```
 
-Autor: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Relacionado: [Mora de los hogares en Argentina](https://github.com/alvarez1lucas/mora_argentina)
+Autor: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Relacionado: [Modelos de riesgo de crédito](https://github.com/alvarez1lucas/modelos-credito) ([app interactiva](https://alvarez1lucas.github.io/modelos-credito/app/)), [Mora de los hogares en Argentina](https://github.com/alvarez1lucas/mora_argentina)
