@@ -45,7 +45,7 @@ jobs:
 
       - name: Memo en PDF (Chrome headless)
         run: |
-          for par in "memo.html:memo.pdf" "en/memo.html:memo-en.pdf"; do
+          for par in "es/memo.html:memo.pdf" "memo.html:memo-en.pdf"; do
             google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer --print-to-pdf="site/${par#*:}" "file://$PWD/site/${par%%:*}"
           done
 

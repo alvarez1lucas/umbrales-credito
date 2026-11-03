@@ -1,6 +1,6 @@
 """Sitio bilingüe en HTML estático, ordenado por las cinco preguntas que hay que hacerle a un umbral.
 
-`python -m ciclo.sitio` escribe site/index.html (español) y site/en/index.html (inglés).
+`python -m ciclo.sitio` escribe site/index.html (inglés) y site/es/index.html (español); site/en/ redirige a la raíz.
 Ningún número está escrito a mano: todo sale de outputs/.
 """
 
@@ -441,7 +441,7 @@ def contenido(d: dict, L: str) -> tuple[str, str, str]:
 <section><h2>En Argentina: el umbral también lo pone la norma</h2>
 <p>Las cinco preguntas valen para los umbrales regulatorios. El BCRA clasifica a los deudores de consumo por días de atraso y fija previsiones mínimas por situación. Aplicadas como ejercicio sobre esta cartera de {c['saldo']} M€, dan {c['bcra']} M€ contra {c['ecl_b']}-{c['ecl']} M€ de pérdida esperada. <strong>El total es parecido, la composición no:</strong> en situación 1, 1% contra {c['s1_e']}%, y en situación 5, 100% contra {c['s5_e']}%. La norma previsiona poco lo sano y mucho lo muy viejo, y las dos cosas se compensan.</p>
 {_div(fig_previsiones(d, L), 'g-previsiones', L)}
-<p>Del lado macro, el proyecto <a href="{c['mora_url']}">Mora de los hogares en Argentina</a> muestra cómo se corre el corte de aprobación cuando cambia el ciclo. Son los mismos umbrales vistos desde arriba.</p>
+<p>Del lado macro, el proyecto <a href="{c['mora_url']}es/">Mora de los hogares en Argentina</a> muestra cómo se corre el corte de aprobación cuando cambia el ciclo. Son los mismos umbrales vistos desde arriba.</p>
 </section>"""
         titulo_lim = "Lo que estos datos no permiten afirmar"
         lim = [
@@ -522,7 +522,7 @@ def contenido(d: dict, L: str) -> tuple[str, str, str]:
 <section><h2>In Argentina: regulation sets thresholds too</h2>
 <p>The five questions apply to regulatory thresholds as well. The central bank (BCRA) classifies consumer debtors by days past due and sets minimum provisions per class. Applied as an exercise to this €{c['saldo']}M portfolio, they come to €{c['bcra']}M against €{c['ecl_b']}-{c['ecl']}M of expected loss. <strong>The total is similar, the mix is not:</strong> in class 1, 1% against {c['s1_e']}%, and in class 5, 100% against {c['s5_e']}%. The rule provisions too little for the healthy and too much for the very old, and the two offset each other.</p>
 {_div(fig_previsiones(d, L), 'g-previsiones', L)}
-<p>On the macro side, the project <a href="{c['mora_url']}en/">Household loan delinquency in Argentina</a> shows how the approval cutoff shifts when the cycle changes. They are the same thresholds, seen from above.</p>
+<p>On the macro side, the project <a href="{c['mora_url']}">Household loan delinquency in Argentina</a> shows how the approval cutoff shifts when the cycle changes. They are the same thresholds, seen from above.</p>
 </section>"""
         titulo_lim = "What these data cannot tell us"
         lim = [
@@ -599,12 +599,12 @@ def pagina(d: dict, L: str) -> str:
     titulo = "Umbrales de crédito" if es else "Credit thresholds"
     sub = ("Cómo se decide a quién aprobar, cuánto cobrar y a quién llamar primero, con datos reales del ciclo completo del crédito: originación, cartera y cobranzas."
            if es else "How to decide who to approve, what to charge and who to call first, with real data from the full credit cycle: origination, portfolio and collections.")
-    otro = ("English", "en/") if es else ("Español", "../")
-    memo = ("memo.pdf", "Memo ejecutivo (PDF)") if es else ("../memo-en.pdf", "Executive memo (PDF)")
+    otro = ("English", "../") if es else ("Español", "es/")
+    memo = ("../memo.pdf", "Memo ejecutivo (PDF)") if es else ("memo-en.pdf", "Executive memo (PDF)")
     archivo = "umbrales_credito" if es else "umbrales_credito_en"
     tablero = (f"{repo}/raw/main/powerbi/{archivo}.pbix", "Tablero de Power BI (.pbix)" if es else "Power BI dashboard (.pbix)")
     if (ROOT / "powerbi" / f"{archivo}.pdf").exists():
-        tablero = ("powerbi.pdf", "Tablero de Power BI (PDF)") if es else ("../powerbi-en.pdf", "Power BI dashboard (PDF)")
+        tablero = ("../powerbi.pdf", "Tablero de Power BI (PDF)") if es else ("powerbi-en.pdf", "Power BI dashboard (PDF)")
     pie = (f"Datos: HMDA (FFIEC/CFPB), Bondora y normas del BCRA, a {mes(d['cartera']['fecha'], L)}. Código y metodología: <a href=\"{repo}\">{repo}</a>."
            if es else f"Data: HMDA (FFIEC/CFPB), Bondora and BCRA rules, as of {mes(d['cartera']['fecha'], L)}. Code and methodology: <a href=\"{repo}\">{repo}</a>.")
     js = JS_TEMA % (json.dumps({k: list(v) for k, v in SERIES.items()}), json.dumps(TINTA))
@@ -634,13 +634,21 @@ def pagina(d: dict, L: str) -> str:
 """
 
 
+def redireccion(destino: str) -> str:
+    """Página mínima que lleva de una dirección vieja a la nueva."""
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url={destino}">'
+            f'<link rel="canonical" href="{destino}"><title>Moved</title></head><body><a href="{destino}">{destino}</a></body></html>')
+
+
 def main() -> None:
     d = datos()
     destino = ROOT / settings()["sitio"]["destino"]
-    for L, rel in (("es", "index.html"), ("en", "en/index.html")):
+    for L, rel in (("en", "index.html"), ("es", "es/index.html")):
         f = destino / rel
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(pagina(d, L), encoding="utf-8")
+    (destino / "en").mkdir(exist_ok=True)
+    (destino / "en" / "index.html").write_text(redireccion("../"), encoding="utf-8")
     for origen, publicado in (("umbrales_credito.pdf", "powerbi.pdf"), ("umbrales_credito_en.pdf", "powerbi-en.pdf")):
         if (ROOT / "powerbi" / origen).exists():
             shutil.copyfile(ROOT / "powerbi" / origen, destino / publicado)

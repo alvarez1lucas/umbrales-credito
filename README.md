@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/tests.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/tests.yml) [![Data refresh](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/actualizar-datos.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/actualizar-datos.yml) [![Site](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/publicar-sitio.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/publicar-sitio.yml) ![Python 3.11](https://img.shields.io/badge/python-3.11-blue) ![dbt](https://img.shields.io/badge/dbt-DuckDB-orange)
 
-**[Live site](https://alvarez1lucas.github.io/umbrales-credito/en/)** · **[One-page memo (PDF)](https://alvarez1lucas.github.io/umbrales-credito/memo-en.pdf)** · [Power BI dashboard (.pbix)](powerbi/umbrales_credito_en.pbix) · [Policy simulator (Excel)](excel/simulador_politica_en.xlsx) · [Versión en español](README_ES.md)
+**[Live site](https://alvarez1lucas.github.io/umbrales-credito/)** · **[One-page memo (PDF)](https://alvarez1lucas.github.io/umbrales-credito/memo-en.pdf)** · [Power BI dashboard (.pbix)](powerbi/umbrales_credito_en.pbix) · [Policy simulator (Excel)](excel/simulador_politica_en.xlsx) · [Versión en español](README_ES.md)
 
 A credit policy is a set of thresholds: how much debt to approve, which ratings to lend to, which day past due to call. This project asks five questions of each threshold across the full credit cycle (origination, portfolio, collections), with real data and no Kaggle datasets.
 

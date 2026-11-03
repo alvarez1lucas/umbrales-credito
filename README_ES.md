@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/tests.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/tests.yml) [![Actualizar datos](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/actualizar-datos.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/actualizar-datos.yml) [![Sitio](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/publicar-sitio.yml/badge.svg)](https://github.com/alvarez1lucas/umbrales-credito/actions/workflows/publicar-sitio.yml) ![Python 3.11](https://img.shields.io/badge/python-3.11-blue) ![dbt](https://img.shields.io/badge/dbt-DuckDB-orange)
 
-**[Sitio](https://alvarez1lucas.github.io/umbrales-credito/)** · **[Memo de una página (PDF)](https://alvarez1lucas.github.io/umbrales-credito/memo.pdf)** · [Tablero de Power BI (.pbix)](powerbi/umbrales_credito.pbix) · [Simulador de política (Excel)](excel/simulador_politica.xlsx) · [English version](README.md)
+**[Sitio](https://alvarez1lucas.github.io/umbrales-credito/es/)** · **[Memo de una página (PDF)](https://alvarez1lucas.github.io/umbrales-credito/memo.pdf)** · [Tablero de Power BI (.pbix)](powerbi/umbrales_credito.pbix) · [Simulador de política (Excel)](excel/simulador_politica.xlsx) · [English version](README.md)
 
 Una política de crédito es un conjunto de umbrales: hasta qué deuda aprobar, a qué rating prestar, a qué día de atraso llamar. Este proyecto le hace cinco preguntas a cada umbral a lo largo del ciclo completo del crédito (originación, cartera y cobranzas), con datos reales y sin datasets de Kaggle.
 

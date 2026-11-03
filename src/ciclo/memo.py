@@ -1,6 +1,6 @@
 """Memo ejecutivo de una página y READMEs, generados desde outputs/.
 
-`python -m ciclo.memo` escribe site/memo.html, site/en/memo.html, README.md y README_ES.md.
+`python -m ciclo.memo` escribe site/memo.html (inglés), site/es/memo.html (español), README.md y README_ES.md.
 El PDF lo imprime Chrome en el workflow de publicación.
 """
 
@@ -53,7 +53,7 @@ def memo_html(d: dict, L: str) -> str:
 </tbody></table>
 <h2>Regulación</h2>
 <p style="margin:0">Aplicadas como ejercicio a esta cartera, las previsiones mínimas del BCRA suman {c['bcra']} M€ contra {c['ecl_b']}-{c['ecl']} M€ de pérdida esperada: el total es parecido, la composición no. En situación 1, 1% contra {c['s1_e']}%; en situación 5, 100% contra {c['s5_e']}%.</p>
-<p class="pie"><strong>Límites.</strong> Los números son de carteras de EE.UU. y Europa: se traslada el método, no los valores. El costo de {c['costo']} puntos es un supuesto: sin él, ninguna regla mejora el resultado. HMDA no tiene score ni desempeño, y la brecha condicional no prueba discriminación. Hay una sola transición de 15 meses. El backtest mide si la gestión llega a las cuentas, no si las salva. Detalle: {url}</p>"""
+<p class="pie"><strong>Límites.</strong> Los números son de carteras de EE.UU. y Europa: se traslada el método, no los valores. El costo de {c['costo']} puntos es un supuesto: sin él, ninguna regla mejora el resultado. HMDA no tiene score ni desempeño, y la brecha condicional no prueba discriminación. Hay una sola transición de 15 meses. El backtest mide si la gestión llega a las cuentas, no si las salva. Detalle: {url}es/</p>"""
     else:
         titulo, cuerpo = "Memo: credit policy thresholds", f"""
 <h1>Credit policy thresholds</h1>
@@ -77,7 +77,7 @@ def memo_html(d: dict, L: str) -> str:
 </tbody></table>
 <h2>Regulation</h2>
 <p style="margin:0">Applied as an exercise to this portfolio, the Argentine central bank's minimum provisions add up to €{c['bcra']}M against €{c['ecl_b']}-{c['ecl']}M of expected loss: the total is similar, the mix is not. In class 1, 1% against {c['s1_e']}%; in class 5, 100% against {c['s5_e']}%.</p>
-<p class="pie"><strong>Limits.</strong> Numbers come from US and European portfolios: the method travels, the values do not. The {c['costo']}-point cost is an assumption: without it, no rule improves the result. HMDA has no score or performance, and the conditional gap does not prove discrimination. There is a single 15-month transition. The backtest measures whether collections reach accounts, not whether they save them. Details: {url}en/</p>"""
+<p class="pie"><strong>Limits.</strong> Numbers come from US and European portfolios: the method travels, the values do not. The {c['costo']}-point cost is an assumption: without it, no rule improves the result. HMDA has no score or performance, and the conditional gap does not prove discrimination. There is a single 15-month transition. The backtest measures whether collections reach accounts, not whether they save them. Details: {url}</p>"""
     return f"""<!doctype html>
 <html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titulo}</title><style>{CSS}</style></head><body><main>{cuerpo}</main></body></html>
@@ -131,7 +131,7 @@ def readme(d: dict, L: str) -> str:
 
 {badges}
 
-**[Live site]({url}en/)** · **[One-page memo (PDF)]({url}memo-en.pdf)** · {tablero} · {simulador} · [Versión en español](README_ES.md)
+**[Live site]({url})** · **[One-page memo (PDF)]({url}memo-en.pdf)** · {tablero} · {simulador} · [Versión en español](README_ES.md)
 
 A credit policy is a set of thresholds: how much debt to approve, which ratings to lend to, which day past due to call. This project asks five questions of each threshold across the full credit cycle (origination, portfolio, collections), with real data and no Kaggle datasets.
 
@@ -172,7 +172,7 @@ Author: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Related: 
 
 {badges}
 
-**[Sitio]({url})** · **[Memo de una página (PDF)]({url}memo.pdf)** · {tablero} · {simulador} · [English version](README.md)
+**[Sitio]({url}es/)** · **[Memo de una página (PDF)]({url}memo.pdf)** · {tablero} · {simulador} · [English version](README.md)
 
 Una política de crédito es un conjunto de umbrales: hasta qué deuda aprobar, a qué rating prestar, a qué día de atraso llamar. Este proyecto le hace cinco preguntas a cada umbral a lo largo del ciclo completo del crédito (originación, cartera y cobranzas), con datos reales y sin datasets de Kaggle.
 
@@ -214,10 +214,13 @@ Autor: Lucas Alvarez · [GitHub](https://github.com/alvarez1lucas) · Relacionad
 def main() -> None:
     d = datos()
     destino = ROOT / settings()["sitio"]["destino"]
-    for L, rel in (("es", "memo.html"), ("en", "en/memo.html")):
+    from ciclo.sitio import redireccion
+    for L, rel in (("en", "memo.html"), ("es", "es/memo.html")):
         f = destino / rel
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(memo_html(d, L), encoding="utf-8")
+    (destino / "en").mkdir(exist_ok=True)
+    (destino / "en" / "memo.html").write_text(redireccion("../memo.html"), encoding="utf-8")
     (ROOT / "README.md").write_text(readme(d, "en"), encoding="utf-8")
     (ROOT / "README_ES.md").write_text(readme(d, "es"), encoding="utf-8")
     print(f"memo: {destino}, README.md, README_ES.md")
